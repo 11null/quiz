@@ -1,0 +1,1299 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Quiz</title>
+<style>
+body {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+}
+.question {
+    margin-bottom: 30px;
+    padding: 15px;
+    border-radius: 8px;
+    background: #f7f7f7;
+    position: relative;
+}
+.failed-previously {
+    border-left: 6px solid red;
+}
+.failed-label {
+    color: red;
+    font-weight: bold;
+    margin-bottom: 8px;
+    display: block;
+}
+.option-btn {
+    padding: 8px 12px;
+    margin: 5px 0;
+    width: 100%;
+    border-radius: 6px;
+    border: 1px solid #888;
+    cursor: pointer;
+    background: #fff;
+}
+.option-btn.correct {
+    background-color: #a7e9a1;
+}
+.option-btn.incorrect {
+    background-color: #f2a7a7;
+}
+.option-btn.disabled {
+    pointer-events: none;
+    opacity: 0.6;
+}
+.explanation {
+    display: none;
+    margin-top: 5px;
+    padding: 10px;
+    background: #e8e8e8;
+    border-radius: 5px;
+}
+.result-label {
+    font-weight: bold;
+    margin-left: 10px;
+}
+.error-counter {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    padding: 10px 15px;
+    background: #eee;
+    border-radius: 8px;
+    border: 1px solid #aaa;
+}
+</style>
+</head>
+
+<body>
+
+<h1>Quiz</h1>
+
+<div id="previousFailsBox" style="font-size:18px; margin-bottom:20px; font-weight:bold;"></div>
+
+
+        <div class="question" id="question-1918" data-qid="1918">
+            <p><b>Q1918:</b> Esta señal, sobre una autopista o una autovía, indica salida inmediata hacia…</p>
+            <img src="https://superexpress.es/imagenes37/preguntas/22/7780.jpg" style="max-width:300px; display:block; margin-bottom:10px;">
+            <div id="result-1918" class="result-label"></div>
+        
+            <button id="btn-1918-A" class="option-btn"
+                data-correct="true"
+                onclick="selectAnswer(1918, 'A', true)">
+                (A) Una autopista o autovía.
+            </button>
+
+            <div class="explanation" id="exp-1918-A">
+                El cartel de la salida es azul, así que te está mandando a una autopista o autovía.<br />
+El nombre de la autovía, A-3, también está dentro de una etiqueta azul 🟦 con letras blancas.<br />
+<br />
+¿Y la etiqueta verde donde pone E-901? &#129001;🤷‍♂️<br />
+Es porque la A-3 forma parte de otra carretera europea más larga, la E-901.<br />
+<br />
+<br />
+
+            </div>
+            
+            <button id="btn-1918-B" class="option-btn"
+                data-correct="false"
+                onclick="selectAnswer(1918, 'B', false)">
+                (B) Una carretera convencional.
+            </button>
+
+            <div class="explanation" id="exp-1918-B">
+                El cartel de la salida sería blanco ⬜️.
+            </div>
+            
+            <button id="btn-1918-C" class="option-btn"
+                data-correct="false"
+                onclick="selectAnswer(1918, 'C', false)">
+                (C) La población indicada.
+            </button>
+
+            <div class="explanation" id="exp-1918-C">
+                En una atopista, una salida hacia una población 🏠 tendría el fondo blanco, como esta:<br />
+<img class='imagen_explicacion' src='imagenes37/preguntas/explicaciones/S-351.png'><br />
+
+            </div>
+            </div>
+        <div class="question" id="question-2041" data-qid="2041">
+            <p><b>Q2041:</b> ¿Se puede circular marcha atrás en cualquier tipo de vía?</p>
+            <img src="https://superexpress.es/imagenes37/curso/sin-imagen.png" style="max-width:300px; display:block; margin-bottom:10px;">
+            <div id="result-2041" class="result-label"></div>
+        
+            <button id="btn-2041-A" class="option-btn"
+                data-correct="false"
+                onclick="selectAnswer(2041, 'A', false)">
+                (A) No, solo en vías interurbanas.
+            </button>
+
+            <div class="explanation" id="exp-2041-A">
+                
+            </div>
+            
+            <button id="btn-2041-B" class="option-btn"
+                data-correct="true"
+                onclick="selectAnswer(2041, 'B', true)">
+                (B) No, siempre está prohibido en autopistas y autovías.
+            </button>
+
+            <div class="explanation" id="exp-2041-B">
+                Ya sabes que está prohibido circular marcha atrás, pero en autopistas y autovías Tráfico se pone más serio aún: si te has pasado una salida de la autopista, y te pillan echando marcha atrás se te va a caer el pelo :(
+            </div>
+            
+            <button id="btn-2041-C" class="option-btn"
+                data-correct="false"
+                onclick="selectAnswer(2041, 'C', false)">
+                (C) Sí, el tipo de vía es indiferente.
+            </button>
+
+            <div class="explanation" id="exp-2041-C">
+                
+            </div>
+            </div>
+        <div class="question" id="question-650" data-qid="650">
+            <p><b>Q650:</b> ¿Es obligatorio emplear los dispositivos de preseñalización de peligro para advertir la presencia de un turismo averiado en la calzada?</p>
+            <img src="https://superexpress.es/imagenes37/preguntas/21/643.jpg" style="max-width:300px; display:block; margin-bottom:10px;">
+            <div id="result-650" class="result-label"></div>
+        
+            <button id="btn-650-A" class="option-btn"
+                data-correct="false"
+                onclick="selectAnswer(650, 'A', false)">
+                (A) No.
+            </button>
+
+            <div class="explanation" id="exp-650-A">
+                
+            </div>
+            
+            <button id="btn-650-B" class="option-btn"
+                data-correct="true"
+                onclick="selectAnswer(650, 'B', true)">
+                (B) Sí.
+            </button>
+
+            <div class="explanation" id="exp-650-B">
+                Son los triángulos. Recuerda que tendrás que poner dos, uno delante y otro detrás, a una distancia mínima de 50 metros y visibles al menos desde 100 metros.
+            </div>
+            
+            <button id="btn-650-C" class="option-btn"
+                data-correct="false"
+                onclick="selectAnswer(650, 'C', false)">
+                (C) Solo si la visibilidad es insuficiente.
+            </button>
+
+            <div class="explanation" id="exp-650-C">
+                
+            </div>
+            </div>
+        <div class="question" id="question-28" data-qid="28">
+            <p><b>Q28:</b> La velocidad a la que debe circular un rebaño de animales cuando deba circular por el arcén o la calzada es...</p>
+            <img src="https://superexpress.es/imagenes37/preguntas/16/7349.jpg" style="max-width:300px; display:block; margin-bottom:10px;">
+            <div id="result-28" class="result-label"></div>
+        
+            <button id="btn-28-A" class="option-btn"
+                data-correct="false"
+                onclick="selectAnswer(28, 'A', false)">
+                (A) la del galope.
+            </button>
+
+            <div class="explanation" id="exp-28-A">
+                Cuando un animal va al galope, va esprintando, corriendo a todo lo que puede.<br />
+Por ejemplo, en las carreras, los caballos van al galope &#127937;&#127943;.
+            </div>
+            
+            <button id="btn-28-B" class="option-btn"
+                data-correct="false"
+                onclick="selectAnswer(28, 'B', false)">
+                (B) la del trote.
+            </button>
+
+            <div class="explanation" id="exp-28-B">
+                El trote de un animal es cuando va corriendo pero no esprintando.<br />
+Por ejemplo, si tú vas corriendo a un ritmo ligero, irías al trote &#127939;.<br />
+
+            </div>
+            
+            <button id="btn-28-C" class="option-btn"
+                data-correct="true"
+                onclick="selectAnswer(28, 'C', true)">
+                (C) la del paso.
+            </button>
+
+            <div class="explanation" id="exp-28-C">
+                Paso, se refiere a paso humano. Es decir, a la misma velocidad que tú andando &#128694;🐑🐑🐑.<br />
+<br />
+Esta es la velocidad a la que debe circular un rebaño. Una velocidad en la que los animales no van muy rápido y es fácil controlares.<br />
+<br />
+&#128024; Y por repasar:<br />
+Una vía pecuaria es una especie de "carril oveja" &#128522;. Si hay vía pecuaria deberán ir por ahí.<br />
+<br />
+Si no hay, entonces irán por el arcén. Pero como en manada no suele caber en el arcén, les dejamos ir ir por la calzada, pero lo más pegaditos a la derecha posible.<br />
+<br />
+Fíjate que a diferencia de los peatones no irán por la izquierda sino por la derecha, porque los animales se pueden asustar &#128123; si ven venir un coche de frente.
+            </div>
+            </div>
+        <div class="question" id="question-369" data-qid="369">
+            <p><b>Q369:</b> Si la carga de una furgoneta impide la visibilidad por el retrovisor interior, ¿cuántos espejos retrovisores debe llevar obligatoriamente?</p>
+            <img src="https://superexpress.es/imagenes37/curso/sin-imagen.png" style="max-width:300px; display:block; margin-bottom:10px;">
+            <div id="result-369" class="result-label"></div>
+        
+            <button id="btn-369-A" class="option-btn"
+                data-correct="false"
+                onclick="selectAnswer(369, 'A', false)">
+                (A) Uno interior y uno exterior izquierdo.
+            </button>
+
+            <div class="explanation" id="exp-369-A">
+                Esta sería la configuración normal de espejos para un coche &#128665; cuando puedes ver bien por el espejo interior.<br />
+Pero si la carga de tu furgoneta &#128666; te impide ver por el de dentro, entonces esta opción no &#10060; es la correcta. Necesitas más visión.
+            </div>
+            
+            <button id="btn-369-B" class="option-btn"
+                data-correct="true"
+                onclick="selectAnswer(369, 'B', true)">
+                (B) Dos exteriores, uno a cada lado.
+            </button>
+
+            <div class="explanation" id="exp-369-B">
+                &#128064; Piensa que si no ves por el de dentro, necesitas sí o sí los dos de fuera para controlar todo lo que pasa a tu alrededor.<br />
+<br />
+&#127913;&#10024; Si el espejo interior está "bloqueado" por la carga, necesitas "doble" visión exterior.
+            </div>
+            
+            <button id="btn-369-C" class="option-btn"
+                data-correct="false"
+                onclick="selectAnswer(369, 'C', false)">
+                (C) Solo el exterior izquierdo.
+            </button>
+
+            <div class="explanation" id="exp-369-C">
+                
+            </div>
+            </div>
+        <div class="question" id="question-298" data-qid="298">
+            <p><b>Q298:</b> Un cuadriciclo ligero, ¿a qué velocidad máxima puede circular fuera de poblado?</p>
+            <img src="https://superexpress.es/imagenes37/preguntas/4/967.jpg" style="max-width:300px; display:block; margin-bottom:10px;">
+            <div id="result-298" class="result-label"></div>
+        
+            <button id="btn-298-A" class="option-btn"
+                data-correct="false"
+                onclick="selectAnswer(298, 'A', false)">
+                (A) A 70 km/h.
+            </button>
+
+            <div class="explanation" id="exp-298-A">
+                Fíjate que la pregunta dice cuadriciclo <strong>liiiiigero</strong>. <br />
+<br />
+Los 70 serían si la pregunta dijese cuadriciclo pesado.<br />
+&#127913;&#10024; En ese caso sería del grupo de &quot;Licor 43&quot; donde puedes usar el truco de 4 + 3 = 7... para acordarte de los 70 km/h.
+            </div>
+            
+            <button id="btn-298-B" class="option-btn"
+                data-correct="true"
+                onclick="selectAnswer(298, 'B', true)">
+                (B) A 45 km/h.
+            </button>
+
+            <div class="explanation" id="exp-298-B">
+                Los cuadriciclos liiiiigeros (ojo, ligeros) son una especie de ciclomotores... &#128757; pero de 4 ruedas y tienen la misma velocidad máxima en todos los tipos de vía: 45 km/h.<br />
+<br />
+&#128024; Bueno, en casi todas, que ya sabes que no pueden circular por autopistas ni autovías, y que en las vías sin pavimentar (las trrrrincheras) la máxima es de trrreinta, 30 km/h.
+            </div>
+            
+            <button id="btn-298-C" class="option-btn"
+                data-correct="false"
+                onclick="selectAnswer(298, 'C', false)">
+                (C) A 50 km/h.
+            </button>
+
+            <div class="explanation" id="exp-298-C">
+                
+            </div>
+            </div>
+        <div class="question" id="question-198" data-qid="198">
+            <p><b>Q198:</b> ¿Producen contaminación los vehículos eléctricos?</p>
+            <img src="https://superexpress.es/imagenes37/curso/sin-imagen.png" style="max-width:300px; display:block; margin-bottom:10px;">
+            <div id="result-198" class="result-label"></div>
+        
+            <button id="btn-198-A" class="option-btn"
+                data-correct="true"
+                onclick="selectAnswer(198, 'A', true)">
+                (A) No, no producen gases contaminantes ni de efecto invernadero.
+            </button>
+
+            <div class="explanation" id="exp-198-A">
+                No, los coches eléctricos &#128665; no producen gases contaminantes ni de efecto invernadero cuando circulan.<br />
+Son como tu móvil, solo se enchufan a un cargador 🔌 y no tienen tubo de escape para echar humo &#128168;.<br />
+Por eso la DGT les da la etiqueta CERO &#128309;, que significa que no emiten nada directamente.<br />
+<br />
+&#127913;&#10024; Para acordarte: Si es CERO &#128309;, contamina CERO gases.
+            </div>
+            
+            <button id="btn-198-B" class="option-btn"
+                data-correct="false"
+                onclick="selectAnswer(198, 'B', false)">
+                (B) No, pero las baterías generan emisiones en su ciclo de vida.
+            </button>
+
+            <div class="explanation" id="exp-198-B">
+                Ojo &#128064;, es verdad que fabricar y reciclar las baterías de un coche eléctrico &#128267; tiene un impacto en el medio ambiente.<br />
+Pero cuando la DGT habla de "0 emisiones" o de si un vehículo contamina, se refiere a lo que sale directamente del coche mientras circula, es decir, por el tubo de escape.<br />
+Y los eléctricos, como no tienen tubo de escape, no echan gases contaminantes al circular &#128168;&#10060;.
+            </div>
+            
+            <button id="btn-198-C" class="option-btn"
+                data-correct="false"
+                onclick="selectAnswer(198, 'C', false)">
+                (C) Sí, porque gastan más energía al desacelerar y acelerar.
+            </button>
+
+            <div class="explanation" id="exp-198-C">
+                
+            </div>
+            </div>
+        <div class="question" id="question-316" data-qid="316">
+            <p><b>Q316:</b> Este vehículo está inmovilizado por avería. ¿Debe advertirlo?</p>
+            <img src="https://superexpress.es/imagenes37/preguntas/21/3609.jpg" style="max-width:300px; display:block; margin-bottom:10px;">
+            <div id="result-316" class="result-label"></div>
+        
+            <button id="btn-316-A" class="option-btn"
+                data-correct="false"
+                onclick="selectAnswer(316, 'A', false)">
+                (A) En autopista y autovía sí, en carretera no.
+            </button>
+
+            <div class="explanation" id="exp-316-A">
+                
+            </div>
+            
+            <button id="btn-316-B" class="option-btn"
+                data-correct="true"
+                onclick="selectAnswer(316, 'B', true)">
+                (B) Sí, con triángulos de preseñalización de peligro.
+            </button>
+
+            <div class="explanation" id="exp-316-B">
+                Recuerda que los triángulos tienes que colocarlos mínimo a 50 y deben ser visibles mínimo a 100 metros. Y recuerda que son dos trianguloSSSS. Uno por delante y otro por detrás.
+            </div>
+            
+            <button id="btn-316-C" class="option-btn"
+                data-correct="false"
+                onclick="selectAnswer(316, 'C', false)">
+                (C) No, porque el vehículo no es un camión.
+            </button>
+
+            <div class="explanation" id="exp-316-C">
+                
+            </div>
+            </div>
+        <div class="question" id="question-558" data-qid="558">
+            <p><b>Q558:</b> ¿Qué indica este agente?</p>
+            <img src="https://superexpress.es/imagenes37/preguntas/8/4921.jpg" style="max-width:300px; display:block; margin-bottom:10px;">
+            <div id="result-558" class="result-label"></div>
+        
+            <button id="btn-558-A" class="option-btn"
+                data-correct="false"
+                onclick="selectAnswer(558, 'A', false)">
+                (A) Detención para todos los usuarios que se acerquen de frente.
+            </button>
+
+            <div class="explanation" id="exp-558-A">
+                Afecta en todas las direcciones: a los de delante, a los de atrás, y también a los de los lados.
+            </div>
+            
+            <button id="btn-558-B" class="option-btn"
+                data-correct="false"
+                onclick="selectAnswer(558, 'B', false)">
+                (B) Detención para los vehículos que se acerquen de frente al agente.
+            </button>
+
+            <div class="explanation" id="exp-558-B">
+                Tiene truco... dice <strong>vehículos</strong>, pero afecta a todos los usuarios: vehículos, personas, animales...<br>Y además, no solo afecta a los que se acerquen de frente, afecta a los que se acerquen en cualquier dirección.
+            </div>
+            
+            <button id="btn-558-C" class="option-btn"
+                data-correct="true"
+                onclick="selectAnswer(558, 'C', true)">
+                (C) Detención para todos los usuarios que se acerquen al agente.
+            </button>
+
+            <div class="explanation" id="exp-558-C">
+                Afecta a todos los <strong>usuarios</strong> (es decir, coches, animales, personas), en todas las direcciones.<br><br>Un truco para acordarte: en las pelis, cuando el poli levanta el brazo y hace un tiro al aire... ¿qué hace todo el mundo? Se para y se agacha. Pues eso... todo el mundo quieto, en todas las direcciones.
+            </div>
+            </div>
+        <div class="question" id="question-877" data-qid="877">
+            <p><b>Q877:</b> Este agente con los brazos extendidos obliga a detenerse...</p>
+            <img src="https://superexpress.es/imagenes37/preguntas/8/5617.jpg" style="max-width:300px; display:block; margin-bottom:10px;">
+            <div id="result-877" class="result-label"></div>
+        
+            <button id="btn-877-A" class="option-btn"
+                data-correct="false"
+                onclick="selectAnswer(877, 'A', false)">
+                (A) únicamente a los conductores de vehículos que se acerquen por detrás.
+            </button>
+
+            <div class="explanation" id="exp-877-A">
+                
+            </div>
+            
+            <button id="btn-877-B" class="option-btn"
+                data-correct="true"
+                onclick="selectAnswer(877, 'B', true)">
+                (B) a todos los usuarios que se acerquen al agente desde cualquier dirección que corte la indicada por los brazos.
+            </button>
+
+            <div class="explanation" id="exp-877-B">
+                Si tu dirección corta los brazos del agente, ya sea por delante o por detrás, tendrás que pararte.<br>Recuerda además que la señal afecta a todos los usuarios (personas, coches...) y que se mantiene aunque el agente baje los brazos (pobre, no lo vas a tener todo el día con los brazos así).<br>La maniobra finaliza cuando:<br>- El agente cambia de postura<br>- O cuando el agente te indica otra seña.
+            </div>
+            
+            <button id="btn-877-C" class="option-btn"
+                data-correct="false"
+                onclick="selectAnswer(877, 'C', false)">
+                (C) solo a los conductores que se aproximen de frente.
+            </button>
+
+            <div class="explanation" id="exp-877-C">
+                
+            </div>
+            </div>
+        <div class="question" id="question-1077" data-qid="1077">
+            <p><b>Q1077:</b> Un camión, ¿puede entrar en una vía con esta señal?</p>
+            <img src="https://superexpress.es/imagenes37/preguntas/8/2436.jpg" style="max-width:300px; display:block; margin-bottom:10px;">
+            <div id="result-1077" class="result-label"></div>
+        
+            <button id="btn-1077-A" class="option-btn"
+                data-correct="false"
+                onclick="selectAnswer(1077, 'A', false)">
+                (A) Sí, en cualquier caso.
+            </button>
+
+            <div class="explanation" id="exp-1077-A">
+                
+            </div>
+            
+            <button id="btn-1077-B" class="option-btn"
+                data-correct="false"
+                onclick="selectAnswer(1077, 'B', false)">
+                (B) No, tiene siempre prohibido el paso.
+            </button>
+
+            <div class="explanation" id="exp-1077-B">
+                Eso sería sino hubiese ningún número. Sería esta otra:<br><br><img class='imagen_explicacion' src='imagenes37/preguntas/explicaciones/R-106.png'><br>
+            </div>
+            
+            <button id="btn-1077-C" class="option-btn"
+                data-correct="true"
+                onclick="selectAnswer(1077, 'C', true)">
+                (C) Sí, siempre que no supere los 5.500 kilogramos de masa máxima autorizada.
+            </button>
+
+            <div class="explanation" id="exp-1077-C">
+                La señal afecta a camiones y furgones que superen la MMA que pone en la señal.<br>No tienes que confudirla con esta otra:<br><br><img class='imagen_explicacion' src='imagenes37/preguntas/explicaciones/R-201.png'><br><br>que afecta a todo tipo de vehículos y hace referencia a su masa en carga, no a la MMA.
+            </div>
+            </div>
+        <div class="question" id="question-48" data-qid="48">
+            <p><b>Q48:</b> Transportar un niño situado entre el manillar y el conductor en una motocicleta, ¿está permitido?</p>
+            <img src="https://superexpress.es/imagenes37/preguntas/7/3569.jpg" style="max-width:300px; display:block; margin-bottom:10px;">
+            <div id="result-48" class="result-label"></div>
+        
+            <button id="btn-48-A" class="option-btn"
+                data-correct="true"
+                onclick="selectAnswer(48, 'A', true)">
+                (A) No.
+            </button>
+
+            <div class="explanation" id="exp-48-A">
+                Se puede llevar a un niño en la moto, pero siempre detrás del conductor. Nunca en la parte de delante.
+            </div>
+            
+            <button id="btn-48-B" class="option-btn"
+                data-correct="false"
+                onclick="selectAnswer(48, 'B', false)">
+                (B) Sí, pero solo cuando el conductor sea el padre, la madre o una persona autorizada.
+            </button>
+
+            <div class="explanation" id="exp-48-B">
+                Que no te líen: entre el manillar y el conductor... No puede ir ningún niño. Sí puede en el asiento de atrás cuando el niño es mayor de 12 años.<br>Si el niño es mayor de 7 también le dejan ir detrás pero solo si el conductor es su padre, madre, tutor, o alguien autorizado.
+            </div>
+            
+            <button id="btn-48-C" class="option-btn"
+                data-correct="false"
+                onclick="selectAnswer(48, 'C', false)">
+                (C) Sí, con el correspondiente casco adecuado a su talla.
+            </button>
+
+            <div class="explanation" id="exp-48-C">
+                El casco sieeempre es obligatorio.
+            </div>
+            </div>
+        <div class="question" id="question-813" data-qid="813">
+            <p><b>Q813:</b> Si es necesario avisar a un ciclista con señales acústicas, ¿cómo deben realizarse?</p>
+            <img src="https://superexpress.es/imagenes37/curso/sin-imagen.png" style="max-width:300px; display:block; margin-bottom:10px;">
+            <div id="result-813" class="result-label"></div>
+        
+            <button id="btn-813-A" class="option-btn"
+                data-correct="false"
+                onclick="selectAnswer(813, 'A', false)">
+                (A) Es indiferente.
+            </button>
+
+            <div class="explanation" id="exp-813-A">
+                
+            </div>
+            
+            <button id="btn-813-B" class="option-btn"
+                data-correct="false"
+                onclick="selectAnswer(813, 'B', false)">
+                (B) Cerca del ciclista.
+            </button>
+
+            <div class="explanation" id="exp-813-B">
+                
+            </div>
+            
+            <button id="btn-813-C" class="option-btn"
+                data-correct="true"
+                onclick="selectAnswer(813, 'C', true)">
+                (C) A cierta distancia del ciclista, para evitar que se asuste.
+            </button>
+
+            <div class="explanation" id="exp-813-C">
+                
+            </div>
+            </div>
+        <div class="question" id="question-2289" data-qid="2289">
+            <p><b>Q2289:</b> ¿Debe revisar de manera periódica el nivel de líquido del lavaparabrisas?</p>
+            <img src="https://superexpress.es/imagenes37/preguntas/12/7344.jpg" style="max-width:300px; display:block; margin-bottom:10px;">
+            <div id="result-2289" class="result-label"></div>
+        
+            <button id="btn-2289-A" class="option-btn"
+                data-correct="false"
+                onclick="selectAnswer(2289, 'A', false)">
+                (A) Sólamente es nececesario si se observa un aumento de temperatura en el motor.
+            </button>
+
+            <div class="explanation" id="exp-2289-A">
+                El sistema de refrigeración es el que se usa para enfriar el motor y usa líquido refrigerante.<br />
+Peeero no tiene nada que ver con el líquido que se usa para limpiar los cristales del coche.
+            </div>
+            
+            <button id="btn-2289-B" class="option-btn"
+                data-correct="false"
+                onclick="selectAnswer(2289, 'B', false)">
+                (B) Sólamente en invierno.
+            </button>
+
+            <div class="explanation" id="exp-2289-B">
+                
+            </div>
+            
+            <button id="btn-2289-C" class="option-btn"
+                data-correct="true"
+                onclick="selectAnswer(2289, 'C', true)">
+                (C) Sí, y además debe probarse que los orificios de salida hacia el parabrisas no estén obstruidos.
+            </button>
+
+            <div class="explanation" id="exp-2289-C">
+                El lavaparabrisas se ocupa de lanzar un chorro de líquido al cristal del coche &#128167;🔫.<br />
+<br />
+Este dispositivo tiene su propio depósito y tendrás que ir rellenándolo cuando se te acabe.<br />
+Conviene además que revises que los agujeritos por donde sale el líquido no estén taponados.<br />
+<br />
+&#128024; Y por repasar: esto es el lavaparabrisas.<br />
+El limpiaparabrisas son las escobillas con las que se limpia el cristal.<br />
+Aunque normamente se suele usar la palabra limpiaparabrisas para referirse a todo (lava+limpia) &#129335;&zwj;&#9792;&#65039;.
+            </div>
+            </div>
+        <div class="question" id="question-1413" data-qid="1413">
+            <p><b>Q1413:</b> Una motocicleta, ¿puede disponer de señal de emergencia?</p>
+            <img src="https://superexpress.es/imagenes37/curso/sin-imagen.png" style="max-width:300px; display:block; margin-bottom:10px;">
+            <div id="result-1413" class="result-label"></div>
+        
+            <button id="btn-1413-A" class="option-btn"
+                data-correct="true"
+                onclick="selectAnswer(1413, 'A', true)">
+                (A) Sí.
+            </button>
+
+            <div class="explanation" id="exp-1413-A">
+                Es opcional en motocicletas. Es obligatoria para el resto de automóviles (coches, camiones, buses...) y sus remolques y semirremolques.
+            </div>
+            
+            <button id="btn-1413-B" class="option-btn"
+                data-correct="false"
+                onclick="selectAnswer(1413, 'B', false)">
+                (B) No.
+            </button>
+
+            <div class="explanation" id="exp-1413-B">
+                
+            </div>
+            
+            <button id="btn-1413-C" class="option-btn"
+                data-correct="false"
+                onclick="selectAnswer(1413, 'C', false)">
+                (C) Sí, solo cuando es de más de 125 centímetros cúbicos.
+            </button>
+
+            <div class="explanation" id="exp-1413-C">
+                
+            </div>
+            </div>
+        <div class="question" id="question-1326" data-qid="1326">
+            <p><b>Q1326:</b> El semáforo cuadrado tiene la flecha verde encendida y el semáforo circular está rojo. ¿Qué debe hacer?</p>
+            <img src="https://superexpress.es/imagenes37/preguntas/8/927.jpg" style="max-width:300px; display:block; margin-bottom:10px;">
+            <div id="result-1326" class="result-label"></div>
+        
+            <button id="btn-1326-A" class="option-btn"
+                data-correct="false"
+                onclick="selectAnswer(1326, 'A', false)">
+                (A) Circular sin detenerme.
+            </button>
+
+            <div class="explanation" id="exp-1326-A">
+                
+            </div>
+            
+            <button id="btn-1326-B" class="option-btn"
+                data-correct="true"
+                onclick="selectAnswer(1326, 'B', true)">
+                (B) Detener el vehículo antes del semáforo circular en rojo.
+            </button>
+
+            <div class="explanation" id="exp-1326-B">
+                Los semáforos de carril, solo te indican si puedes ir por ese carril o no. A efectos de ver qué señal manda más, es como si no existieran.
+            </div>
+            
+            <button id="btn-1326-C" class="option-btn"
+                data-correct="false"
+                onclick="selectAnswer(1326, 'C', false)">
+                (C) Detener el vehículo antes del semáforo cuadrado con flecha verde.
+            </button>
+
+            <div class="explanation" id="exp-1326-C">
+                
+            </div>
+            </div>
+        <div class="question" id="question-577" data-qid="577">
+            <p><b>Q577:</b> Con el permiso B, ¿está permitido conducir un taxi en servicio?</p>
+            <img src="https://superexpress.es/imagenes37/preguntas/13/5761.jpg" style="max-width:300px; display:block; margin-bottom:10px;">
+            <div id="result-577" class="result-label"></div>
+        
+            <button id="btn-577-A" class="option-btn"
+                data-correct="false"
+                onclick="selectAnswer(577, 'A', false)">
+                (A) En vías urbanas sí, en vías interurbanas no.
+            </button>
+
+            <div class="explanation" id="exp-577-A">
+                
+            </div>
+            
+            <button id="btn-577-B" class="option-btn"
+                data-correct="true"
+                onclick="selectAnswer(577, 'B', true)">
+                (B) Sí, en todo tipo de vías.
+            </button>
+
+            <div class="explanation" id="exp-577-B">
+                Antes, hacía falta un permiso especial para conducir taxis, el BTP, pero este permiso ya no existe. Ahora, basta con el B.<br>Pero ojo, no se te ocurra pintar tu coche como un taxi y empezar a hacer de taxista. Cada ayuntamiento tiene unos examenes especiales que tendrás que aprobar si quieres ser taxista.<br>En cualquier caso, estos exámenes no tienen nada que ver con Tráfico, y a efectos de la DGT, lo único que necesitas es tu carnet B, el de coche.
+            </div>
+            
+            <button id="btn-577-C" class="option-btn"
+                data-correct="false"
+                onclick="selectAnswer(577, 'C', false)">
+                (C) No, es necesario el permiso de la clase C1.
+            </button>
+
+            <div class="explanation" id="exp-577-C">
+                
+            </div>
+            </div>
+        <div class="question" id="question-1198" data-qid="1198">
+            <p><b>Q1198:</b> ¿Por dónde deben circular los peatones dentro de poblado si no disponen de una zona peatonal y los carriles no están delimitados?</p>
+            <img src="https://superexpress.es/imagenes37/preguntas/16/7226.jpg" style="max-width:300px; display:block; margin-bottom:10px;">
+            <div id="result-1198" class="result-label"></div>
+        
+            <button id="btn-1198-A" class="option-btn"
+                data-correct="false"
+                onclick="selectAnswer(1198, 'A', false)">
+                (A) Por la derecha.
+            </button>
+
+            <div class="explanation" id="exp-1198-A">
+                
+            </div>
+            
+            <button id="btn-1198-B" class="option-btn"
+                data-correct="false"
+                onclick="selectAnswer(1198, 'B', false)">
+                (B) Por la izquierda.
+            </button>
+
+            <div class="explanation" id="exp-1198-B">
+                
+            </div>
+            
+            <button id="btn-1198-C" class="option-btn"
+                data-correct="true"
+                onclick="selectAnswer(1198, 'C', true)">
+                (C) Por la derecha o la  izquierda dependiendo de las circunstancias.
+            </button>
+
+            <div class="explanation" id="exp-1198-C">
+                Hay calles, como las de la foto, donde no hay aceras (no hay zona para peatones).<br />
+En estos casos, tu “acera” será la calzada, por donde van los coches &#128694;&#128665;.<br />
+Normal, si no puedes volar &#9992;&#65039;, por algún sitio tendrás que ir &#128516;.<br />
+<br />
+Pues cuando estás <strong>dentro de poblado &#127968;&#128694;&#127968; peeero no hay aceras</strong> puedes ir tanto por la de la derecha como por la de la izquierda, según te vaya mejor (dependiendo de las circunstancias).<br />
+<br />
+Por ejemplo, si es verano y te estás comiendo un helado &#127846;… mejor por la parte que no da el sol, que si no, se te derretirá tu helado.<br />
+Pero si lo que quieres es broncearte para lucir moreno en la playa &#128089;, pues mejor por la parte que da el sol. <br />
+¿Ves? Dentro de poblado, <strong>si no hay aceras y eres un peatón</strong>, podrás ir por la izquierda o derecha de la vía, dependiendo de las circunstancias.<br />
+<br />
+Y ojo &#128064; esto es cuando estás dentro de poblado <strong>excepto en una travesía</strong>.<br />
+En las travesías (esas calles que atraviesan el poblado) se suele circular más rápido y por eso, en el caso de que no haya aceras, tendrás que ir por la izquierda (al contrario que los coches), para poder ver a los coches de frente, lo mismo que si fueses fuera de poblado.<br />
+<br />
+Ahhh… y <strong>¿qué me dices de lo de carriles no están delimitados?</strong> Pues esto no está más que para despistar. Es como si te dicen que hay un hermoso cielo azul.<br />
+Esto no afecta a los peatones.<br />
+<br />
+&#128024; Ya que estamos… vamos a repasar.<br />
+Con tu coche, dentro de poblado, &#127968;&#128665;&#127968; puedes ir tanto por la derecha como por la izquierda (por el carril que más convenga a tu destino).<br />
+Peeero, si los carriles no están pintados &#10060;&#127912;, entonces como es un poco lío, tienes que ir por la derecha, y solo puedes usar el de la izquierda para adelantar, o si tienes algún obstáculo.
+            </div>
+            </div>
+        <div class="question" id="question-414" data-qid="414">
+            <p><b>Q414:</b> Un turismo quiere cruzar esta zona. ¿Deberá ceder el paso?</p>
+            <img src="https://superexpress.es/imagenes37/preguntas/6/5185.jpg" style="max-width:300px; display:block; margin-bottom:10px;">
+            <div id="result-414" class="result-label"></div>
+        
+            <button id="btn-414-A" class="option-btn"
+                data-correct="true"
+                onclick="selectAnswer(414, 'A', true)">
+                (A) Sí, a los ciclistas que circulan por el carril bici.
+            </button>
+
+            <div class="explanation" id="exp-414-A">
+                Las bicis por carril bici tienen prioridad sobre los coches.
+            </div>
+            
+            <button id="btn-414-B" class="option-btn"
+                data-correct="false"
+                onclick="selectAnswer(414, 'B', false)">
+                (B) No, porque el turismo tiene prioridad.
+            </button>
+
+            <div class="explanation" id="exp-414-B">
+                
+            </div>
+            
+            <button id="btn-414-C" class="option-btn"
+                data-correct="false"
+                onclick="selectAnswer(414, 'C', false)">
+                (C) Sí, pero solo si el ciclista no puede frenar a tiempo.
+            </button>
+
+            <div class="explanation" id="exp-414-C">
+                
+            </div>
+            </div>
+        <div class="question" id="question-798" data-qid="798">
+            <p><b>Q798:</b> Para conducir de forma segura, el conductor debe...</p>
+            <img src="https://superexpress.es/imagenes37/curso/sin-imagen.png" style="max-width:300px; display:block; margin-bottom:10px;">
+            <div id="result-798" class="result-label"></div>
+        
+            <button id="btn-798-A" class="option-btn"
+                data-correct="false"
+                onclick="selectAnswer(798, 'A', false)">
+                (A) distraerse con frecuencia.
+            </button>
+
+            <div class="explanation" id="exp-798-A">
+                
+            </div>
+            
+            <button id="btn-798-B" class="option-btn"
+                data-correct="false"
+                onclick="selectAnswer(798, 'B', false)">
+                (B) prestar muy poca atención a la conducción.
+            </button>
+
+            <div class="explanation" id="exp-798-B">
+                
+            </div>
+            
+            <button id="btn-798-C" class="option-btn"
+                data-correct="true"
+                onclick="selectAnswer(798, 'C', true)">
+                (C) centrar toda su atención en la tarea de la conducción.
+            </button>
+
+            <div class="explanation" id="exp-798-C">
+                Recuerda que no puedes hacer 2 cosas a la vez y hacerlas bien.
+            </div>
+            </div>
+        <div class="question" id="question-833" data-qid="833">
+            <p><b>Q833:</b> Esta señal de advertencia de peligro indica la proximidad de...</p>
+            <img src="https://superexpress.es/imagenes37/preguntas/8/2329.jpg" style="max-width:300px; display:block; margin-bottom:10px;">
+            <div id="result-833" class="result-label"></div>
+        
+            <button id="btn-833-A" class="option-btn"
+                data-correct="false"
+                onclick="selectAnswer(833, 'A', false)">
+                (A) un resalto o badén en la vía.
+            </button>
+
+            <div class="explanation" id="exp-833-A">
+                
+            </div>
+            
+            <button id="btn-833-B" class="option-btn"
+                data-correct="true"
+                onclick="selectAnswer(833, 'B', true)">
+                (B) una zona de la vía en la que se estrecha la calzada.
+            </button>
+
+            <div class="explanation" id="exp-833-B">
+                
+            </div>
+            
+            <button id="btn-833-C" class="option-btn"
+                data-correct="false"
+                onclick="selectAnswer(833, 'C', false)">
+                (C) una obstrucción en la calzada.
+            </button>
+
+            <div class="explanation" id="exp-833-C">
+                En el dibujo no se ve ningún obstáculo, ¿no?<br />
+<br />
+La señal de obstrucción es esta otra: <br />
+<img class='imagen_explicacion' src='imagenes37/preguntas/explicaciones/P-32.png'><br />
+<br />
+Te indica que la calzada está obstruida (hay cosas que molestan para pasar) porque hay vehículos accidentados, averiados...<br />
+
+            </div>
+            </div>
+        <div class="question" id="question-2296" data-qid="2296">
+            <p><b>Q2296:</b> La línea longitudinal discontinua ancha, ¿qué indica?</p>
+            <img src="https://superexpress.es/imagenes37/preguntas/22/2198.jpg" style="max-width:300px; display:block; margin-bottom:10px;">
+            <div id="result-2296" class="result-label"></div>
+        
+            <button id="btn-2296-A" class="option-btn"
+                data-correct="true"
+                onclick="selectAnswer(2296, 'A', true)">
+                (A) La existencia de un carril especial.
+            </button>
+
+            <div class="explanation" id="exp-2296-A">
+                Y por repasar, lo mismo pasa con las continuas.
+            </div>
+            
+            <button id="btn-2296-B" class="option-btn"
+                data-correct="false"
+                onclick="selectAnswer(2296, 'B', false)">
+                (B) La proximidad de una línea continua.
+            </button>
+
+            <div class="explanation" id="exp-2296-B">
+                En este caso, lo que pasa es que los trocitos de línea están más juntos, pero no tienen por qué ser más anchos.
+            </div>
+            
+            <button id="btn-2296-C" class="option-btn"
+                data-correct="false"
+                onclick="selectAnswer(2296, 'C', false)">
+                (C) La existencia de un carril reversible.
+            </button>
+
+            <div class="explanation" id="exp-2296-C">
+                
+            </div>
+            </div>
+        <div class="question" id="question-1324" data-qid="1324">
+            <p><b>Q1324:</b> Si el resultado de las pruebas de alcoholemia es positivo el agente podrá inmovilizar el vehículo, a no ser...</p>
+            <img src="https://superexpress.es/imagenes37/curso/sin-imagen.png" style="max-width:300px; display:block; margin-bottom:10px;">
+            <div id="result-1324" class="result-label"></div>
+        
+            <button id="btn-1324-A" class="option-btn"
+                data-correct="false"
+                onclick="selectAnswer(1324, 'A', false)">
+                (A) que el conductor haga efectiva en el acto la sanción económica impuesta.
+            </button>
+
+            <div class="explanation" id="exp-1324-A">
+                
+            </div>
+            
+            <button id="btn-1324-B" class="option-btn"
+                data-correct="false"
+                onclick="selectAnswer(1324, 'B', false)">
+                (B) que en el vehículo viajen niños o ancianos.
+            </button>
+
+            <div class="explanation" id="exp-1324-B">
+                
+            </div>
+            
+            <button id="btn-1324-C" class="option-btn"
+                data-correct="true"
+                onclick="selectAnswer(1324, 'C', true)">
+                (C) que pueda hacerse cargo de su conducción otra persona debidamente habilitada.
+            </button>
+
+            <div class="explanation" id="exp-1324-C">
+                Por encima de la tasa, tú no podrás conducir. Sí podrá llevar tu coche algún amigo que no dé positivo.
+            </div>
+            </div>
+        <div class="question" id="question-854" data-qid="854">
+            <p><b>Q854:</b> En esta línea longitudinal discontinua, ¿qué indica una separación más corta de los trazos?</p>
+            <img src="https://superexpress.es/imagenes37/preguntas/22/4025.jpg" style="max-width:300px; display:block; margin-bottom:10px;">
+            <div id="result-854" class="result-label"></div>
+        
+            <button id="btn-854-A" class="option-btn"
+                data-correct="false"
+                onclick="selectAnswer(854, 'A', false)">
+                (A) Que está próximo un carril especial.
+            </button>
+
+            <div class="explanation" id="exp-854-A">
+                
+            </div>
+            
+            <button id="btn-854-B" class="option-btn"
+                data-correct="false"
+                onclick="selectAnswer(854, 'B', false)">
+                (B) Que está prohibido cambiar de carril.
+            </button>
+
+            <div class="explanation" id="exp-854-B">
+                
+            </div>
+            
+            <button id="btn-854-C" class="option-btn"
+                data-correct="true"
+                onclick="selectAnswer(854, 'C', true)">
+                (C) Que está próxima una línea continua.
+            </button>
+
+            <div class="explanation" id="exp-854-C">
+                Por repasar: también podría indicar que se acerca un tramo peligroso.
+            </div>
+            </div>
+        <div class="question" id="question-2076" data-qid="2076">
+            <p><b>Q2076:</b> ¿Puede una motocicleta parar o estacionar junto a la línea longitudinal amarilla?</p>
+            <img src="https://superexpress.es/imagenes37/preguntas/22/7258.jpg" style="max-width:300px; display:block; margin-bottom:10px;">
+            <div id="result-2076" class="result-label"></div>
+        
+            <button id="btn-2076-A" class="option-btn"
+                data-correct="true"
+                onclick="selectAnswer(2076, 'A', true)">
+                (A) No. La parada y el estacionamiento están prohibidos.
+            </button>
+
+            <div class="explanation" id="exp-2076-A">
+                La línea amarilla <strong>continua te prohíbe todo: parar y estacionar</strong>.<br />
+Da igual si se trata de una moto, un coche... es para todos los vehículos.<br />
+<br />
+&#128024; Vamos a repasar:<br />
+<br />
+&#9726;&#65039; Si fuese amarilla <strong>dis</strong>continua, entonces prohibiría estacionar, pero sí que podrías parar.<br />
+&#127913;&#10024;Como tiene menos pintura, prohíbe menos cosas &#128522;.<br />
+<br />
+&#9726;&#65039; Y si fuese amarilla en <strong>zig-zag</strong>, lo mismo que una <strong>dis</strong>continua.<br />
+&#127913;&#10024; Te puedes acordar de "<strong>z</strong>ólo un <strong>z</strong>egundito": puedes parar pero no estacionar.
+            </div>
+            
+            <button id="btn-2076-B" class="option-btn"
+                data-correct="false"
+                onclick="selectAnswer(2076, 'B', false)">
+                (B) Puede parar pero no estacionar.
+            </button>
+
+            <div class="explanation" id="exp-2076-B">
+                
+            </div>
+            
+            <button id="btn-2076-C" class="option-btn"
+                data-correct="false"
+                onclick="selectAnswer(2076, 'C', false)">
+                (C) Puede estacionar pero no parar.
+            </button>
+
+            <div class="explanation" id="exp-2076-C">
+                
+            </div>
+            </div>
+        <div class="question" id="question-1062" data-qid="1062">
+            <p><b>Q1062:</b> En esta vía de doble sentido, el vehículo rojo, ¿adelanta correctamente?</p>
+            <img src="https://superexpress.es/imagenes37/preguntas/5/4815.jpg" style="max-width:300px; display:block; margin-bottom:10px;">
+            <div id="result-1062" class="result-label"></div>
+        
+            <button id="btn-1062-A" class="option-btn"
+                data-correct="true"
+                onclick="selectAnswer(1062, 'A', true)">
+                (A) No, porque la calzada no tiene prioridad en la intersección.
+            </button>
+
+            <div class="explanation" id="exp-1062-A">
+                Los cruces son peligrosos y los adelantamientos también, así que como norma general no puedes adelantar en un cruce.<br>Sí puedes cuando el cruce no es tan peligroso: cuando hay una señal que te indica que tú tienes prioridad (un semáforo, o la señal de prioridad en cruce).<br>En este cruce, la señal dice justo lo contrario, que no tienes prioridad, y por eso no puedes adelantar.
+            </div>
+            
+            <button id="btn-1062-B" class="option-btn"
+                data-correct="false"
+                onclick="selectAnswer(1062, 'B', false)">
+                (B) Sí, porque tiene preferencia respecto a los vehículos que se aproximan por la derecha.
+            </button>
+
+            <div class="explanation" id="exp-1062-B">
+                
+            </div>
+            
+            <button id="btn-1062-C" class="option-btn"
+                data-correct="false"
+                onclick="selectAnswer(1062, 'C', false)">
+                (C) Sí, cuando no se aproximan vehículos por la vía transversal.
+            </button>
+
+            <div class="explanation" id="exp-1062-C">
+                
+            </div>
+            </div>
+        <div class="question" id="question-247" data-qid="247">
+            <p><b>Q247:</b> Si la separación entre los trazos de una línea longitudinal discontinua es sensiblemente más corta que en el caso general anuncia...</p>
+            <img src="https://superexpress.es/imagenes37/curso/sin-imagen.png" style="max-width:300px; display:block; margin-bottom:10px;">
+            <div id="result-247" class="result-label"></div>
+        
+            <button id="btn-247-A" class="option-btn"
+                data-correct="false"
+                onclick="selectAnswer(247, 'A', false)">
+                (A) la proximidad de una travesía.
+            </button>
+
+            <div class="explanation" id="exp-247-A">
+                &#128024; Una travesía es esa carretera que atraviesa un poblado. Simplemente eso.
+            </div>
+            
+            <button id="btn-247-B" class="option-btn"
+                data-correct="true"
+                onclick="selectAnswer(247, 'B', true)">
+                (B) la proximidad de un tramo de vía que presenta un riesgo especial.
+            </button>
+
+            <div class="explanation" id="exp-247-B">
+                &#127913;&#10024; Cuando hay algún trozo peligroso, los compis de la DGT te ponen una continua, ¿verdad?<br />
+Claro, la continua no &#10060; se puede cruzar. En un trozo peligroso &#9760;&#65039; te ponen una continua para que no &#10060; te puedas cambiar de carril.<br />
+<br />
+¿A que cuando la separación de la dis-continua va disminuyendo se parece más a una continua?<br />
+Pues eso, cuando la <strong>dis</strong>-continua se parece más a una continua, es porque hay un tramo peligroso &#9760;&#65039;.<br />
+<br />
+&#128024; Y por repasar: cuando la discontinua se va pareciendo más a una continua,  puede ser esto (porque se acerca un peligro), o porque se acerca una línea continua.<br />
+Cuando la <strong>dis</strong>-continua se va pareciendo más a una continua también puede ser porque se acerca una continua.
+            </div>
+            
+            <button id="btn-247-C" class="option-btn"
+                data-correct="false"
+                onclick="selectAnswer(247, 'C', false)">
+                (C) la proximidad de un tramo con una pendiente mayor al diez por ciento.
+            </button>
+
+            <div class="explanation" id="exp-247-C">
+                Eso no se indica con una línea en el suelo, sino con una señal:<br />
+<img class='imagen_explicacion' src='imagenes37/preguntas/explicaciones/P-16B.png'>
+            </div>
+            </div>
+        <div class="question" id="question-2" data-qid="2">
+            <p><b>Q2:</b> Esta señal indica...</p>
+            <img src="https://superexpress.es/imagenes37/preguntas/22/7799.jpg" style="max-width:300px; display:block; margin-bottom:10px;">
+            <div id="result-2" class="result-label"></div>
+        
+            <button id="btn-2-A" class="option-btn"
+                data-correct="false"
+                onclick="selectAnswer(2, 'A', false)">
+                (A) peligro por pavimento deslizante por nieve.
+            </button>
+
+            <div class="explanation" id="exp-2-A">
+                &#128024; Sería esta otra:<br />
+<img class='imagen_explicacion' src='imagenes37/preguntas/explicaciones/P-34.png'>
+            </div>
+            
+            <button id="btn-2-B" class="option-btn"
+                data-correct="true"
+                onclick="selectAnswer(2, 'B', true)">
+                (B) peligro por la proximidad de un tramo de la vía con visibilidad reducida por niebla, lluvia o nieve.
+            </button>
+
+            <div class="explanation" id="exp-2-B">
+                Te ponemos la versión antigua de esta señal por si te la encuentras en alguna carretera.<br />
+<img class='imagen_explicacion' src='imagenes37/preguntas/explicaciones/P-33-ANTIGUA.png'>
+            </div>
+            
+            <button id="btn-2-C" class="option-btn"
+                data-correct="false"
+                onclick="selectAnswer(2, 'C', false)">
+                (C) peligro por proximidad de un tramo de vía con desprendimientos frecuentes y la presencia de obstáculos en la calzada.
+            </button>
+
+            <div class="explanation" id="exp-2-C">
+                Sería esta otra, con una montaña y pedruscos cayendo:<br />
+<img class='imagen_explicacion' src='imagenes37/preguntas/explicaciones/P-26.png'>
+            </div>
+            </div>
+        <div class="question" id="question-905" data-qid="905">
+            <p><b>Q905:</b> Si se coloca la cinta abdominal del cinturón de seguridad sobre el abdomen...</p>
+            <img src="https://superexpress.es/imagenes37/curso/sin-imagen.png" style="max-width:300px; display:block; margin-bottom:10px;">
+            <div id="result-905" class="result-label"></div>
+        
+            <button id="btn-905-A" class="option-btn"
+                data-correct="false"
+                onclick="selectAnswer(905, 'A', false)">
+                (A) el cinturón de seguridad funciona con eficacia.
+            </button>
+
+            <div class="explanation" id="exp-905-A">
+                
+            </div>
+            
+            <button id="btn-905-B" class="option-btn"
+                data-correct="true"
+                onclick="selectAnswer(905, 'B', true)">
+                (B) puede provocar graves lesiones internas durante un accidente.
+            </button>
+
+            <div class="explanation" id="exp-905-B">
+                Por eso, tienes que colocarlo sobre tus caderas, debajo de la barriga.
+            </div>
+            
+            <button id="btn-905-C" class="option-btn"
+                data-correct="false"
+                onclick="selectAnswer(905, 'C', false)">
+                (C) la conducción es más cómoda y segura.
+            </button>
+
+            <div class="explanation" id="exp-905-C">
+                
+            </div>
+            </div>
+        <div class="question" id="question-470" data-qid="470">
+            <p><b>Q470:</b> Si conduce usando las luces de largo alcance y va a ser adelantado por otro vehículo...</p>
+            <img src="https://superexpress.es/imagenes37/curso/sin-imagen.png" style="max-width:300px; display:block; margin-bottom:10px;">
+            <div id="result-470" class="result-label"></div>
+        
+            <button id="btn-470-A" class="option-btn"
+                data-correct="false"
+                onclick="selectAnswer(470, 'A', false)">
+                (A) Deberá reducir la velocidad obligatoriamente.
+            </button>
+
+            <div class="explanation" id="exp-470-A">
+                
+            </div>
+            
+            <button id="btn-470-B" class="option-btn"
+                data-correct="false"
+                onclick="selectAnswer(470, 'B', false)">
+                (B) No necesita tomar ninguna precaución adicional.
+            </button>
+
+            <div class="explanation" id="exp-470-B">
+                
+            </div>
+            
+            <button id="btn-470-C" class="option-btn"
+                data-correct="true"
+                onclick="selectAnswer(470, 'C', true)">
+                (C) Deberá cambiar la luz de largo alcance por las luces de cruce.
+            </button>
+
+            <div class="explanation" id="exp-470-C">
+                Las luces largas alumbran mucho &#128161;&#128161;&#128161; y por tanto, deslumbran mucho &#128526;&#128526;&#128526;.<br />
+<br />
+Si sigues con las largas, el coche que te adelante tendrá un foco de luz muy potente justo detrás suyo, que le deslumbrará.<br />
+<br />
+Esta es una de esas situaciones en las que tendrás que usar las luces de cruce (las cortas), que tienen menos potencia &#128161;, para evitar deslumbrar &#10060;&#128526;.
+            </div>
+            </div>
+
+<div class="error-counter">Errors: <span id="errorCount">0</span></div>
+
+<script>
+// Load previous failures
+let failedQuestions = JSON.parse(sessionStorage.getItem("failedQuestions") || "[]");
+
+// Count how many failed questions are included in this quiz
+let quizFailedCount = 0;
+
+window.addEventListener("DOMContentLoaded", () => {
+    document.querySelectorAll(".question").forEach(q => {
+        let qid = parseInt(q.dataset.qid);
+        if (failedQuestions.includes(qid)) {
+            quizFailedCount++;
+            q.classList.add("failed-previously");
+            let label = document.createElement("span");
+            label.className = "failed-label";
+            label.textContent = "⚠ Failed previously";
+            q.prepend(label);
+        }
+    });
+
+    if (quizFailedCount > 0) {
+        document.getElementById("previousFailsBox").textContent =
+            quizFailedCount + " of these questions were failed previously.";
+    }
+
+    // Current errors counter should start at 0 always
+    document.getElementById("errorCount").innerText = 0;
+
+    // Fix image URLs
+    document.querySelectorAll("img").forEach(img => {
+        if (!img.src.startsWith("https://superexpress.es/")) {
+            img.src = "https://superexpress.es/" + img.src.replace(/^\/+/, "");
+        }
+    });
+});
+
+function selectAnswer(questionId, optionId, isCorrect) {
+    let container = document.getElementById("question-" + questionId);
+
+    // Disable buttons
+    let buttons = container.querySelectorAll(".option-btn");
+    buttons.forEach(btn => btn.classList.add("disabled"));
+
+    // Show explanations
+    container.querySelectorAll(".explanation").forEach(expl => {
+        expl.style.display = "block";
+    });
+
+    // Mark chosen button
+    let chosen = document.getElementById("btn-" + questionId + "-" + optionId);
+    chosen.classList.add(isCorrect ? "correct" : "incorrect");
+
+    // Show result
+    let resultLabel = document.getElementById("result-" + questionId);
+    resultLabel.innerText = isCorrect ? "✔ Correct!" : "✖ Incorrect!";
+
+    // Highlight correct option ALWAYS
+    buttons.forEach(btn => {
+        if (btn.dataset.correct === "true") {
+            btn.classList.add("correct");
+        }
+    });
+
+    // Count only new errors (not previously failed)
+    if (!isCorrect) {
+        failedQuestions.push(questionId);
+        if (!failedQuestions.includes(questionId)) sessionStorage.setItem("failedQuestions", JSON.stringify(failedQuestions));
+
+        let ec = document.getElementById("errorCount");
+        ec.innerText = parseInt(ec.innerText) + 1;
+
+        container.classList.add("failed-previously");
+    }
+}
+
+</script>
+
+</body>
+</html>

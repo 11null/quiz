@@ -1,0 +1,1282 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Quiz</title>
+<style>
+body {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+}
+.question {
+    margin-bottom: 30px;
+    padding: 15px;
+    border-radius: 8px;
+    background: #f7f7f7;
+    position: relative;
+}
+.failed-previously {
+    border-left: 6px solid red;
+}
+.failed-label {
+    color: red;
+    font-weight: bold;
+    margin-bottom: 8px;
+    display: block;
+}
+.option-btn {
+    padding: 8px 12px;
+    margin: 5px 0;
+    width: 100%;
+    border-radius: 6px;
+    border: 1px solid #888;
+    cursor: pointer;
+    background: #fff;
+}
+.option-btn.correct {
+    background-color: #a7e9a1;
+}
+.option-btn.incorrect {
+    background-color: #f2a7a7;
+}
+.option-btn.disabled {
+    pointer-events: none;
+    opacity: 0.6;
+}
+.explanation {
+    display: none;
+    margin-top: 5px;
+    padding: 10px;
+    background: #e8e8e8;
+    border-radius: 5px;
+}
+.result-label {
+    font-weight: bold;
+    margin-left: 10px;
+}
+.error-counter {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    padding: 10px 15px;
+    background: #eee;
+    border-radius: 8px;
+    border: 1px solid #aaa;
+}
+</style>
+</head>
+
+<body>
+
+<h1>Quiz</h1>
+
+<div id="previousFailsBox" style="font-size:18px; margin-bottom:20px; font-weight:bold;"></div>
+
+
+        <div class="question" id="question-2122" data-qid="2122">
+            <p><b>Q2122:</b> Utilizar, sujetando con la mano dispositivos de telefonía móvil mientras se conduce, ¿puede conllevar la pérdida de puntos?</p>
+            <img src="https://superexpress.es/imagenes37/curso/sin-imagen.png" style="max-width:300px; display:block; margin-bottom:10px;">
+            <div id="result-2122" class="result-label"></div>
+        
+            <button id="btn-2122-A" class="option-btn"
+                data-correct="true"
+                onclick="selectAnswer(2122, 'A', true)">
+                (A) Sí, 6 puntos.
+            </button>
+
+            <div class="explanation" id="exp-2122-A">
+                Recuerda que si lo sujetas con la mano son 6 puntos, pero si solo lo tocas con los dedos son 3 puntos.
+            </div>
+            
+            <button id="btn-2122-B" class="option-btn"
+                data-correct="false"
+                onclick="selectAnswer(2122, 'B', false)">
+                (B) No.
+            </button>
+
+            <div class="explanation" id="exp-2122-B">
+                
+            </div>
+            
+            <button id="btn-2122-C" class="option-btn"
+                data-correct="false"
+                onclick="selectAnswer(2122, 'C', false)">
+                (C) Sí, 3 puntos.
+            </button>
+
+            <div class="explanation" id="exp-2122-C">
+                Esto es si toqueteas el móvil, o el GPS... pero no lo estás sujetando con la mano.<br />
+Recuerda que para usar el móvil en el coche tienes los manos libres y así, tus manos pueden ir al volante.
+            </div>
+            </div>
+        <div class="question" id="question-1192" data-qid="1192">
+            <p><b>Q1192:</b> Si debido a una avería circula por una autopista a velocidad anormalmente reducida perturbando la circulación, ¿qué debe hacer?</p>
+            <img src="https://superexpress.es/imagenes37/preguntas/4/3721.jpg" style="max-width:300px; display:block; margin-bottom:10px;">
+            <div id="result-1192" class="result-label"></div>
+        
+            <button id="btn-1192-A" class="option-btn"
+                data-correct="true"
+                onclick="selectAnswer(1192, 'A', true)">
+                (A) Circular por el arcén y abandonarla por la primera salida.
+            </button>
+
+            <div class="explanation" id="exp-1192-A">
+                Ir a menos de 60 Km/h por autopista es muy peligroso, así que circula por el arcén para molestar lo menos posible y sal en la primera salida que puedas.
+            </div>
+            
+            <button id="btn-1192-B" class="option-btn"
+                data-correct="false"
+                onclick="selectAnswer(1192, 'B', false)">
+                (B) Detenerse en el arcén y solicitar ayuda.
+            </button>
+
+            <div class="explanation" id="exp-1192-B">
+                
+            </div>
+            
+            <button id="btn-1192-C" class="option-btn"
+                data-correct="false"
+                onclick="selectAnswer(1192, 'C', false)">
+                (C) Circular por el arcén hasta la zona de servicios más próxima.
+            </button>
+
+            <div class="explanation" id="exp-1192-C">
+                
+            </div>
+            </div>
+        <div class="question" id="question-1864" data-qid="1864">
+            <p><b>Q1864:</b> Las operaciones de carga y descarga se llevarán a cabo...</p>
+            <img src="https://superexpress.es/imagenes37/curso/sin-imagen.png" style="max-width:300px; display:block; margin-bottom:10px;">
+            <div id="result-1864" class="result-label"></div>
+        
+            <button id="btn-1864-A" class="option-btn"
+                data-correct="false"
+                onclick="selectAnswer(1864, 'A', false)">
+                (A) por el lado del vehículo más próximo al centro de la calzada.
+            </button>
+
+            <div class="explanation" id="exp-1864-A">
+                Es por el lado más cercano al borde derecho de la calzada.
+            </div>
+            
+            <button id="btn-1864-B" class="option-btn"
+                data-correct="false"
+                onclick="selectAnswer(1864, 'B', false)">
+                (B) dentro de la vía.
+            </button>
+
+            <div class="explanation" id="exp-1864-B">
+                
+            </div>
+            
+            <button id="btn-1864-C" class="option-btn"
+                data-correct="true"
+                onclick="selectAnswer(1864, 'C', true)">
+                (C) procurando evitar ruidos y molestias innecesarias.
+            </button>
+
+            <div class="explanation" id="exp-1864-C">
+                
+            </div>
+            </div>
+        <div class="question" id="question-1482" data-qid="1482">
+            <p><b>Q1482:</b> En caso de accidente, ¿quién tiene mayor probabilidad de morir o de sufrir lesiones?</p>
+            <img src="https://superexpress.es/imagenes37/curso/sin-imagen.png" style="max-width:300px; display:block; margin-bottom:10px;">
+            <div id="result-1482" class="result-label"></div>
+        
+            <button id="btn-1482-A" class="option-btn"
+                data-correct="false"
+                onclick="selectAnswer(1482, 'A', false)">
+                (A) Los conductores de vehículos pesados.
+            </button>
+
+            <div class="explanation" id="exp-1482-A">
+                
+            </div>
+            
+            <button id="btn-1482-B" class="option-btn"
+                data-correct="true"
+                onclick="selectAnswer(1482, 'B', true)">
+                (B) Los conductores de motocicletas, ciclomotores y bicicletas.
+            </button>
+
+            <div class="explanation" id="exp-1482-B">
+                Está claro, una moto es mucho más frágil que un coche o un camión.
+            </div>
+            
+            <button id="btn-1482-C" class="option-btn"
+                data-correct="false"
+                onclick="selectAnswer(1482, 'C', false)">
+                (C) Los conductores de turismos.
+            </button>
+
+            <div class="explanation" id="exp-1482-C">
+                
+            </div>
+            </div>
+        <div class="question" id="question-1769" data-qid="1769">
+            <p><b>Q1769:</b> La máxima velocidad segura que puede mantenerse sobre una sección de carretera en condiciones favorables es la velocidad...</p>
+            <img src="https://superexpress.es/imagenes37/curso/sin-imagen.png" style="max-width:300px; display:block; margin-bottom:10px;">
+            <div id="result-1769" class="result-label"></div>
+        
+            <button id="btn-1769-A" class="option-btn"
+                data-correct="false"
+                onclick="selectAnswer(1769, 'A', false)">
+                (A) de fluidez de una vía.
+            </button>
+
+            <div class="explanation" id="exp-1769-A">
+                Esto <em>velocidad de fluidez</em> se lo han inventado para esta pregunta.<br>Es como si te hubieran puesto la velocidad de la luz o la velocidad del sonido ;)
+            </div>
+            
+            <button id="btn-1769-B" class="option-btn"
+                data-correct="false"
+                onclick="selectAnswer(1769, 'B', false)">
+                (B) adecuada de una vía.
+            </button>
+
+            <div class="explanation" id="exp-1769-B">
+                La velocidad <em>adecuada</em> es la que adecúa (se adapta) a las condiciones del tiempo (si llueve, nieva...), del tráfico (si hay pocos o muchos vehículos) a cómo está tu coche (si llevas una tartana o un Ferrari).<br><br>Peeero, aquí no te están preguntando esto... fíjate que te están hablando de <em>condiciones favorables</em>.<br>¡Esta pregunta tiene trampa! &#128128; Porfa léete la explicación de la <em>velocidad de diseño</em> y ya verás que queda mucho más claro &#128516;
+            </div>
+            
+            <button id="btn-1769-C" class="option-btn"
+                data-correct="true"
+                onclick="selectAnswer(1769, 'C', true)">
+                (C) de diseño de una vía.
+            </button>
+
+            <div class="explanation" id="exp-1769-C">
+                En autopistas, hay tramos donde si no hay tráfico y hace buen tiempo, podrías ir a 130, 140km/h y sería seguro, !!!incluso en curvas!!! porque los ingenieros que han diseñado esa autopista han hecho los cálculos, la han diseñado, de manera que sea segura y que no te salgas de la curva aunque vayas a 140 km/h.<br><br>Esto es la <em>velocidad de diseño de la vía</em>: la velocidad máxima a la que podrías circular de manera segura si las condicinones fuesen buenas, fuesen favorables (tu coche tuviese bien los neumáticos, hay poco tráfico, no llueve...).<br><br>Pero ojo, eso no quiere decir que puedas ir a 140 km/h, ¿eh? &#128517;<br>Tú tendrás que circular siempre respetando los límites de velocidad (ya sabes, en autopista el máximo son 120km/h) o las señales que puedan haber puesto los compis de la DGT.<br><br>Y en cualquier caso, circular a la <em>velocidad adecuada</em> de la vía. Por ejemplo, si está cayendo un diluvio en la autopista... pues no podrás ir a 120km/h porque sería peligroso, que resbalaría un montón.<br>O si hay un atasco está claro que tampoco podrás ir a 120km/h.<br><br>Ya sabes, tú siempre a la <em>velocidad adecuada</em>, que es la que adecúa (se adapta) a las condiciones del tiempo (si llueve, nieva...), del tráfico (si hay poquitos o muchos vehículos) a cómo está tu coche (si llevas un coche viejo o un coche nuevo)...
+            </div>
+            </div>
+        <div class="question" id="question-683" data-qid="683">
+            <p><b>Q683:</b> Con carácter general, ¿está permitido estacionar una motocicleta en la acera?</p>
+            <img src="https://superexpress.es/imagenes37/preguntas/21/691.jpg" style="max-width:300px; display:block; margin-bottom:10px;">
+            <div id="result-683" class="result-label"></div>
+        
+            <button id="btn-683-A" class="option-btn"
+                data-correct="true"
+                onclick="selectAnswer(683, 'A', true)">
+                (A) No, porque está prohibido estacionar en la acera.
+            </button>
+
+            <div class="explanation" id="exp-683-A">
+                No puedes aparcar donde obstaculices la circulación... de los usuarios, ya sean coches o personas. Por eso, como norma general, no se puede aparcar en la acera.<br>Hay ayuntamientos que en algunas aceras dejan aparcar motos, pero aquí preguntan por la norma general.
+            </div>
+            
+            <button id="btn-683-B" class="option-btn"
+                data-correct="false"
+                onclick="selectAnswer(683, 'B', false)">
+                (B) Sí, los días laborables.
+            </button>
+
+            <div class="explanation" id="exp-683-B">
+                
+            </div>
+            
+            <button id="btn-683-C" class="option-btn"
+                data-correct="false"
+                onclick="selectAnswer(683, 'C', false)">
+                (C) Sí, solo los días festivos.
+            </button>
+
+            <div class="explanation" id="exp-683-C">
+                
+            </div>
+            </div>
+        <div class="question" id="question-867" data-qid="867">
+            <p><b>Q867:</b> ¿Cuál es la tasa máxima de alcohol en sangre permitida a los conductores con carácter general?</p>
+            <img src="https://superexpress.es/imagenes37/curso/sin-imagen.png" style="max-width:300px; display:block; margin-bottom:10px;">
+            <div id="result-867" class="result-label"></div>
+        
+            <button id="btn-867-A" class="option-btn"
+                data-correct="true"
+                onclick="selectAnswer(867, 'A', true)">
+                (A) 0,5 gramos por litro.
+            </button>
+
+            <div class="explanation" id="exp-867-A">
+                
+            </div>
+            
+            <button id="btn-867-B" class="option-btn"
+                data-correct="false"
+                onclick="selectAnswer(867, 'B', false)">
+                (B) 0,25 miligramos por litro.
+            </button>
+
+            <div class="explanation" id="exp-867-B">
+                
+            </div>
+            
+            <button id="btn-867-C" class="option-btn"
+                data-correct="false"
+                onclick="selectAnswer(867, 'C', false)">
+                (C) 0,3 gramos por litro.
+            </button>
+
+            <div class="explanation" id="exp-867-C">
+                
+            </div>
+            </div>
+        <div class="question" id="question-2059" data-qid="2059">
+            <p><b>Q2059:</b> ¿Prohíbe esta señal la entrada a vehículos que circulen con un remolque de un solo eje?</p>
+            <img src="https://superexpress.es/imagenes37/preguntas/8/7228.jpg" style="max-width:300px; display:block; margin-bottom:10px;">
+            <div id="result-2059" class="result-label"></div>
+        
+            <button id="btn-2059-A" class="option-btn"
+                data-correct="false"
+                onclick="selectAnswer(2059, 'A', false)">
+                (A) Solo si tienen MMA superior a la indicada en la señal.
+            </button>
+
+            <div class="explanation" id="exp-2059-A">
+                
+            </div>
+            
+            <button id="btn-2059-B" class="option-btn"
+                data-correct="true"
+                onclick="selectAnswer(2059, 'B', true)">
+                (B) No.
+            </button>
+
+            <div class="explanation" id="exp-2059-B">
+                Esta es una de esas señales "raras" y con trampa &#128128;.<br />
+<br />
+La señal es redonda y con el borde rojo &#128683;, así que está claro que prohíbe algo.<br />
+Prohibe el paso a vehículos de motor con remolque si la MMA del remolque supera lo que pone la señal.<br />
+<br />
+Peeero, <strong>hay excepciones</strong> a las que no les afecta esta señal y es como si no estuviese.<br />
+&#9989; Los <strong>remolques de un solo</strong> eje sí que pueden pasar, y da igual su MMA.<br />
+&#9989; Los <strong>semirremolques</strong> también pueden pasar, y da igual su MMA.<br />
+<br />
+Y sí, la señal despista mucho porque en el dibujo parece que el remolque tenga un solo eje, pero no...<br />
+En realidad tiene 2 ejes pero como no les cabía todo el dibujo, los compis de la DGT pintaron solo un trocito.<br />
+Por si te sirve, puedes imaginarte esta señal así...<br />
+<br><img class='imagen_explicacion grande' src='imagenes37/preguntas/explicaciones/TRUCO-R-112.png'><br />
+<br />
+&#128024; Oye, y por repasar. ¿Recuerdas qué era esto de un semirremolque?<br />
+Pues no es más que un remolque donde parte del remolque se apoya sobre el vehículo que tira del remolque.<br />
+Son estos remolques que si quitas el vehículo que los arrastra, se caen &#128522;
+            </div>
+            
+            <button id="btn-2059-C" class="option-btn"
+                data-correct="false"
+                onclick="selectAnswer(2059, 'C', false)">
+                (C) Sí.
+            </button>
+
+            <div class="explanation" id="exp-2059-C">
+                
+            </div>
+            </div>
+        <div class="question" id="question-561" data-qid="561">
+            <p><b>Q561:</b> ¿Puede una motocicleta arrastrar un remolque?</p>
+            <img src="https://superexpress.es/imagenes37/curso/sin-imagen.png" style="max-width:300px; display:block; margin-bottom:10px;">
+            <div id="result-561" class="result-label"></div>
+        
+            <button id="btn-561-A" class="option-btn"
+                data-correct="false"
+                onclick="selectAnswer(561, 'A', false)">
+                (A) No.
+            </button>
+
+            <div class="explanation" id="exp-561-A">
+                
+            </div>
+            
+            <button id="btn-561-B" class="option-btn"
+                data-correct="false"
+                onclick="selectAnswer(561, 'B', false)">
+                (B) Sí, pero solo remolques ligeros.
+            </button>
+
+            <div class="explanation" id="exp-561-B">
+                
+            </div>
+            
+            <button id="btn-561-C" class="option-btn"
+                data-correct="true"
+                onclick="selectAnswer(561, 'C', true)">
+                (C) Sí, siempre que su masa no supere el 50% de la masa en vacío de la motocicleta.
+            </button>
+
+            <div class="explanation" id="exp-561-C">
+                Tu moto &#127949;&#65039; puede llevar un remolque, pero cumpliendo varias condiciones.<br />
+Una de las más importantes es que el remolque no pese más del 50% de lo que pesa tu moto sin carga (su masa en vacío).<br />
+Por ejemplo, si tu moto pesa 200 kg, el remolque no puede pesar más de 100 kg.<br />
+<br />
+Además, hay otras condiciones:<br />
+&#9726;&#65039; Tienes que circular de día &#127774; y con buena visibilidad.<br />
+&#9726;&#65039; Tienes que reducir tu velocidad un 10% &#128012; respecto a la máxima permitida para tu moto en esa vía.<br />
+&#9726;&#65039; Y, muy importante, no puedes llevar personas &#10060;&#129485;&zwj;&#9792;&#65039;&#129485;&zwj;&#9794;&#65039; en el remolque.
+            </div>
+            </div>
+        <div class="question" id="question-475" data-qid="475">
+            <p><b>Q475:</b> ¿Qué indica esta señal?</p>
+            <img src="https://superexpress.es/imagenes37/preguntas/22/4053.jpg" style="max-width:300px; display:block; margin-bottom:10px;">
+            <div id="result-475" class="result-label"></div>
+        
+            <button id="btn-475-A" class="option-btn"
+                data-correct="true"
+                onclick="selectAnswer(475, 'A', true)">
+                (A) Bifurcación hacia la izquierda en calzada de tres carriles.
+            </button>
+
+            <div class="explanation" id="exp-475-A">
+                
+            </div>
+            
+            <button id="btn-475-B" class="option-btn"
+                data-correct="false"
+                onclick="selectAnswer(475, 'B', false)">
+                (B) Inicio de un nuevo carril hacia la izquierda en una calzada de dos carriles.
+            </button>
+
+            <div class="explanation" id="exp-475-B">
+                
+            </div>
+            
+            <button id="btn-475-C" class="option-btn"
+                data-correct="false"
+                onclick="selectAnswer(475, 'C', false)">
+                (C) Obligación de seguir de frente porque el carril izquierdo desaparece.
+            </button>
+
+            <div class="explanation" id="exp-475-C">
+                
+            </div>
+            </div>
+        <div class="question" id="question-338" data-qid="338">
+            <p><b>Q338:</b> ¿En qué caso excepcional se permite adelantar en una intersección?</p>
+            <img src="https://superexpress.es/imagenes37/curso/sin-imagen.png" style="max-width:300px; display:block; margin-bottom:10px;">
+            <div id="result-338" class="result-label"></div>
+        
+            <button id="btn-338-A" class="option-btn"
+                data-correct="false"
+                onclick="selectAnswer(338, 'A', false)">
+                (A) Cuando hay visibilidad suficiente.
+            </button>
+
+            <div class="explanation" id="exp-338-A">
+                
+            </div>
+            
+            <button id="btn-338-B" class="option-btn"
+                data-correct="true"
+                onclick="selectAnswer(338, 'B', true)">
+                (B) En una calzada con prioridad cuando hay una señal que lo indica expresamente.
+            </button>
+
+            <div class="explanation" id="exp-338-B">
+                Un cruce es "peligroso", así que <strong>como norma general</strong> no le sumamos otra cosa peligrosa, como es adelantar.<br />
+<br />
+Pero hay algunas <strong>excepciones</strong> donde adelantar no tiene tanto peligro y por tanto, lo permitimos &#128077;.<br />
+<br />
+Por ejemplo, si tienes un semáforo en verde &#128994;: tienes prioridad y se supone que en el cruce no te pueden venir de los lados, así que se permite adelantar.<br />
+<br />
+Si en la vía tienes <strong>prioridad</strong> y hay una <strong>señal que lo indica expresamente</strong> (por ejemplo el semáforo), entonces sí puedes adelantar en una intersección &#128077;.
+            </div>
+            
+            <button id="btn-338-C" class="option-btn"
+                data-correct="false"
+                onclick="selectAnswer(338, 'C', false)">
+                (C) En una intersección siempre está prohibido adelantar.
+            </button>
+
+            <div class="explanation" id="exp-338-C">
+                
+            </div>
+            </div>
+        <div class="question" id="question-2099" data-qid="2099">
+            <p><b>Q2099:</b> Hay nieve en la calzada. ¿Cómo debe circular?</p>
+            <img src="https://superexpress.es/imagenes37/preguntas/15/7055.jpg" style="max-width:300px; display:block; margin-bottom:10px;">
+            <div id="result-2099" class="result-label"></div>
+        
+            <button id="btn-2099-A" class="option-btn"
+                data-correct="true"
+                onclick="selectAnswer(2099, 'A', true)">
+                (A) Lentamente, pero con la velocidad más larga posible.
+            </button>
+
+            <div class="explanation" id="exp-2099-A">
+                Claro con nieve o hielo lo mejor es ir despacito &#10052;&#65039;&#128012;, para no tener que frenar.<br />
+<br />
+Y vamos con la "velocidad más larga posible". &#128064; Ojo que esto no significa que vayas rápido, sino que hayas puesto una marcha "larga".<br />
+<br />
+Si te mueves con mucho empuje sobre hielo o nieve &#10052;&#65039;... patinarás.<br />
+Por eso, no conviene usar marchas que tienen mucho empuje, mucha potencia &#10060;&#128640;.<br />
+Las marchas más potentes son la 1ª, 2ª... las marchas "cortas".<br />
+Con nieve, mejor circular con marchas lo más largas posibles (3ª, 4ª, 5ª...).<br />
+<br />
+Y para arrancar lo mismo: mejor salir en 2ª que en 1ª.
+            </div>
+            
+            <button id="btn-2099-B" class="option-btn"
+                data-correct="false"
+                onclick="selectAnswer(2099, 'B', false)">
+                (B) Rápidamente para que no patine el vehículo.
+            </button>
+
+            <div class="explanation" id="exp-2099-B">
+                
+            </div>
+            
+            <button id="btn-2099-C" class="option-btn"
+                data-correct="false"
+                onclick="selectAnswer(2099, 'C', false)">
+                (C) En la primera relación de marchas y acelerando a fondo.
+            </button>
+
+            <div class="explanation" id="exp-2099-C">
+                Al contrario, conviene circular con marchas largas.
+            </div>
+            </div>
+        <div class="question" id="question-2006" data-qid="2006">
+            <p><b>Q2006:</b> ¿Pueden los agentes inmovilizar un vehículo si produce un ruido excesivo?</p>
+            <img src="https://superexpress.es/imagenes37/curso/sin-imagen.png" style="max-width:300px; display:block; margin-bottom:10px;">
+            <div id="result-2006" class="result-label"></div>
+        
+            <button id="btn-2006-A" class="option-btn"
+                data-correct="true"
+                onclick="selectAnswer(2006, 'A', true)">
+                (A) Sí, cuando el ruido supere los niveles permitidos.
+            </button>
+
+            <div class="explanation" id="exp-2006-A">
+                Está prohibido circular si tu vehículo supera el nivel máximo de ruido. Hasta pueden inmovilizar tu vehículo.
+            </div>
+            
+            <button id="btn-2006-B" class="option-btn"
+                data-correct="false"
+                onclick="selectAnswer(2006, 'B', false)">
+                (B) No, solo pueden multarle.
+            </button>
+
+            <div class="explanation" id="exp-2006-B">
+                
+            </div>
+            
+            <button id="btn-2006-C" class="option-btn"
+                data-correct="false"
+                onclick="selectAnswer(2006, 'C', false)">
+                (C) No, ya que no supone ningún peligro para la circulación.
+            </button>
+
+            <div class="explanation" id="exp-2006-C">
+                
+            </div>
+            </div>
+        <div class="question" id="question-486" data-qid="486">
+            <p><b>Q486:</b> Circular por debajo de la velocidad mínima permitida, ¿podría ser un factor de riesgo?</p>
+            <img src="https://superexpress.es/imagenes37/curso/sin-imagen.png" style="max-width:300px; display:block; margin-bottom:10px;">
+            <div id="result-486" class="result-label"></div>
+        
+            <button id="btn-486-A" class="option-btn"
+                data-correct="false"
+                onclick="selectAnswer(486, 'A', false)">
+                (A) No, ya que siempre se considera una velocidad adecuada.
+            </button>
+
+            <div class="explanation" id="exp-486-A">
+                
+            </div>
+            
+            <button id="btn-486-B" class="option-btn"
+                data-correct="false"
+                onclick="selectAnswer(486, 'B', false)">
+                (B) No, nunca.
+            </button>
+
+            <div class="explanation" id="exp-486-B">
+                
+            </div>
+            
+            <button id="btn-486-C" class="option-btn"
+                data-correct="true"
+                onclick="selectAnswer(486, 'C', true)">
+                (C) Sí, una velocidad anormalmente reducida puede causar accidentes.
+            </button>
+
+            <div class="explanation" id="exp-486-C">
+                Claro, imagínate yendo a 30 Km/h en una autopista donde los demás van a 100, 120 Km/h.
+            </div>
+            </div>
+        <div class="question" id="question-1386" data-qid="1386">
+            <p><b>Q1386:</b> ¿Cuál es la distancia ideal a la que debe colocarse con respecto al airbag?</p>
+            <img src="https://superexpress.es/imagenes37/curso/sin-imagen.png" style="max-width:300px; display:block; margin-bottom:10px;">
+            <div id="result-1386" class="result-label"></div>
+        
+            <button id="btn-1386-A" class="option-btn"
+                data-correct="false"
+                onclick="selectAnswer(1386, 'A', false)">
+                (A) 10 cm.
+            </button>
+
+            <div class="explanation" id="exp-1386-A">
+                
+            </div>
+            
+            <button id="btn-1386-B" class="option-btn"
+                data-correct="true"
+                onclick="selectAnswer(1386, 'B', true)">
+                (B) 25 cm.
+            </button>
+
+            <div class="explanation" id="exp-1386-B">
+                No puedes ir muy pegado al airbag. Se suele recomendar unos 25 cm de distancia, y nunca menos de 10 cm.
+            </div>
+            
+            <button id="btn-1386-C" class="option-btn"
+                data-correct="false"
+                onclick="selectAnswer(1386, 'C', false)">
+                (C) La distancia que le permita conducir en una postura cómoda.
+            </button>
+
+            <div class="explanation" id="exp-1386-C">
+                
+            </div>
+            </div>
+        <div class="question" id="question-1305" data-qid="1305">
+            <p><b>Q1305:</b> En un paso estrecho y llano, no hay señales de preferencia y no caben dos vehículo al mismo tiempo, ¿quién pasará primero?</p>
+            <img src="https://superexpress.es/imagenes37/preguntas/6/687.jpg" style="max-width:300px; display:block; margin-bottom:10px;">
+            <div id="result-1305" class="result-label"></div>
+        
+            <button id="btn-1305-A" class="option-btn"
+                data-correct="true"
+                onclick="selectAnswer(1305, 'A', true)">
+                (A) El vehículo que ha entrado el primero.
+            </button>
+
+            <div class="explanation" id="exp-1305-A">
+                Si no hay señales, el primero en entrar es el que tiene prioridad. Lo del vehículo con más dificultados de maniobra es para desempatar si no se sabe quien entró primero.
+            </div>
+            
+            <button id="btn-1305-B" class="option-btn"
+                data-correct="false"
+                onclick="selectAnswer(1305, 'B', false)">
+                (B) Siempre el vehículo con más masa máxima autorizada (M.M.A.).
+            </button>
+
+            <div class="explanation" id="exp-1305-B">
+                
+            </div>
+            
+            <button id="btn-1305-C" class="option-btn"
+                data-correct="false"
+                onclick="selectAnswer(1305, 'C', false)">
+                (C) Siempre el vehículo con más dificultades de maniobra.
+            </button>
+
+            <div class="explanation" id="exp-1305-C">
+                
+            </div>
+            </div>
+        <div class="question" id="question-1910" data-qid="1910">
+            <p><b>Q1910:</b> ¿Pueden algunas motocicletas llevar sistemas de estabilidad de frenado o airbag?</p>
+            <img src="https://superexpress.es/imagenes37/curso/sin-imagen.png" style="max-width:300px; display:block; margin-bottom:10px;">
+            <div id="result-1910" class="result-label"></div>
+        
+            <button id="btn-1910-A" class="option-btn"
+                data-correct="false"
+                onclick="selectAnswer(1910, 'A', false)">
+                (A) No, estos sistemas solo están disponibles para los turismos.
+            </button>
+
+            <div class="explanation" id="exp-1910-A">
+                
+            </div>
+            
+            <button id="btn-1910-B" class="option-btn"
+                data-correct="false"
+                onclick="selectAnswer(1910, 'B', false)">
+                (B) No, está prohibido.
+            </button>
+
+            <div class="explanation" id="exp-1910-B">
+                
+            </div>
+            
+            <button id="btn-1910-C" class="option-btn"
+                data-correct="true"
+                onclick="selectAnswer(1910, 'C', true)">
+                (C) Sí, para evitar accidentes o reducir la gravedad de las lesiones.
+            </button>
+
+            <div class="explanation" id="exp-1910-C">
+                Claro, ¿te acuerdas de las motos que llevan cinturón de seguridad?
+            </div>
+            </div>
+        <div class="question" id="question-402" data-qid="402">
+            <p><b>Q402:</b> ¿Cuándo termina la limitación de velocidad que impone esta señal?</p>
+            <img src="https://superexpress.es/imagenes37/preguntas/22/5653.jpg" style="max-width:300px; display:block; margin-bottom:10px;">
+            <div id="result-402" class="result-label"></div>
+        
+            <button id="btn-402-A" class="option-btn"
+                data-correct="false"
+                onclick="selectAnswer(402, 'A', false)">
+                (A) Cuando salga de la travesía.
+            </button>
+
+            <div class="explanation" id="exp-402-A">
+                
+            </div>
+            
+            <button id="btn-402-B" class="option-btn"
+                data-correct="true"
+                onclick="selectAnswer(402, 'B', true)">
+                (B) Cuando encuentre una señal de fin de prohibiciones.
+            </button>
+
+            <div class="explanation" id="exp-402-B">
+                Aunque esté pintada en el suelo, el fin de limitación es como con las señales verticales de límite de velocidad: la señal de fin de prohibiciones, la señal de fin de limitación de velocidad, o con otra señal de distinta de velocidad máxima.
+            </div>
+            
+            <button id="btn-402-C" class="option-btn"
+                data-correct="false"
+                onclick="selectAnswer(402, 'C', false)">
+                (C) Al rebasar el siguiente cruce.
+            </button>
+
+            <div class="explanation" id="exp-402-C">
+                
+            </div>
+            </div>
+        <div class="question" id="question-1012" data-qid="1012">
+            <p><b>Q1012:</b> ¿Qué indica esta señal?</p>
+            <img src="https://superexpress.es/imagenes37/preguntas/22/6903.jpg" style="max-width:300px; display:block; margin-bottom:10px;">
+            <div id="result-1012" class="result-label"></div>
+        
+            <button id="btn-1012-A" class="option-btn"
+                data-correct="true"
+                onclick="selectAnswer(1012, 'A', true)">
+                (A) La longitud en la que existe el peligro.
+            </button>
+
+            <div class="explanation" id="exp-1012-A">
+                Truco: en el cartelito hay una flecha que pincha al principio y otra al final. Te has &quot;pinchado&quot; (peligro) durante toda la longitud indicada &#128522;<br>Por el contrario, si el cartel complementario no tuviese ninguna flecha, te indicaría la distancia que te queda hasta llegar al peligro:<br><br><img class='imagen_explicacion' src='imagenes37/preguntas/explicaciones/S-800.png'><br>
+            </div>
+            
+            <button id="btn-1012-B" class="option-btn"
+                data-correct="false"
+                onclick="selectAnswer(1012, 'B', false)">
+                (B) La distancia que falta para llegar a un stop.
+            </button>
+
+            <div class="explanation" id="exp-1012-B">
+                
+            </div>
+            
+            <button id="btn-1012-C" class="option-btn"
+                data-correct="false"
+                onclick="selectAnswer(1012, 'C', false)">
+                (C) Que a 4,25 kilómetros hay un peligro.
+            </button>
+
+            <div class="explanation" id="exp-1012-C">
+                
+            </div>
+            </div>
+        <div class="question" id="question-1375" data-qid="1375">
+            <p><b>Q1375:</b> La somnolencia hace que...</p>
+            <img src="https://superexpress.es/imagenes37/curso/sin-imagen.png" style="max-width:300px; display:block; margin-bottom:10px;">
+            <div id="result-1375" class="result-label"></div>
+        
+            <button id="btn-1375-A" class="option-btn"
+                data-correct="false"
+                onclick="selectAnswer(1375, 'A', false)">
+                (A) resulte más fácil mantener la concentración en el tráfico.
+            </button>
+
+            <div class="explanation" id="exp-1375-A">
+                Justo al contrario.
+            </div>
+            
+            <button id="btn-1375-B" class="option-btn"
+                data-correct="true"
+                onclick="selectAnswer(1375, 'B', true)">
+                (B) resulte más difícil mantener la concentración en el tráfico.
+            </button>
+
+            <div class="explanation" id="exp-1375-B">
+                
+            </div>
+            
+            <button id="btn-1375-C" class="option-btn"
+                data-correct="false"
+                onclick="selectAnswer(1375, 'C', false)">
+                (C) disminuya el tiempo de reacción.
+            </button>
+
+            <div class="explanation" id="exp-1375-C">
+                Al contrario, aumenta.
+            </div>
+            </div>
+        <div class="question" id="question-666" data-qid="666">
+            <p><b>Q666:</b> Para un correcto mantenimiento de la batería del vehículo deberemos...</p>
+            <img src="https://superexpress.es/imagenes37/curso/sin-imagen.png" style="max-width:300px; display:block; margin-bottom:10px;">
+            <div id="result-666" class="result-label"></div>
+        
+            <button id="btn-666-A" class="option-btn"
+                data-correct="false"
+                onclick="selectAnswer(666, 'A', false)">
+                (A) Añadir agua destilada a la batería periódicamente.
+            </button>
+
+            <div class="explanation" id="exp-666-A">
+                El agua destilada es para esas baterías "con mantenimiento" &#128267;&#128295;, que necesitan que las riegues &#128166;&#127804; añadiéndoles agua destilada de cuando en cuando.<br />
+Por suerte, <strong>hoy día la mayoría de baterías no necesitan que les eches agua destilada</strong>.<br />
+<br />
+&#128128; Esta pregunta tiene trampa porque lo del agua destilada es solo para algunos tipos de baterías, no para las baterías en general.<br />
+Es como si dijeses que para que un coche funcione tienes que ponerle gasoil. Nooo, solo algunos coches usan gasoil, no todos.<br />
+<br />
+Pues aquí lo mismo: solo algunas (las baterías que se llaman "con mantenimiento" &#128267;&#128295;) necesitan que les vayas poniendo agua destilada.
+            </div>
+            
+            <button id="btn-666-B" class="option-btn"
+                data-correct="true"
+                onclick="selectAnswer(666, 'B', true)">
+                (B) Mantener los bornes limpios, bien apretados y sin sulfatación.
+            </button>
+
+            <div class="explanation" id="exp-666-B">
+                Piensa que una batería es como una pila. Los "conectores" (los bornes) de la pila tienen que ir bien conectados a los cables.<br />
+Para que haya un buen contacto entre la batería y los cables, los bornes de la batería tienen que estar limpios y bien apretados &#128267;&#129529;&#128170;.
+            </div>
+            
+            <button id="btn-666-C" class="option-btn"
+                data-correct="false"
+                onclick="selectAnswer(666, 'C', false)">
+                (C) La batería no precisa de ningún mantenimiento especial.
+            </button>
+
+            <div class="explanation" id="exp-666-C">
+                
+            </div>
+            </div>
+        <div class="question" id="question-2266" data-qid="2266">
+            <p><b>Q2266:</b> Las motocicletas que se pueden conducir con el permiso de la clase A1, ¿están obligadas a llevar placa de matrícula?</p>
+            <img src="https://superexpress.es/imagenes37/curso/sin-imagen.png" style="max-width:300px; display:block; margin-bottom:10px;">
+            <div id="result-2266" class="result-label"></div>
+        
+            <button id="btn-2266-A" class="option-btn"
+                data-correct="false"
+                onclick="selectAnswer(2266, 'A', false)">
+                (A) No.
+            </button>
+
+            <div class="explanation" id="exp-2266-A">
+                
+            </div>
+            
+            <button id="btn-2266-B" class="option-btn"
+                data-correct="true"
+                onclick="selectAnswer(2266, 'B', true)">
+                (B) Sí.
+            </button>
+
+            <div class="explanation" id="exp-2266-B">
+                Todas las motos que ves circulando llevan matrícula, hasta los ciclomotores. Repaso de vehículos con matrícula:<br>- Vehículos de motor, (una moto del A1 se considera vehículo de motor).<br>- Ciclomotores.<br>- Vehículos para personas de movilidad reducida.<br>- Remolques, semirremolques y máquinas especiales remolcadas cuya masa MMA pase de 750kg (los remolques ligeros, los que pesan 750Kg o menos no necesitan permiso de circulación ni matrícula).
+            </div>
+            
+            <button id="btn-2266-C" class="option-btn"
+                data-correct="false"
+                onclick="selectAnswer(2266, 'C', false)">
+                (C) Solo si llevan sidecar.
+            </button>
+
+            <div class="explanation" id="exp-2266-C">
+                
+            </div>
+            </div>
+        <div class="question" id="question-1554" data-qid="1554">
+            <p><b>Q1554:</b> Si va a efectuar un giro en una intersección, ¿cómo debe avisar a los demás conductores?</p>
+            <img src="https://superexpress.es/imagenes37/curso/sin-imagen.png" style="max-width:300px; display:block; margin-bottom:10px;">
+            <div id="result-1554" class="result-label"></div>
+        
+            <button id="btn-1554-A" class="option-btn"
+                data-correct="false"
+                onclick="selectAnswer(1554, 'A', false)">
+                (A) Con las luces o con el claxon.
+            </button>
+
+            <div class="explanation" id="exp-1554-A">
+                
+            </div>
+            
+            <button id="btn-1554-B" class="option-btn"
+                data-correct="true"
+                onclick="selectAnswer(1554, 'B', true)">
+                (B) Con las luces de los intermitentes o con el brazo.
+            </button>
+
+            <div class="explanation" id="exp-1554-B">
+                Siempre tienes que avisar antes de girar.<br>Lo normal será usar los intermitentes, pero si no te van bien, puedes señalizar con el brazo.
+            </div>
+            
+            <button id="btn-1554-C" class="option-btn"
+                data-correct="false"
+                onclick="selectAnswer(1554, 'C', false)">
+                (C) Con el brazo o con el claxon.
+            </button>
+
+            <div class="explanation" id="exp-1554-C">
+                
+            </div>
+            </div>
+        <div class="question" id="question-1256" data-qid="1256">
+            <p><b>Q1256:</b> ¿Puede un vehículo de movilidad personal circular por un túnel urbano?</p>
+            <img src="https://superexpress.es/imagenes37/preguntas/1/7440.jpg" style="max-width:300px; display:block; margin-bottom:10px;">
+            <div id="result-1256" class="result-label"></div>
+        
+            <button id="btn-1256-A" class="option-btn"
+                data-correct="false"
+                onclick="selectAnswer(1256, 'A', false)">
+                (A) Sí, circulando por el arcén derecho.
+            </button>
+
+            <div class="explanation" id="exp-1256-A">
+                
+            </div>
+            
+            <button id="btn-1256-B" class="option-btn"
+                data-correct="false"
+                onclick="selectAnswer(1256, 'B', false)">
+                (B) Sí, si circula a una velocidad inferior a 25 km/h.
+            </button>
+
+            <div class="explanation" id="exp-1256-B">
+                Es cierto que la velocidad máxima de VMP es de 25 km/h, pero están prohibidos en los túneles.
+            </div>
+            
+            <button id="btn-1256-C" class="option-btn"
+                data-correct="true"
+                onclick="selectAnswer(1256, 'C', true)">
+                (C) No, está prohibido.
+            </button>
+
+            <div class="explanation" id="exp-1256-C">
+                &#128024; Por repasar...<br />
+<br />
+&#9989; Los VMPs solo dentro de poblado &#127968;<br />
+&#10060; Prohibidos fuera de poblado &#127794;<br />
+<br />
+Y dentro de poblado, están prohibidos en...<br />
+&#10060; aceras<br />
+&#10060;túneles<br />
+&#10060; travesías
+            </div>
+            </div>
+        <div class="question" id="question-471" data-qid="471">
+            <p><b>Q471:</b> ¿Quiénes pueden ocupar los asientos delanteros de un turismo?</p>
+            <img src="https://superexpress.es/imagenes37/curso/sin-imagen.png" style="max-width:300px; display:block; margin-bottom:10px;">
+            <div id="result-471" class="result-label"></div>
+        
+            <button id="btn-471-A" class="option-btn"
+                data-correct="false"
+                onclick="selectAnswer(471, 'A', false)">
+                (A) Solo los mayores de 18 años.
+            </button>
+
+            <div class="explanation" id="exp-471-A">
+                Ojo con el &quot;sólo&quot;.<br />
+También hay niños que pueden ir delante si miden más de 135cm.
+            </div>
+            
+            <button id="btn-471-B" class="option-btn"
+                data-correct="true"
+                onclick="selectAnswer(471, 'B', true)">
+                (B) Las personas que miden más de 135 centímetros de altura y lleven abrochado el cinturón de seguridad.
+            </button>
+
+            <div class="explanation" id="exp-471-B">
+                Da igual si tienes 12, 13 o 100 años &#128522;.<br />
+Si mides <b>más de 135</b> cm (136, 137 o 215 como Pau Gasol 🏀) puedes ir tanto delante como detrás.
+            </div>
+            
+            <button id="btn-471-C" class="option-btn"
+                data-correct="false"
+                onclick="selectAnswer(471, 'C', false)">
+                (C) Los menores de 12 años pero solo si miden más de 150 centímetros de altura.
+            </button>
+
+            <div class="explanation" id="exp-471-C">
+                
+            </div>
+            </div>
+        <div class="question" id="question-25" data-qid="25">
+            <p><b>Q25:</b> En una carretera convencional, ¿puede circular a 100 km/h con un turismo?</p>
+            <img src="https://superexpress.es/imagenes37/preguntas/4/3486.jpg" style="max-width:300px; display:block; margin-bottom:10px;">
+            <div id="result-25" class="result-label"></div>
+        
+            <button id="btn-25-A" class="option-btn"
+                data-correct="false"
+                onclick="selectAnswer(25, 'A', false)">
+                (A) Sí, siempre que exista una separación física entre los dos sentidos de la marcha.
+            </button>
+
+            <div class="explanation" id="exp-25-A">
+                Paaara el carro. Ahora no te emociones cada vez que veas una convencional separada por 2 sentidos de la marcha &#128522;<br />
+La máxima genérica es de 90 km/h para el grupo de &quot;vacaciones&quot;.<br />
+Lo de subirla a 100 es algo excepcional y en ese caso, te avisarán poniéndote una señal de 100.
+            </div>
+            
+            <button id="btn-25-B" class="option-btn"
+                data-correct="false"
+                onclick="selectAnswer(25, 'B', false)">
+                (B) No, nunca.
+            </button>
+
+            <div class="explanation" id="exp-25-B">
+                
+            </div>
+            
+            <button id="btn-25-C" class="option-btn"
+                data-correct="true"
+                onclick="selectAnswer(25, 'C', true)">
+                (C) Sí cuando el titular de la vía lo ha señalizado así y haya una separación física entre los dos sentidos de la marcha.
+            </button>
+
+            <div class="explanation" id="exp-25-C">
+                Para que funcione lo del 100 km/h tienen que pasar 2 cosas:<br />
+&#9726;&#65039; Que los 2 sentidos de la marcha tengan una separación física (por ejemplo, una mediana),<br />
+&#9726;&#65039; y que hayan señales que te digan que puedes ir a 100.<br />
+<br />
+Oye, si te ha despistado la foto... fíjate que la pregunta no dice nada de la foto. No dice "esta esta carretera" sino "en una carretera".<br />
+Así que esta pregunta, ni caso a la foto &#10060;&#128247;.<br />
+<br />
+&#128024; Por repasar, recuerda que esta velocidad específica de 100 solo afecta a:<br />
+coches &#128663; + motos &#127949;&#65039; + vehículos de 3 ruedas asimilados a motos + autocaravanas con mma &lt;= 3.500 kg.<br />
+Y ojo, no &#10060; afecta a las pick-up.
+            </div>
+            </div>
+        <div class="question" id="question-675" data-qid="675">
+            <p><b>Q675:</b> ¿Cuándo es obligatorio utilizar el alumbrado de corto alcance durante el día?</p>
+            <img src="https://superexpress.es/imagenes37/curso/sin-imagen.png" style="max-width:300px; display:block; margin-bottom:10px;">
+            <div id="result-675" class="result-label"></div>
+        
+            <button id="btn-675-A" class="option-btn"
+                data-correct="true"
+                onclick="selectAnswer(675, 'A', true)">
+                (A) al circular por un carril reversible.
+            </button>
+
+            <div class="explanation" id="exp-675-A">
+                Como es un carril un poco &quot;peligroso&quot;, aunque sea de día te obligan a llevar las cortas para que seas más visible.<br>Esto aplica a los carriles: adicionales circunstanciales, reversibles, habilitados en sentido contrario al habitual y el continguo (el de al lado) del sentido contrario al habitual.
+            </div>
+            
+            <button id="btn-675-B" class="option-btn"
+                data-correct="false"
+                onclick="selectAnswer(675, 'B', false)">
+                (B) cuando llueve.
+            </button>
+
+            <div class="explanation" id="exp-675-B">
+                
+            </div>
+            
+            <button id="btn-675-C" class="option-btn"
+                data-correct="false"
+                onclick="selectAnswer(675, 'C', false)">
+                (C) al circular por un carril para VAO.
+            </button>
+
+            <div class="explanation" id="exp-675-C">
+                En un carril VAO no es obligatorio.
+            </div>
+            </div>
+        <div class="question" id="question-153" data-qid="153">
+            <p><b>Q153:</b> ¿Qué vehículos tienen permitido circular en una zona de bajas emisiones regulada por esta señal?</p>
+            <img src="https://superexpress.es/imagenes37/preguntas/1/7547.jpg" style="max-width:300px; display:block; margin-bottom:10px;">
+            <div id="result-153" class="result-label"></div>
+        
+            <button id="btn-153-A" class="option-btn"
+                data-correct="true"
+                onclick="selectAnswer(153, 'A', true)">
+                (A) Los vehículos con distintivo ambiental C, CERO y ECO.
+            </button>
+
+            <div class="explanation" id="exp-153-A">
+                Esta es la señal de zona de bajas emisiones.<br />
+Solo van a poder circular los vehículos que tengan alguna de las etiquetas de la señal.
+            </div>
+            
+            <button id="btn-153-B" class="option-btn"
+                data-correct="false"
+                onclick="selectAnswer(153, 'B', false)">
+                (B) Los vehículos con distintivo ambiental B.
+            </button>
+
+            <div class="explanation" id="exp-153-B">
+                
+            </div>
+            
+            <button id="btn-153-C" class="option-btn"
+                data-correct="false"
+                onclick="selectAnswer(153, 'C', false)">
+                (C) Todos los vehículos.
+            </button>
+
+            <div class="explanation" id="exp-153-C">
+                
+            </div>
+            </div>
+        <div class="question" id="question-1341" data-qid="1341">
+            <p><b>Q1341:</b> El titular de un permiso de la clase B, ¿puede conducir una motocicleta dentro del territorio nacional?</p>
+            <img src="https://superexpress.es/imagenes37/curso/sin-imagen.png" style="max-width:300px; display:block; margin-bottom:10px;">
+            <div id="result-1341" class="result-label"></div>
+        
+            <button id="btn-1341-A" class="option-btn"
+                data-correct="true"
+                onclick="selectAnswer(1341, 'A', true)">
+                (A) Sí, una motocicleta que se pueda conducir con el permiso A1, siempre que la antigüedad del permiso sea superior a 3 años.
+            </button>
+
+            <div class="explanation" id="exp-1341-A">
+                Con el B te dejan llevar motos de hasta 125 c.c. pero solo si ya tienes más de 3 años de carnet y solo dentro del terrotorio nacional.
+            </div>
+            
+            <button id="btn-1341-B" class="option-btn"
+                data-correct="false"
+                onclick="selectAnswer(1341, 'B', false)">
+                (B) No, no puedo conducir ningún tipo de motocicleta.
+            </button>
+
+            <div class="explanation" id="exp-1341-B">
+                
+            </div>
+            
+            <button id="btn-1341-C" class="option-btn"
+                data-correct="false"
+                onclick="selectAnswer(1341, 'C', false)">
+                (C) Sí, de cualquier tipo.
+            </button>
+
+            <div class="explanation" id="exp-1341-C">
+                
+            </div>
+            </div>
+        <div class="question" id="question-1568" data-qid="1568">
+            <p><b>Q1568:</b> La luz interior del vehículo...</p>
+            <img src="https://superexpress.es/imagenes37/curso/sin-imagen.png" style="max-width:300px; display:block; margin-bottom:10px;">
+            <div id="result-1568" class="result-label"></div>
+        
+            <button id="btn-1568-A" class="option-btn"
+                data-correct="true"
+                onclick="selectAnswer(1568, 'A', true)">
+                (A) Está permitida, pero debe usarse de modo que no deslumbre a otros usuarios.
+            </button>
+
+            <div class="explanation" id="exp-1568-A">
+                Puedes usar la luz de dentro &#128161;, pero con cuidado de no deslumbrar &#128526; a los otros conductores.<br />
+Es como cuando apuntas con una linterna 🔦: si la diriges a los ojos &#128064; de alguien, le molestas.<br />
+<br />
+Esto no te lo contamos en los vídeos pero te lo explicamos aquí &#128591;.
+            </div>
+            
+            <button id="btn-1568-B" class="option-btn"
+                data-correct="false"
+                onclick="selectAnswer(1568, 'B', false)">
+                (B) Está prohibida en cualquier circunstancia.
+            </button>
+
+            <div class="explanation" id="exp-1568-B">
+                La luz interior no &#10060; está prohibida siempre.<br />
+La NORMATIVA DGT indica que es un "dispositivo facultativo", o sea, que puedes usarla.<br />
+<br />
+Eso sí, debes tener cuidado de no molestar a otros conductores. &#128064;
+            </div>
+            
+            <button id="btn-1568-C" class="option-btn"
+                data-correct="false"
+                onclick="selectAnswer(1568, 'C', false)">
+                (C) Está permitida y se recomienda encenderla en vías insuficientemente iluminadas.
+            </button>
+
+            <div class="explanation" id="exp-1568-C">
+                La luz interior sirve para ver dentro del coche, no &#10060; fuera.
+            </div>
+            </div>
+
+<div class="error-counter">Errors: <span id="errorCount">0</span></div>
+
+<script>
+// Load previous failures
+let failedQuestions = JSON.parse(sessionStorage.getItem("failedQuestions") || "[]");
+
+// Count how many failed questions are included in this quiz
+let quizFailedCount = 0;
+
+window.addEventListener("DOMContentLoaded", () => {
+    document.querySelectorAll(".question").forEach(q => {
+        let qid = parseInt(q.dataset.qid);
+        if (failedQuestions.includes(qid)) {
+            quizFailedCount++;
+            q.classList.add("failed-previously");
+            let label = document.createElement("span");
+            label.className = "failed-label";
+            label.textContent = "⚠ Failed previously";
+            q.prepend(label);
+        }
+    });
+
+    if (quizFailedCount > 0) {
+        document.getElementById("previousFailsBox").textContent =
+            quizFailedCount + " of these questions were failed previously.";
+    }
+
+    // Current errors counter should start at 0 always
+    document.getElementById("errorCount").innerText = 0;
+
+    // Fix image URLs
+    document.querySelectorAll("img").forEach(img => {
+        if (!img.src.startsWith("https://superexpress.es/")) {
+            img.src = "https://superexpress.es/" + img.src.replace(/^\/+/, "");
+        }
+    });
+});
+
+function selectAnswer(questionId, optionId, isCorrect) {
+    let container = document.getElementById("question-" + questionId);
+
+    // Disable buttons
+    let buttons = container.querySelectorAll(".option-btn");
+    buttons.forEach(btn => btn.classList.add("disabled"));
+
+    // Show explanations
+    container.querySelectorAll(".explanation").forEach(expl => {
+        expl.style.display = "block";
+    });
+
+    // Mark chosen button
+    let chosen = document.getElementById("btn-" + questionId + "-" + optionId);
+    chosen.classList.add(isCorrect ? "correct" : "incorrect");
+
+    // Show result
+    let resultLabel = document.getElementById("result-" + questionId);
+    resultLabel.innerText = isCorrect ? "✔ Correct!" : "✖ Incorrect!";
+
+    // Highlight correct option ALWAYS
+    buttons.forEach(btn => {
+        if (btn.dataset.correct === "true") {
+            btn.classList.add("correct");
+        }
+    });
+
+    // Count only new errors (not previously failed)
+    if (!isCorrect) {
+        failedQuestions.push(questionId);
+        if (!failedQuestions.includes(questionId)) sessionStorage.setItem("failedQuestions", JSON.stringify(failedQuestions));
+
+        let ec = document.getElementById("errorCount");
+        ec.innerText = parseInt(ec.innerText) + 1;
+
+        container.classList.add("failed-previously");
+    }
+}
+
+</script>
+
+</body>
+</html>

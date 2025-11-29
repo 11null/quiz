@@ -1,0 +1,1293 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Quiz</title>
+<style>
+body {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+}
+.question {
+    margin-bottom: 30px;
+    padding: 15px;
+    border-radius: 8px;
+    background: #f7f7f7;
+    position: relative;
+}
+.failed-previously {
+    border-left: 6px solid red;
+}
+.failed-label {
+    color: red;
+    font-weight: bold;
+    margin-bottom: 8px;
+    display: block;
+}
+.option-btn {
+    padding: 8px 12px;
+    margin: 5px 0;
+    width: 100%;
+    border-radius: 6px;
+    border: 1px solid #888;
+    cursor: pointer;
+    background: #fff;
+}
+.option-btn.correct {
+    background-color: #a7e9a1;
+}
+.option-btn.incorrect {
+    background-color: #f2a7a7;
+}
+.option-btn.disabled {
+    pointer-events: none;
+    opacity: 0.6;
+}
+.explanation {
+    display: none;
+    margin-top: 5px;
+    padding: 10px;
+    background: #e8e8e8;
+    border-radius: 5px;
+}
+.result-label {
+    font-weight: bold;
+    margin-left: 10px;
+}
+.error-counter {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    padding: 10px 15px;
+    background: #eee;
+    border-radius: 8px;
+    border: 1px solid #aaa;
+}
+</style>
+</head>
+
+<body>
+
+<h1>Quiz</h1>
+
+<div id="previousFailsBox" style="font-size:18px; margin-bottom:20px; font-weight:bold;"></div>
+
+
+        <div class="question" id="question-1310" data-qid="1310">
+            <p><b>Q1310:</b> Un botiquín de primeros auxilios, ¿se encuentra entre la dotación obligatoria de los vehículos de nueve o más plazas?</p>
+            <img src="https://superexpress.es/imagenes37/preguntas/18/4909.jpg" style="max-width:300px; display:block; margin-bottom:10px;">
+            <div id="result-1310" class="result-label"></div>
+        
+            <button id="btn-1310-A" class="option-btn"
+                data-correct="true"
+                onclick="selectAnswer(1310, 'A', true)">
+                (A) No, un botiquín es solamente recomendable.
+            </button>
+
+            <div class="explanation" id="exp-1310-A">
+                Tanto el botiquín como las gafas de repuesto (si llevas gafas) se recomiendan, pero son opcionales.
+            </div>
+            
+            <button id="btn-1310-B" class="option-btn"
+                data-correct="false"
+                onclick="selectAnswer(1310, 'B', false)">
+                (B) Es obligatorio dependiendo del número de pasajeros transportados.
+            </button>
+
+            <div class="explanation" id="exp-1310-B">
+                
+            </div>
+            
+            <button id="btn-1310-C" class="option-btn"
+                data-correct="false"
+                onclick="selectAnswer(1310, 'C', false)">
+                (C) Sí, es obligatorio.
+            </button>
+
+            <div class="explanation" id="exp-1310-C">
+                
+            </div>
+            </div>
+        <div class="question" id="question-532" data-qid="532">
+            <p><b>Q532:</b> El panel colocado debajo de la señal vertical...</p>
+            <img src="https://superexpress.es/imagenes37/preguntas/22/7043.jpg" style="max-width:300px; display:block; margin-bottom:10px;">
+            <div id="result-532" class="result-label"></div>
+        
+            <button id="btn-532-A" class="option-btn"
+                data-correct="true"
+                onclick="selectAnswer(532, 'A', true)">
+                (A) es complementario de la señal vertical, e indica niebla.
+            </button>
+
+            <div class="explanation" id="exp-532-A">
+                
+            </div>
+            
+            <button id="btn-532-B" class="option-btn"
+                data-correct="false"
+                onclick="selectAnswer(532, 'B', false)">
+                (B) advierte de la presencia de una señalización.
+            </button>
+
+            <div class="explanation" id="exp-532-B">
+                
+            </div>
+            
+            <button id="btn-532-C" class="option-btn"
+                data-correct="false"
+                onclick="selectAnswer(532, 'C', false)">
+                (C) advierte al conductor de condiciones adversas como nieve, niebla o lluvia.
+            </button>
+
+            <div class="explanation" id="exp-532-C">
+                Son 3 paneles distintos. Hay uno para nieve y hielo, otro para lluvia y otro para niebla:<br><br><img class='imagen_explicacion' src='imagenes37/preguntas/explicaciones/S-890.png'><br>
+            </div>
+            </div>
+        <div class="question" id="question-1725" data-qid="1725">
+            <p><b>Q1725:</b> ¿Qué documento acredita que un vehículo reúne las condiciones técnicas necesarias para circular?</p>
+            <img src="https://superexpress.es/imagenes37/curso/sin-imagen.png" style="max-width:300px; display:block; margin-bottom:10px;">
+            <div id="result-1725" class="result-label"></div>
+        
+            <button id="btn-1725-A" class="option-btn"
+                data-correct="false"
+                onclick="selectAnswer(1725, 'A', false)">
+                (A) El certificado del seguro y el último recibo del pago de la prima.
+            </button>
+
+            <div class="explanation" id="exp-1725-A">
+                
+            </div>
+            
+            <button id="btn-1725-B" class="option-btn"
+                data-correct="false"
+                onclick="selectAnswer(1725, 'B', false)">
+                (B) El recibo del impuesto de vehículos de tracción mecánica.
+            </button>
+
+            <div class="explanation" id="exp-1725-B">
+                
+            </div>
+            
+            <button id="btn-1725-C" class="option-btn"
+                data-correct="true"
+                onclick="selectAnswer(1725, 'C', true)">
+                (C) La tarjeta ITV.
+            </button>
+
+            <div class="explanation" id="exp-1725-C">
+                
+            </div>
+            </div>
+        <div class="question" id="question-1992" data-qid="1992">
+            <p><b>Q1992:</b> Cuando las cintas del cinturón no están bien estiradas aunque esté abrochado...</p>
+            <img src="https://superexpress.es/imagenes37/preguntas/10/3231.jpg" style="max-width:300px; display:block; margin-bottom:10px;">
+            <div id="result-1992" class="result-label"></div>
+        
+            <button id="btn-1992-A" class="option-btn"
+                data-correct="false"
+                onclick="selectAnswer(1992, 'A', false)">
+                (A) resultará incómodo pero el cinturón no perderá eficacia.
+            </button>
+
+            <div class="explanation" id="exp-1992-A">
+                
+            </div>
+            
+            <button id="btn-1992-B" class="option-btn"
+                data-correct="true"
+                onclick="selectAnswer(1992, 'B', true)">
+                (B) el cinturón perderá eficacia y puede provocar lesiones durante el accidente.
+            </button>
+
+            <div class="explanation" id="exp-1992-B">
+                Claro, si no lo llevas pegado al cuerpo, si lo llevas más ancho de lo que toca tu cuerpo puede recorrer más espacio en caso de accidente y chocar con el volante, el cristal...
+            </div>
+            
+            <button id="btn-1992-C" class="option-btn"
+                data-correct="false"
+                onclick="selectAnswer(1992, 'C', false)">
+                (C) el cinturón no perderá eficacia pero hay que cambiarlo.
+            </button>
+
+            <div class="explanation" id="exp-1992-C">
+                
+            </div>
+            </div>
+        <div class="question" id="question-1188" data-qid="1188">
+            <p><b>Q1188:</b> ¿Es correcto el adelantamiento que efectúa el turismo a la bicicleta?</p>
+            <img src="https://superexpress.es/imagenes37/preguntas/5/487.jpg" style="max-width:300px; display:block; margin-bottom:10px;">
+            <div id="result-1188" class="result-label"></div>
+        
+            <button id="btn-1188-A" class="option-btn"
+                data-correct="false"
+                onclick="selectAnswer(1188, 'A', false)">
+                (A) No, porque al dejar demasiada separación tiene que ocupar el carril de sentido contrario.
+            </button>
+
+            <div class="explanation" id="exp-1188-A">
+                
+            </div>
+            
+            <button id="btn-1188-B" class="option-btn"
+                data-correct="true"
+                onclick="selectAnswer(1188, 'B', true)">
+                (B) Sí, porque deja la separación adecuada y ocupa el carril contiguo.
+            </button>
+
+            <div class="explanation" id="exp-1188-B">
+                Como norma general no se puede cruzar una continua.<br />
+Las continuas te las tienes que imaginar como una pared &#128679;.<br />
+<br />
+Peeero, <strong>esta es una de las excepciones</strong> en las que la DGT sí te deja cruzar una continua, aunque te metas en el sentido contrario.<br />
+<br />
+Si estás fuera de poblado &#127794;  y adelantas a personas o animales "sin armadura" como ciclistas &#128690; o ciclomotores &#128757;, peatones &#128694;... la DGT <strong>te obliga</strong> a dos cosas:<br />
+<br />
+&#9726;&#65039; a usar parte o todo el carril de al lado (aunque para ello tengas que cruzar una continua o meterte al sentido contrario).<br />
+&#9726;&#65039; dejar un mínimo de 1,5 metros de separación lateral.<br />
+<br />
+Y te obliga para proteger a los ciclistas, peatones... que ha habido muchos atropellos fuera de poblado &#9760;&#65039;&#127794; por no dejar la separación suficiente.
+            </div>
+            
+            <button id="btn-1188-C" class="option-btn"
+                data-correct="false"
+                onclick="selectAnswer(1188, 'C', false)">
+                (C) No, porque está prohibido rebasar la línea continua para adelantar.
+            </button>
+
+            <div class="explanation" id="exp-1188-C">
+                
+            </div>
+            </div>
+        <div class="question" id="question-1187" data-qid="1187">
+            <p><b>Q1187:</b> En ciudad, ¿es importante no circular a más de 50 kilómetros por hora?</p>
+            <img src="https://superexpress.es/imagenes37/curso/sin-imagen.png" style="max-width:300px; display:block; margin-bottom:10px;">
+            <div id="result-1187" class="result-label"></div>
+        
+            <button id="btn-1187-A" class="option-btn"
+                data-correct="false"
+                onclick="selectAnswer(1187, 'A', false)">
+                (A) No, sobre todo en las calles y avenidas anchas.
+            </button>
+
+            <div class="explanation" id="exp-1187-A">
+                
+            </div>
+            
+            <button id="btn-1187-B" class="option-btn"
+                data-correct="false"
+                onclick="selectAnswer(1187, 'B', false)">
+                (B) Sí, pero solo para no ser sancionado por exceso de velocidad.
+            </button>
+
+            <div class="explanation" id="exp-1187-B">
+                Ojo con el sólo.
+            </div>
+            
+            <button id="btn-1187-C" class="option-btn"
+                data-correct="true"
+                onclick="selectAnswer(1187, 'C', true)">
+                (C) Sí, para que, en caso de atropello, el peatón tenga más posibilidades de sobrevivir.
+            </button>
+
+            <div class="explanation" id="exp-1187-C">
+                A 50km/h muere uno de cada dos atropellados. Si vas más rápido, la probabilidad de que sobreviva alguien si le atropellas es aún menor... por eso no se debe correr en ciudad.
+            </div>
+            </div>
+        <div class="question" id="question-1326" data-qid="1326">
+            <p><b>Q1326:</b> El semáforo cuadrado tiene la flecha verde encendida y el semáforo circular está rojo. ¿Qué debe hacer?</p>
+            <img src="https://superexpress.es/imagenes37/preguntas/8/927.jpg" style="max-width:300px; display:block; margin-bottom:10px;">
+            <div id="result-1326" class="result-label"></div>
+        
+            <button id="btn-1326-A" class="option-btn"
+                data-correct="false"
+                onclick="selectAnswer(1326, 'A', false)">
+                (A) Circular sin detenerme.
+            </button>
+
+            <div class="explanation" id="exp-1326-A">
+                
+            </div>
+            
+            <button id="btn-1326-B" class="option-btn"
+                data-correct="true"
+                onclick="selectAnswer(1326, 'B', true)">
+                (B) Detener el vehículo antes del semáforo circular en rojo.
+            </button>
+
+            <div class="explanation" id="exp-1326-B">
+                Los semáforos de carril, solo te indican si puedes ir por ese carril o no. A efectos de ver qué señal manda más, es como si no existieran.
+            </div>
+            
+            <button id="btn-1326-C" class="option-btn"
+                data-correct="false"
+                onclick="selectAnswer(1326, 'C', false)">
+                (C) Detener el vehículo antes del semáforo cuadrado con flecha verde.
+            </button>
+
+            <div class="explanation" id="exp-1326-C">
+                
+            </div>
+            </div>
+        <div class="question" id="question-1472" data-qid="1472">
+            <p><b>Q1472:</b> En esta situación, si pretende seguir de frente, ¿a cuál de los dos semáforos debe obedecer?</p>
+            <img src="https://superexpress.es/imagenes37/preguntas/8/6037.jpg" style="max-width:300px; display:block; margin-bottom:10px;">
+            <div id="result-1472" class="result-label"></div>
+        
+            <button id="btn-1472-A" class="option-btn"
+                data-correct="false"
+                onclick="selectAnswer(1472, 'A', false)">
+                (A) Como la señalización es contradictoria, prevalece la más restrictiva.
+            </button>
+
+            <div class="explanation" id="exp-1472-A">
+                No hay contradicción, porque el semáforo de la derecha no te afecta si quieres seguir de frente.
+            </div>
+            
+            <button id="btn-1472-B" class="option-btn"
+                data-correct="true"
+                onclick="selectAnswer(1472, 'B', true)">
+                (B) Al semáforo de la izquierda.
+            </button>
+
+            <div class="explanation" id="exp-1472-B">
+                Cuando hay señales a izquierda y derecha:<br>Izquerda: tendrá que obecederlas los que vayan a seguir de frente o girar a la izquierda.<br>Derecha: solo para los que vayan a girar a la derecha.
+            </div>
+            
+            <button id="btn-1472-C" class="option-btn"
+                data-correct="false"
+                onclick="selectAnswer(1472, 'C', false)">
+                (C) Al semáforo de la derecha.
+            </button>
+
+            <div class="explanation" id="exp-1472-C">
+                
+            </div>
+            </div>
+        <div class="question" id="question-1099" data-qid="1099">
+            <p><b>Q1099:</b> Esta señal significa intervalo...</p>
+            <img src="https://superexpress.es/imagenes37/preguntas/22/7174.jpg" style="max-width:300px; display:block; margin-bottom:10px;">
+            <div id="result-1099" class="result-label"></div>
+        
+            <button id="btn-1099-A" class="option-btn"
+                data-correct="false"
+                onclick="selectAnswer(1099, 'A', false)">
+                (A) aconsejado de velocidades, aunque las condiciones sean desfavorables.
+            </button>
+
+            <div class="explanation" id="exp-1099-A">
+                
+            </div>
+            
+            <button id="btn-1099-B" class="option-btn"
+                data-correct="true"
+                onclick="selectAnswer(1099, 'B', true)">
+                (B) aconsejado de velocidades, siempre que las condiciones sean favorables.
+            </button>
+
+            <div class="explanation" id="exp-1099-B">
+                Si está diluviando... ese rango de velocidades aconsejadas ya no sirve.
+            </div>
+            
+            <button id="btn-1099-C" class="option-btn"
+                data-correct="false"
+                onclick="selectAnswer(1099, 'C', false)">
+                (C) obligatorio de velocidades, siempre que las condiciones sean favorables.
+            </button>
+
+            <div class="explanation" id="exp-1099-C">
+                
+            </div>
+            </div>
+        <div class="question" id="question-625" data-qid="625">
+            <p><b>Q625:</b> Un tractor fuera de poblado, ¿a qué velocidad máxima puede circular?</p>
+            <img src="https://superexpress.es/imagenes37/preguntas/4/7437.jpg" style="max-width:300px; display:block; margin-bottom:10px;">
+            <div id="result-625" class="result-label"></div>
+        
+            <button id="btn-625-A" class="option-btn"
+                data-correct="false"
+                onclick="selectAnswer(625, 'A', false)">
+                (A) 25 km/h.
+            </button>
+
+            <div class="explanation" id="exp-625-A">
+                Esto sería para los especiales lentos &#128668;&#128012;.<br />
+<br />
+&#128024; Por repasar, en el grupo de especiales lentos tenemos:<br />
+&#9726;&#65039; vehículos especiales con remolque (por ejemplo, un tractor con remolque),<br />
+&#9726;&#65039; los motocultores (se usan para arar la tierra) y tú los empujas<br />
+&#9726;&#65039; y vehículos especiales sin señalización de frenado: que van tan lentos que no necesitan ni avisarte de que van a frenar.<br />
+
+            </div>
+            
+            <button id="btn-625-B" class="option-btn"
+                data-correct="false"
+                onclick="selectAnswer(625, 'B', false)">
+                (B) 40 km/h.
+            </button>
+
+            <div class="explanation" id="exp-625-B">
+                Esto sería para los especiales "en general".<br />
+Los que no pertenecen al grupo de los rápidos &#10060;&#128640;, ni al grupo de los lentos &#10060;&#128012;.
+            </div>
+            
+            <button id="btn-625-C" class="option-btn"
+                data-correct="true"
+                onclick="selectAnswer(625, 'C', true)">
+                (C) 70 km/h.
+            </button>
+
+            <div class="explanation" id="exp-625-C">
+                Parece muy rápido para ser un tractor, ¿verdad?<br />
+<br />
+Los "especiales rápidos" son aquellos vehículos especiales que pueden alcanzar los 60km/h en llano.<br />
+Para ellos se fija una máxima de 70 km/h.<br />
+<br />
+Por ejemplo, un tractor de competición &#128668;&#128640;.<br />
+<br />
+&#127913;&#10024; ¿Un truco para acordarte?<br />
+Imagínate el <strong>7</strong> como <strong>la punta de una flecha</strong> 🏹.<br />
+Y <strong>el 0 como una diana</strong> &#127919;.<br />
+<strong>Los tractores de competición van como una flecha (7) hasta la diana (0):<br />
+70 km/h</strong> de velocidad máxima &#128522;.
+            </div>
+            </div>
+        <div class="question" id="question-1476" data-qid="1476">
+            <p><b>Q1476:</b> ¿Pueden algunas enfermedades implicar algún riesgo para la conducción?</p>
+            <img src="https://superexpress.es/imagenes37/curso/sin-imagen.png" style="max-width:300px; display:block; margin-bottom:10px;">
+            <div id="result-1476" class="result-label"></div>
+        
+            <button id="btn-1476-A" class="option-btn"
+                data-correct="true"
+                onclick="selectAnswer(1476, 'A', true)">
+                (A) Sí, porque son un factor de riesgo.
+            </button>
+
+            <div class="explanation" id="exp-1476-A">
+                Hasta un simple resfriado puede implicar riesgos en la conducción.
+            </div>
+            
+            <button id="btn-1476-B" class="option-btn"
+                data-correct="false"
+                onclick="selectAnswer(1476, 'B', false)">
+                (B) Sí, pero solo las enfermedades crónicas.
+            </button>
+
+            <div class="explanation" id="exp-1476-B">
+                
+            </div>
+            
+            <button id="btn-1476-C" class="option-btn"
+                data-correct="false"
+                onclick="selectAnswer(1476, 'C', false)">
+                (C) No, el estado del conductor no afecta a la seguridad vial.
+            </button>
+
+            <div class="explanation" id="exp-1476-C">
+                
+            </div>
+            </div>
+        <div class="question" id="question-2215" data-qid="2215">
+            <p><b>Q2215:</b> ¿Qué es la hora dorada?</p>
+            <img src="https://superexpress.es/imagenes37/curso/sin-imagen.png" style="max-width:300px; display:block; margin-bottom:10px;">
+            <div id="result-2215" class="result-label"></div>
+        
+            <button id="btn-2215-A" class="option-btn"
+                data-correct="false"
+                onclick="selectAnswer(2215, 'A', false)">
+                (A) Es lo que se tarda en llegar al hospital después de sufrir un accidente.
+            </button>
+
+            <div class="explanation" id="exp-2215-A">
+                
+            </div>
+            
+            <button id="btn-2215-B" class="option-btn"
+                data-correct="false"
+                onclick="selectAnswer(2215, 'B', false)">
+                (B) Lo que tarda la ambulancia en llegar al lugar del accidente.
+            </button>
+
+            <div class="explanation" id="exp-2215-B">
+                
+            </div>
+            
+            <button id="btn-2215-C" class="option-btn"
+                data-correct="true"
+                onclick="selectAnswer(2215, 'C', true)">
+                (C) Es la hora inmediata posterior a sufrir un accidente.
+            </button>
+
+            <div class="explanation" id="exp-2215-C">
+                La "hora dorada" es el período crítico que empieza justo después de que ocurre un accidente.<br />
+Normalmente se habla de los primeros 60 minutos &#128357;.<br />
+Es un tiempo súper importante porque la atención médica &#128657; rápida puede marcar la diferencia para la supervivencia de la víctima &#129301; y para reducir las secuelas.<br />
+<br />
+<br />
+&#128591; Esto no te lo explicamos en los vídeos, pero te lo contamos aquí.
+            </div>
+            </div>
+        <div class="question" id="question-860" data-qid="860">
+            <p><b>Q860:</b> Los conductores de ciclomotores, ¿están obligados a llevar casco de protección por vías urbanas?</p>
+            <img src="https://superexpress.es/imagenes37/preguntas/10/1594.jpg" style="max-width:300px; display:block; margin-bottom:10px;">
+            <div id="result-860" class="result-label"></div>
+        
+            <button id="btn-860-A" class="option-btn"
+                data-correct="true"
+                onclick="selectAnswer(860, 'A', true)">
+                (A) Sí, es obligatorio.
+            </button>
+
+            <div class="explanation" id="exp-860-A">
+                
+            </div>
+            
+            <button id="btn-860-B" class="option-btn"
+                data-correct="false"
+                onclick="selectAnswer(860, 'B', false)">
+                (B) No, solo es obligatorio cuando circulen por vías interurbanas.
+            </button>
+
+            <div class="explanation" id="exp-860-B">
+                
+            </div>
+            
+            <button id="btn-860-C" class="option-btn"
+                data-correct="false"
+                onclick="selectAnswer(860, 'C', false)">
+                (C) No, los conductores de ciclomotores no están obligados a llevar casco.
+            </button>
+
+            <div class="explanation" id="exp-860-C">
+                
+            </div>
+            </div>
+        <div class="question" id="question-839" data-qid="839">
+            <p><b>Q839:</b> En condiciones de niebla espesa, deberá...</p>
+            <img src="https://superexpress.es/imagenes37/curso/sin-imagen.png" style="max-width:300px; display:block; margin-bottom:10px;">
+            <div id="result-839" class="result-label"></div>
+        
+            <button id="btn-839-A" class="option-btn"
+                data-correct="true"
+                onclick="selectAnswer(839, 'A', true)">
+                (A) reducir la velocidad.
+            </button>
+
+            <div class="explanation" id="exp-839-A">
+                
+            </div>
+            
+            <button id="btn-839-B" class="option-btn"
+                data-correct="false"
+                onclick="selectAnswer(839, 'B', false)">
+                (B) circular solo con la luz antiniebla delantera encendida.
+            </button>
+
+            <div class="explanation" id="exp-839-B">
+                Ojo con el "solo".<br />
+La antiniebla delantera nunca te deja usarla solita. <br />
+<br />
+De día 🌞, como mínimo tienes que llevar también las de posición.<br />
+De noche 🌗, también las cortas o las largas.
+            </div>
+            
+            <button id="btn-839-C" class="option-btn"
+                data-correct="false"
+                onclick="selectAnswer(839, 'C', false)">
+                (C) circular por el arcén.
+            </button>
+
+            <div class="explanation" id="exp-839-C">
+                
+            </div>
+            </div>
+        <div class="question" id="question-582" data-qid="582">
+            <p><b>Q582:</b> Es de noche y necesita inmovilizar su vehículo en el arcén de una carretera por avería. ¿Qué luces debe encender?</p>
+            <img src="https://superexpress.es/imagenes37/curso/sin-imagen.png" style="max-width:300px; display:block; margin-bottom:10px;">
+            <div id="result-582" class="result-label"></div>
+        
+            <button id="btn-582-A" class="option-btn"
+                data-correct="false"
+                onclick="selectAnswer(582, 'A', false)">
+                (A) Las luces de emergencia y las de carretera.
+            </button>
+
+            <div class="explanation" id="exp-582-A">
+                
+            </div>
+            
+            <button id="btn-582-B" class="option-btn"
+                data-correct="false"
+                onclick="selectAnswer(582, 'B', false)">
+                (B) Las luces de emergencia y las cruce.
+            </button>
+
+            <div class="explanation" id="exp-582-B">
+                
+            </div>
+            
+            <button id="btn-582-C" class="option-btn"
+                data-correct="true"
+                onclick="selectAnswer(582, 'C', true)">
+                (C) Las luces de emergencia y las de posición.
+            </button>
+
+            <div class="explanation" id="exp-582-C">
+                Si tu coche &#128665; se estropea de noche 🌙 en el arcén, necesitas que los demás te vean bien y sepan que pasa algo.<br />
+Las luces de <b>posición</b> son para que vean dónde estás, como una chincheta 📌 en el mapa.<br />
+Y las luces de <b>emergencia</b> &#128680; son la señal de "¡Eh, aquí hay un problema!".<br />
+¡Necesitas las dos para señalizar bien la situación!<br />
+<br />
+&#127913;&#10024; Recuerda: <b>P</b>osición para indicar tu <b>P</b>resencia, <b>E</b>mergencia para indicar la <b>E</b>mergencia. ¡P + E!
+            </div>
+            </div>
+        <div class="question" id="question-2165" data-qid="2165">
+            <p><b>Q2165:</b> Programar un navegador GPS mientras se conduce, ¿provoca distracciones que afectan a la conducción?</p>
+            <img src="https://superexpress.es/imagenes37/curso/sin-imagen.png" style="max-width:300px; display:block; margin-bottom:10px;">
+            <div id="result-2165" class="result-label"></div>
+        
+            <button id="btn-2165-A" class="option-btn"
+                data-correct="false"
+                onclick="selectAnswer(2165, 'A', false)">
+                (A) No, siempre y cuando circule a una velocidad moderada.
+            </button>
+
+            <div class="explanation" id="exp-2165-A">
+                
+            </div>
+            
+            <button id="btn-2165-B" class="option-btn"
+                data-correct="true"
+                onclick="selectAnswer(2165, 'B', true)">
+                (B) Sí.
+            </button>
+
+            <div class="explanation" id="exp-2165-B">
+                No puedes manipular (tocar con las manos) el GPS mientras conduces. Tienes que programarlo antes de iniciar la marcha.
+            </div>
+            
+            <button id="btn-2165-C" class="option-btn"
+                data-correct="false"
+                onclick="selectAnswer(2165, 'C', false)">
+                (C) No, porque el GPS es una ayuda y nunca distrae al conductor.
+            </button>
+
+            <div class="explanation" id="exp-2165-C">
+                
+            </div>
+            </div>
+        <div class="question" id="question-1664" data-qid="1664">
+            <p><b>Q1664:</b> En un tramo de carretera convencional con curvas sucesivas, ¿cuándo puede un ciclista abandonar el arcén para circular por la parte derecha de la calzada?</p>
+            <img src="https://superexpress.es/imagenes37/curso/sin-imagen.png" style="max-width:300px; display:block; margin-bottom:10px;">
+            <div id="result-1664" class="result-label"></div>
+        
+            <button id="btn-1664-A" class="option-btn"
+                data-correct="false"
+                onclick="selectAnswer(1664, 'A', false)">
+                (A) Cuando las curvas sean ascendentes y necesite más espacio.
+            </button>
+
+            <div class="explanation" id="exp-1664-A">
+                ¡Cuidado! 🤏 La norma es muy específica: habla de <b>descensos</b> prolongados (bajadas), no &#10060; de ascensos (subidas).<br />
+Aunque subiendo una cuesta vayas más despacio &#128012;, la regla para salirte del arcén (si es transitable) solo aplica en bajadas largas con curvas.
+            </div>
+            
+            <button id="btn-1664-B" class="option-btn"
+                data-correct="true"
+                onclick="selectAnswer(1664, 'B', true)">
+                (B) Cuando se trate de un descenso prolongado y las razones de seguridad lo permitan.
+            </button>
+
+            <div class="explanation" id="exp-1664-B">
+                Normalmente, si hay arcén y se puede usar, las bicis &#128690; tienen que ir por ahí.<br />
+Peeero, hay una excepción muy concreta: en bajadas largas con curvas.<br />
+<br />
+Si la seguridad lo permite, puedes salirte del arcén y usar la parte derecha de la calzada que necesites.<br />
+<br />
+&#128064; ¡Ojo! Solo en <b>descensos prolongados con curvas</b> y si es <b>seguro</b>.
+            </div>
+            
+            <button id="btn-1664-C" class="option-btn"
+                data-correct="false"
+                onclick="selectAnswer(1664, 'C', false)">
+                (C) Nunca, debe circular siempre por el arcén si existe y es transitable.
+            </button>
+
+            <div class="explanation" id="exp-1664-C">
+                Aunque la regla general es ir por el arcén si existe y es transitable... ¡hay excepciones! 🚦<br />
+Esta pregunta va justo sobre una de ellas: las bajadas largas con curvas.<br />
+Así que decir "nunca" no &#10060; es correcto en este caso.
+            </div>
+            </div>
+        <div class="question" id="question-1124" data-qid="1124">
+            <p><b>Q1124:</b> En esta vía, ¿por dónde debe circular un ciclomotor?</p>
+            <img src="https://superexpress.es/imagenes37/preguntas/3/4005.jpg" style="max-width:300px; display:block; margin-bottom:10px;">
+            <div id="result-1124" class="result-label"></div>
+        
+            <button id="btn-1124-A" class="option-btn"
+                data-correct="false"
+                onclick="selectAnswer(1124, 'A', false)">
+                (A) Por la calzada o el arcén.
+            </button>
+
+            <div class="explanation" id="exp-1124-A">
+                
+            </div>
+            
+            <button id="btn-1124-B" class="option-btn"
+                data-correct="true"
+                onclick="selectAnswer(1124, 'B', true)">
+                (B) Por el arcén de la derecha.
+            </button>
+
+            <div class="explanation" id="exp-1124-B">
+                Si hay arcén y se puede circular por él, un ciclomotor está obligado a ir por el arcén.
+            </div>
+            
+            <button id="btn-1124-C" class="option-btn"
+                data-correct="false"
+                onclick="selectAnswer(1124, 'C', false)">
+                (C) Por la calzada, lo más cerca posible del borde derecho.
+            </button>
+
+            <div class="explanation" id="exp-1124-C">
+                
+            </div>
+            </div>
+        <div class="question" id="question-979" data-qid="979">
+            <p><b>Q979:</b> La luz de estacionamiento debe utilizarse...</p>
+            <img src="https://superexpress.es/imagenes37/curso/sin-imagen.png" style="max-width:300px; display:block; margin-bottom:10px;">
+            <div id="result-979" class="result-label"></div>
+        
+            <button id="btn-979-A" class="option-btn"
+                data-correct="true"
+                onclick="selectAnswer(979, 'A', true)">
+                (A) al estacionar en travesías insuficientemente iluminadas.
+            </button>
+
+            <div class="explanation" id="exp-979-A">
+                En una travesía mal iluminada, si estás aparcado en línea puedes elegir entre las de posición, las de estacionamiento, o las de posición pero solo del lado de la calzada.
+            </div>
+            
+            <button id="btn-979-B" class="option-btn"
+                data-correct="false"
+                onclick="selectAnswer(979, 'B', false)">
+                (B) en las paradas en doble fila.
+            </button>
+
+            <div class="explanation" id="exp-979-B">
+                
+            </div>
+            
+            <button id="btn-979-C" class="option-btn"
+                data-correct="false"
+                onclick="selectAnswer(979, 'C', false)">
+                (C) en las detenciones en vías urbanas suficiente o insuficientemente iluminadas.
+            </button>
+
+            <div class="explanation" id="exp-979-C">
+                En vía urbana y con buena luz, no te hará falta poner ninguna luz.
+            </div>
+            </div>
+        <div class="question" id="question-1859" data-qid="1859">
+            <p><b>Q1859:</b> Un conductor que ha consumido cocaína será...</p>
+            <img src="https://superexpress.es/imagenes37/preguntas/14/4344.jpg" style="max-width:300px; display:block; margin-bottom:10px;">
+            <div id="result-1859" class="result-label"></div>
+        
+            <button id="btn-1859-A" class="option-btn"
+                data-correct="false"
+                onclick="selectAnswer(1859, 'A', false)">
+                (A) inseguro, ya que el conductor no valora correctamente sus capacidades al volante.
+            </button>
+
+            <div class="explanation" id="exp-1859-A">
+                Las personas que han tomado coca se ven más capaz de hacer cosas,  más seguras... pero es justamente porque no se dan cuenta de lo mal que van.<br />
+<br />
+Es lo mismo que pasa con el alcohol cuando una persona borracha dice &#129396;&#128172;: " yo controlo".
+            </div>
+            
+            <button id="btn-1859-B" class="option-btn"
+                data-correct="false"
+                onclick="selectAnswer(1859, 'B', false)">
+                (B) muy relajado, ya que baja su capacidad de concentración.
+            </button>
+
+            <div class="explanation" id="exp-1859-B">
+                Al contrario, con la coca te pones como una moto y tienes menos concentración.
+            </div>
+            
+            <button id="btn-1859-C" class="option-btn"
+                data-correct="true"
+                onclick="selectAnswer(1859, 'C', true)">
+                (C) competitivo e impulsivo.
+            </button>
+
+            <div class="explanation" id="exp-1859-C">
+                &#127913;&#10024; Acuérdate de la peli de "El lobo de Wall Street"´.<br />
+Leonardo di Caprio hace de un ejecutivo agresivo &#128084;&#128545; que toma coca y que es muy competitivo: solo quiere ganar &#127942;.
+            </div>
+            </div>
+        <div class="question" id="question-1741" data-qid="1741">
+            <p><b>Q1741:</b> ¿Puede conducir una motocicleta con el permiso de la clase B?</p>
+            <img src="https://superexpress.es/imagenes37/preguntas/13/5693.jpg" style="max-width:300px; display:block; margin-bottom:10px;">
+            <div id="result-1741" class="result-label"></div>
+        
+            <button id="btn-1741-A" class="option-btn"
+                data-correct="false"
+                onclick="selectAnswer(1741, 'A', false)">
+                (A) Sí, si es de una cilindrada menor de 250 centímetros cúbicos.
+            </button>
+
+            <div class="explanation" id="exp-1741-A">
+                
+            </div>
+            
+            <button id="btn-1741-B" class="option-btn"
+                data-correct="true"
+                onclick="selectAnswer(1741, 'B', true)">
+                (B) Sí, solo en España, con una cilindrada máxima de 125 centímetros cúbicos, y con una antigüedad del permiso superior a tres años.
+            </button>
+
+            <div class="explanation" id="exp-1741-B">
+                 Es justo lo que dice la norma. Por repasar, recordarte que el B también te permite conducir ciclomotores de 2, 3 y 4 ruedas (el cuadriciclo ligero).<br>
+            </div>
+            
+            <button id="btn-1741-C" class="option-btn"
+                data-correct="false"
+                onclick="selectAnswer(1741, 'C', false)">
+                (C) Sí, siempre que no supere los 25 kW de potencia.
+            </button>
+
+            <div class="explanation" id="exp-1741-C">
+                
+            </div>
+            </div>
+        <div class="question" id="question-920" data-qid="920">
+            <p><b>Q920:</b> Para asegurar una correcta visibilidad en caso de lluvia, ¿qué elemento del vehículo es fundamental revisar periódicamente?</p>
+            <img src="https://superexpress.es/imagenes37/curso/sin-imagen.png" style="max-width:300px; display:block; margin-bottom:10px;">
+            <div id="result-920" class="result-label"></div>
+        
+            <button id="btn-920-A" class="option-btn"
+                data-correct="true"
+                onclick="selectAnswer(920, 'A', true)">
+                (A) Las escobillas del limpiaparabrisas.
+            </button>
+
+            <div class="explanation" id="exp-920-A">
+                Cuando llueve 🌧️, si las escobillas están viejas o rotas, en lugar de limpiar, dejarán rastros de agua o suciedad en el cristal.<br />
+Esto te quita muchísima visibilidad, ¡y eso es súper peligroso!<br />
+Por eso, es fundamental que las revises a menudo y las cambies si no limpian bien.<br />
+Piensa que son como las gafas 👓: si están sucias, no ves nada.
+            </div>
+            
+            <button id="btn-920-B" class="option-btn"
+                data-correct="false"
+                onclick="selectAnswer(920, 'B', false)">
+                (B) Las luces de cambio de dirección.
+            </button>
+
+            <div class="explanation" id="exp-920-B">
+                Los intermitentes son súper importantes, ¡claro! &#128077;<br />
+Sirven para avisar a los demás de tus maniobras, especialmente con lluvia para que te vean mejor.<br />
+Pero no te ayudan a *ti* a ver mejor a través del parabrisas mojado &#10060;🌧️.
+            </div>
+            
+            <button id="btn-920-C" class="option-btn"
+                data-correct="false"
+                onclick="selectAnswer(920, 'C', false)">
+                (C) El nivel del líquido de frenos.
+            </button>
+
+            <div class="explanation" id="exp-920-C">
+                El líquido de frenos es esencial para el sistema de frenado del vehículo, pero no tiene ninguna relación directa con la visibilidad durante la conducción bajo la lluvia 🌧️. <br />
+Revisarlo es importante para la seguridad general, pero no ayuda a mantener el parabrisas limpio ni a ver mejor en condiciones climáticas adversas.
+            </div>
+            </div>
+        <div class="question" id="question-2262" data-qid="2262">
+            <p><b>Q2262:</b> Con niebla densa, ¿qué luces antiniebla está obligado a utilizar un turismo?</p>
+            <img src="https://superexpress.es/imagenes37/preguntas/9/2262.jpg" style="max-width:300px; display:block; margin-bottom:10px;">
+            <div id="result-2262" class="result-label"></div>
+        
+            <button id="btn-2262-A" class="option-btn"
+                data-correct="true"
+                onclick="selectAnswer(2262, 'A', true)">
+                (A) La luz antiniebla trasera solamente.
+            </button>
+
+            <div class="explanation" id="exp-2262-A">
+                Las antiniebla <strong>delanteras siempre son opcionales</strong>.<br>Las pones si quieres (si no, puedes poner las cortas, por ejemplo). Fíjate que tu coche ni siquiera está obligado a llevarlas (son opcionales en todos los automóviles).<br><br>Y por repasar, las <strong>traseras</strong> debes llevaras cuando la cosa está &quot;muy malamente&quot; (condiciones especialmente desfavorables). Por ejemplo, con niebla densa son obligatorias.
+            </div>
+            
+            <button id="btn-2262-B" class="option-btn"
+                data-correct="false"
+                onclick="selectAnswer(2262, 'B', false)">
+                (B) La luz antiniebla trasera y la delantera si la tiene instalada.
+            </button>
+
+            <div class="explanation" id="exp-2262-B">
+                No te líes con la foto... que la pregunta tiene un poquito de truco. Una cosa es que sea obligatorio usarlas, y otra que sea recomendable.<br>En la foto por ejemplo, si tu coche lleva antiniebla, pues ponlas, que verás mucho mejor.<br>Pero lo que preguntan es si es <strong>obligatorio</strong> usarlas, y la antiniebla delantera, siempre es opcional.
+            </div>
+            
+            <button id="btn-2262-C" class="option-btn"
+                data-correct="false"
+                onclick="selectAnswer(2262, 'C', false)">
+                (C) La luz antiniebla delantera y la luz de largo alcance.
+            </button>
+
+            <div class="explanation" id="exp-2262-C">
+                Con niebla, o mucha lluvia es más conveniente usar las cortas que las largas, porque las largas acaban rebotando en la lluvia o la niebla, y pueden hasta deslumbrarte. En cualquier caso, la antiniebla delantera no es obligatoria.
+            </div>
+            </div>
+        <div class="question" id="question-816" data-qid="816">
+            <p><b>Q816:</b> Cuando una persona tiene una enfermedad...</p>
+            <img src="https://superexpress.es/imagenes37/curso/sin-imagen.png" style="max-width:300px; display:block; margin-bottom:10px;">
+            <div id="result-816" class="result-label"></div>
+        
+            <button id="btn-816-A" class="option-btn"
+                data-correct="true"
+                onclick="selectAnswer(816, 'A', true)">
+                (A) antes de ponerse al volante debe conocer los efectos secundarios de los medicamentos.
+            </button>
+
+            <div class="explanation" id="exp-816-A">
+                
+            </div>
+            
+            <button id="btn-816-B" class="option-btn"
+                data-correct="false"
+                onclick="selectAnswer(816, 'B', false)">
+                (B) no debe conducir en ningún caso.
+            </button>
+
+            <div class="explanation" id="exp-816-B">
+                Depende de la enfermedad. Por ejemplo, la alopecia (calvicie) se considera una enfermedad, pero no afecta para conducir.
+            </div>
+            
+            <button id="btn-816-C" class="option-btn"
+                data-correct="false"
+                onclick="selectAnswer(816, 'C', false)">
+                (C) puede consumir alcohol antes de conducir si no toma medicamentos.
+            </button>
+
+            <div class="explanation" id="exp-816-C">
+                
+            </div>
+            </div>
+        <div class="question" id="question-1087" data-qid="1087">
+            <p><b>Q1087:</b> Con un vehículo que emita niveles de ruido superiores a los permitidos...</p>
+            <img src="https://superexpress.es/imagenes37/curso/sin-imagen.png" style="max-width:300px; display:block; margin-bottom:10px;">
+            <div id="result-1087" class="result-label"></div>
+        
+            <button id="btn-1087-A" class="option-btn"
+                data-correct="false"
+                onclick="selectAnswer(1087, 'A', false)">
+                (A) únicamente está permitido circular por carretera.
+            </button>
+
+            <div class="explanation" id="exp-1087-A">
+                
+            </div>
+            
+            <button id="btn-1087-B" class="option-btn"
+                data-correct="false"
+                onclick="selectAnswer(1087, 'B', false)">
+                (B) está permitido circular por carreteras pero no por travesías.
+            </button>
+
+            <div class="explanation" id="exp-1087-B">
+                
+            </div>
+            
+            <button id="btn-1087-C" class="option-btn"
+                data-correct="true"
+                onclick="selectAnswer(1087, 'C', true)">
+                (C) no está permitido circular.
+            </button>
+
+            <div class="explanation" id="exp-1087-C">
+                Está prohibido circular si tu vehículo supera el nivel máximo de ruido. Hasta pueden inmovilizar tu vehículo.
+            </div>
+            </div>
+        <div class="question" id="question-656" data-qid="656">
+            <p><b>Q656:</b> En vía urbana, las personas que empujen un ciclomotor por la calzada o el arcén están obligadas a circular...</p>
+            <img src="https://superexpress.es/imagenes37/curso/sin-imagen.png" style="max-width:300px; display:block; margin-bottom:10px;">
+            <div id="result-656" class="result-label"></div>
+        
+            <button id="btn-656-A" class="option-btn"
+                data-correct="true"
+                onclick="selectAnswer(656, 'A', true)">
+                (A) por el lado derecho.
+            </button>
+
+            <div class="explanation" id="exp-656-A">
+                Si empujas un ciclo (una bici) o un ciclomotor por la calzada o el arcén y estás <strong>dentro de poblado</strong>, tendrás que ir por la derecha, arrimándote todo lo que puedas al borde de la cazada o del arcén.
+            </div>
+            
+            <button id="btn-656-B" class="option-btn"
+                data-correct="false"
+                onclick="selectAnswer(656, 'B', false)">
+                (B) indistintamente, por cualquiera de los dos lados.
+            </button>
+
+            <div class="explanation" id="exp-656-B">
+                
+            </div>
+            
+            <button id="btn-656-C" class="option-btn"
+                data-correct="false"
+                onclick="selectAnswer(656, 'C', false)">
+                (C) por el lado izquierdo.
+            </button>
+
+            <div class="explanation" id="exp-656-C">
+                
+            </div>
+            </div>
+        <div class="question" id="question-529" data-qid="529">
+            <p><b>Q529:</b> Un vehículo mixto en el que solo viaja el conductor, ¿puede, en algún caso, circular por un carril para VAO?</p>
+            <img src="https://superexpress.es/imagenes37/curso/sin-imagen.png" style="max-width:300px; display:block; margin-bottom:10px;">
+            <div id="result-529" class="result-label"></div>
+        
+            <button id="btn-529-A" class="option-btn"
+                data-correct="false"
+                onclick="selectAnswer(529, 'A', false)">
+                (A) No, porque debe estar ocupado por el número mínimo de personas que se fije.
+            </button>
+
+            <div class="explanation" id="exp-529-A">
+                El vehículo mixto adaptable (la furgocoche) es uno de esos automóviles que puede ir por el carril VAO si tiene el mínimo de pasajeros indicado y además no es pesado (su MMA no supera los 3.500 kg).<br />
+<br />
+Así que esta respuesta tiene buena pinta, ¿verdad? &#129335;&zwj;&#9792;&#65039;<br />
+Pero léete todas las respuestas porfa, que esta es una pregunta con trampa &#9760;&#65039;.
+            </div>
+            
+            <button id="btn-529-B" class="option-btn"
+                data-correct="false"
+                onclick="selectAnswer(529, 'B', false)">
+                (B) Sí, si el conductor es novel.
+            </button>
+
+            <div class="explanation" id="exp-529-B">
+                Conductor novel quiere decir "novato" que hace menos de 1 año que te has sacado tu primer carnet.<br />
+El que seas o no novato, no afecta al uso del carril VAO.
+            </div>
+            
+            <button id="btn-529-C" class="option-btn"
+                data-correct="true"
+                onclick="selectAnswer(529, 'C', true)">
+                (C) Sí, si el vehículo ostenta la señal de discapacitados.
+            </button>
+
+            <div class="explanation" id="exp-529-C">
+                El carril  VAO (Vehículos de Alta Ocupación) lo ha inventado la DGT para que nos animemos a compartir coche y haya menos atasco.<br />
+<br />
+Si un coche &#128665;, una moto &#127949;&#65039; o un vehículo mixto adaptable (la furgocoche) quiere usar el VAO, normalmente tienen que ir 2 &#128589;&#128589; o más personas (según esté indicado en el carril) y no deben pesar mucho (MMA no puede superar los 3.500 kg).<br />
+<br />
+Peeero, si alguno de estos vehículos tiene <strong>la señal V-15</strong> de discapacitados, entonces puede ir <strong>1 persona solita</strong> &#128589;.<br />
+<img class='imagen_explicacion' src='imagenes37/preguntas/explicaciones/V-15.png'><br />
+&#128665;&#9855;&#65039;&#128589; =  VAO &#9989;<br />
+&#127949;&#65039;&#9855;&#65039;&#128589; = VAO &#9989;<br />
+<br />
+Tiene trampa &#9760;&#65039;, ¿eh? <br />
+Porfa &#128591;, léete siempre, siempre, siempre todas las respuestas.
+            </div>
+            </div>
+        <div class="question" id="question-463" data-qid="463">
+            <p><b>Q463:</b> De día con niebla no densa, además del alumbrado de posición, ¿qué alumbrado se debe llevar?</p>
+            <img src="https://superexpress.es/imagenes37/preguntas/9/7629.jpg" style="max-width:300px; display:block; margin-bottom:10px;">
+            <div id="result-463" class="result-label"></div>
+        
+            <button id="btn-463-A" class="option-btn"
+                data-correct="false"
+                onclick="selectAnswer(463, 'A', false)">
+                (A) Antiniebla delantera y trasera.
+            </button>
+
+            <div class="explanation" id="exp-463-A">
+                La <b>antiniebla trasera</b> es una luz muy potente 🔴🔴🔴, que deslumbra.<br />
+Solo debes usarla cuando la cosa está chunga, por ejemplo con niebla <b>espesa</b> ☁️☁️ = 👨‍🦯.<br />
+<br />
+La pregunta dice niebla <b>no</b>❌ densa, así que no hay obligación de encender la antiniebla trasera.<br />
+
+            </div>
+            
+            <button id="btn-463-B" class="option-btn"
+                data-correct="false"
+                onclick="selectAnswer(463, 'B', false)">
+                (B) Ninguna. Con la de posición es suficiente.
+            </button>
+
+            <div class="explanation" id="exp-463-B">
+                
+            </div>
+            
+            <button id="btn-463-C" class="option-btn"
+                data-correct="true"
+                onclick="selectAnswer(463, 'C', true)">
+                (C) Antiniebla delantera o alumbrado de cruce.
+            </button>
+
+            <div class="explanation" id="exp-463-C">
+                Cuando hay niebla niebla ligera <span style='opacity:0.5'>☁️</span>, todas estas opciones son buenas:<br />
+◾️ Sólo antiniebla delantera<br />
+◾️ Sólo las luces de cruce (las cortas).<br />
+◾️ Antiniebla delantera + cortas<br />
+<br />
+Tú eliges 😊.<br />
+<br />
+🐘 Recuerda que no ❌ es obligatorio que los coches lleven antiniebla delantera (aunque hoy día casi todos la llevan).<br />
+🐘 Recuerda también que las de posición se enciende automáticamente cuando enciendes la cortas o las antiniebla, así que también se encenderán.
+            </div>
+            </div>
+        <div class="question" id="question-776" data-qid="776">
+            <p><b>Q776:</b> Cuando se conduce, poner una toalla sobre el asiento...</p>
+            <img src="https://superexpress.es/imagenes37/curso/sin-imagen.png" style="max-width:300px; display:block; margin-bottom:10px;">
+            <div id="result-776" class="result-label"></div>
+        
+            <button id="btn-776-A" class="option-btn"
+                data-correct="true"
+                onclick="selectAnswer(776, 'A', true)">
+                (A) puede favorecer el efecto submarino.
+            </button>
+
+            <div class="explanation" id="exp-776-A">
+                Una toalla puede hacer que en un frenazo te escurras por debajo del cinturón. Esto se llama &quot;efecto submarino&quot;.
+            </div>
+            
+            <button id="btn-776-B" class="option-btn"
+                data-correct="false"
+                onclick="selectAnswer(776, 'B', false)">
+                (B) es recomendable, sobre todo en verano, para proteger el asiento.
+            </button>
+
+            <div class="explanation" id="exp-776-B">
+                
+            </div>
+            
+            <button id="btn-776-C" class="option-btn"
+                data-correct="false"
+                onclick="selectAnswer(776, 'C', false)">
+                (C) no representa ningún peligro.
+            </button>
+
+            <div class="explanation" id="exp-776-C">
+                
+            </div>
+            </div>
+        <div class="question" id="question-12" data-qid="12">
+            <p><b>Q12:</b> En una intersección donde no esté señalizada la prioridad, ¿debe ceder el paso a un tranvía?</p>
+            <img src="https://superexpress.es/imagenes37/preguntas/6/6101.jpg" style="max-width:300px; display:block; margin-bottom:10px;">
+            <div id="result-12" class="result-label"></div>
+        
+            <button id="btn-12-A" class="option-btn"
+                data-correct="true"
+                onclick="selectAnswer(12, 'A', true)">
+                (A) Sí, el tranvía tiene prioridad tanto si se aproxima por la derecha como por la izquierda.
+            </button>
+
+            <div class="explanation" id="exp-12-A">
+                En una intersección sin señalizar, los vehículos por raíles siempre tienen prioridad.
+            </div>
+            
+            <button id="btn-12-B" class="option-btn"
+                data-correct="false"
+                onclick="selectAnswer(12, 'B', false)">
+                (B) No, ya que los tranvías no tienen prioridad de paso.
+            </button>
+
+            <div class="explanation" id="exp-12-B">
+                
+            </div>
+            
+            <button id="btn-12-C" class="option-btn"
+                data-correct="false"
+                onclick="selectAnswer(12, 'C', false)">
+                (C) Solo debe ceder el paso al tranvía si se aproxima por la derecha.
+            </button>
+
+            <div class="explanation" id="exp-12-C">
+                
+            </div>
+            </div>
+
+<div class="error-counter">Errors: <span id="errorCount">0</span></div>
+
+<script>
+// Load previous failures
+let failedQuestions = JSON.parse(sessionStorage.getItem("failedQuestions") || "[]");
+
+// Count how many failed questions are included in this quiz
+let quizFailedCount = 0;
+
+window.addEventListener("DOMContentLoaded", () => {
+    document.querySelectorAll(".question").forEach(q => {
+        let qid = parseInt(q.dataset.qid);
+        if (failedQuestions.includes(qid)) {
+            quizFailedCount++;
+            q.classList.add("failed-previously");
+            let label = document.createElement("span");
+            label.className = "failed-label";
+            label.textContent = "⚠ Failed previously";
+            q.prepend(label);
+        }
+    });
+
+    if (quizFailedCount > 0) {
+        document.getElementById("previousFailsBox").textContent =
+            quizFailedCount + " of these questions were failed previously.";
+    }
+
+    // Current errors counter should start at 0 always
+    document.getElementById("errorCount").innerText = 0;
+
+    // Fix image URLs
+    document.querySelectorAll("img").forEach(img => {
+        if (!img.src.startsWith("https://superexpress.es/")) {
+            img.src = "https://superexpress.es/" + img.src.replace(/^\/+/, "");
+        }
+    });
+});
+
+function selectAnswer(questionId, optionId, isCorrect) {
+    let container = document.getElementById("question-" + questionId);
+
+    // Disable buttons
+    let buttons = container.querySelectorAll(".option-btn");
+    buttons.forEach(btn => btn.classList.add("disabled"));
+
+    // Show explanations
+    container.querySelectorAll(".explanation").forEach(expl => {
+        expl.style.display = "block";
+    });
+
+    // Mark chosen button
+    let chosen = document.getElementById("btn-" + questionId + "-" + optionId);
+    chosen.classList.add(isCorrect ? "correct" : "incorrect");
+
+    // Show result
+    let resultLabel = document.getElementById("result-" + questionId);
+    resultLabel.innerText = isCorrect ? "✔ Correct!" : "✖ Incorrect!";
+
+    // Highlight correct option ALWAYS
+    buttons.forEach(btn => {
+        if (btn.dataset.correct === "true") {
+            btn.classList.add("correct");
+        }
+    });
+
+    // Count only new errors (not previously failed)
+    if (!isCorrect) {
+        failedQuestions.push(questionId);
+        if (!failedQuestions.includes(questionId)) sessionStorage.setItem("failedQuestions", JSON.stringify(failedQuestions));
+
+        let ec = document.getElementById("errorCount");
+        ec.innerText = parseInt(ec.innerText) + 1;
+
+        container.classList.add("failed-previously");
+    }
+}
+
+</script>
+
+</body>
+</html>
