@@ -1,65 +1,50 @@
-// Load previous failures
+/******************************************************
+ * MOBILE VIEWPORT ADAPTER
+ ******************************************************/
+(function () {
+    // Only add viewport meta if not already present
+    if (!document.querySelector('meta[name="viewport"]')) {
+        let meta = document.createElement("meta");
+        meta.name = "viewport";
+        meta.content = "width=device-width, initial-scale=1.0, maximum-scale=1.0";
+        document.head.appendChild(meta);
+    }
+})();
+
+/******************************************************
+ * SESSION STORAGE – FAILED QUESTIONS
+ ******************************************************/
 let failedQuestions = JSON.parse(sessionStorage.getItem("failedQuestions") || "[]");
 
-// Count how many failed questions are included in this quiz
-let quizFailedCount = 0;
-
+// Update error counter after load (HTML has element #errorCount)
 window.addEventListener("DOMContentLoaded", () => {
-    document.querySelectorAll(".question").forEach(q => {
-        let qid = parseInt(q.dataset.qid);
-        if (failedQuestions.includes(qid)) {
-            quizFailedCount++;
-            q.classList.add("failed-previously");
-            let label = document.createElement("span");
-            label.className = "failed-label";
-            label.textContent = "⚠ Failed previously";
-            q.prepend(label);
-        }
-    });
-
-    if (quizFailedCount > 0) {
-        document.getElementById("previousFailsBox").textContent =
-            quizFailedCount + " of these questions were failed previously.";
+    const counter = document.getElementById("errorCount");
+    if (counter) {
+        counter.innerText = failedQuestions.length;
     }
-
-    // Current errors counter should always start at 0
-    document.getElementById("errorCount").innerText = 0;
-
-    // Fix image URLs - force all image sources to "https://superexpress.es/"
-    // Fix image URLs - force all image sources to "https://superexpress.es/"
-    // Also remove/replace any "/quiz/" paths in the URL
-    document.querySelectorAll("img").forEach(img => {
-        let finalPath = "";
-    
-        try {
-            let url = new URL(img.src);
-    
-            // Extract clean path without leading slash
-            finalPath = url.pathname.replace(/^\/+/, "");
-    
-        } catch (e) {
-            // If src is not a valid absolute URL, treat as relative
-            finalPath = img.src.replace(/^\/+/, "");
-        }
-    
-        // Remove any "/quiz/" in the path
-        finalPath = finalPath.replace(/(^|\/)quiz\//g, '$1');
-    
-        // Force the correct domain + cleaned path
-        img.src = "https://superexpress.es/" + finalPath;
-    });
-
-
 });
 
+/******************************************************
+ * MARK PREVIOUSLY FAILED QUESTIONS
+ ******************************************************/
+window.addEventListener("DOMContentLoaded", () => {
+    failedQuestions.forEach(qid => {
+        let q = document.getElementById("question-" + qid);
+        if (q) q.classList.add("failed-previously");
+    });
+});
+
+/******************************************************
+ * ANSWER SELECTION LOGIC
+ ******************************************************/
 function selectAnswer(questionId, optionId, isCorrect) {
     let container = document.getElementById("question-" + questionId);
 
-    // Disable buttons
+    // Disable all buttons
     let buttons = container.querySelectorAll(".option-btn");
     buttons.forEach(btn => btn.classList.add("disabled"));
 
-    // Show explanations
+    // Show all explanations
     container.querySelectorAll(".explanation").forEach(expl => {
         expl.style.display = "block";
     });
@@ -68,25 +53,43 @@ function selectAnswer(questionId, optionId, isCorrect) {
     let chosen = document.getElementById("btn-" + questionId + "-" + optionId);
     chosen.classList.add(isCorrect ? "correct" : "incorrect");
 
-    // Show result
+    // Add correct label
     let resultLabel = document.getElementById("result-" + questionId);
     resultLabel.innerText = isCorrect ? "✔ Correct!" : "✖ Incorrect!";
 
-    // Highlight correct option ALWAYS
-    buttons.forEach(btn => {
-        if (btn.dataset.correct === "true") {
-            btn.classList.add("correct");
+    // Highlight the correct option
+    let correctBtn = container.querySelector(".option-btn[data-correct='true']");
+    if (correctBtn) correctBtn.classList.add("correct");
+
+    // Handle incorrect answers
+    if (!isCorrect) {
+        if (!failedQuestions.includes(questionId)) {
+            failedQuestions.push(questionId);
+            sessionStorage.setItem("failedQuestions", JSON.stringify(failedQuestions));
         }
-    });
-
-    // Count only new errors (not previously failed)
-    if (!isCorrect && !failedQuestions.includes(questionId)) {
-        failedQuestions.push(questionId);
-        sessionStorage.setItem("failedQuestions", JSON.stringify(failedQuestions));
-
-        let ec = document.getElementById("errorCount");
-        ec.innerText = parseInt(ec.innerText) + 1;
-
+        document.getElementById("errorCount").innerText = failedQuestions.length;
         container.classList.add("failed-previously");
     }
 }
+
+/******************************************************
+ * IMAGE URL NORMALIZER (with /quiz/ remover)
+ ******************************************************/
+window.addEventListener("DOMContentLoaded", () => {
+    document.querySelectorAll("img").forEach(img => {
+        let finalPath = "";
+
+        try {
+            let url = new URL(img.src);
+            finalPath = url.pathname.replace(/^\/+/, "");
+        } catch (e) {
+            finalPath = img.src.replace(/^\/+/, "");
+        }
+
+        // Remove "/quiz/" segments
+        finalPath = finalPath.replace(/(^|\/)quiz\//g, "$1");
+
+        // Force domain
+        img.src = "https://superexpress.es/" + finalPath;
+    });
+});
