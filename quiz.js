@@ -47,6 +47,7 @@ window.addEventListener("DOMContentLoaded", () => {
             quizFailedCount + " of these questions were failed previously.";
     }
 
+    failedQuestions = [];
 });
 
 /******************************************************
