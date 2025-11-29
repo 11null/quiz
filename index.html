@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Quiz Index</title>
+<style>
+body {
+    font-family: Arial, sans-serif;
+    padding: 40px;
+    background: #f5f5f5;
+}
+h1 {
+    text-align: center;
+}
+ul.quiz-list {
+    list-style: none;
+    padding: 0;
+    max-width: 600px;
+    margin: auto;
+}
+ul.quiz-list li {
+    margin: 10px 0;
+}
+ul.quiz-list li a {
+    display: block;
+    padding: 12px 20px;
+    background: #fff;
+    text-decoration: none;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    color: #333;
+    transition: 0.2s;
+}
+ul.quiz-list li a:hover {
+    background: #e0e0e0;
+}
+</style>
+</head>
+<body>
+
+<h1>Quiz Index</h1>
+
+<ul class="quiz-list">
+  <!-- Links will go here -->
+  <!-- Example: -->
+  <!-- <li><a href="quiz_1.html" target="_blank">Quiz 1</a></li> -->
+</ul>
+
+<script>
+const ul = document.querySelector(".quiz-list");
+for (let i = 1; i <= 50; i++) {
+    const li = document.createElement("li");
+    const a = document.createElement("a");
+    a.href = `quiz_${i}.html`;
+    a.target = "_blank";
+    a.textContent = `Quiz ${i}`;
+    li.appendChild(a);
+    ul.appendChild(li);
+}
+</script>
+
+</body>
+</html>
