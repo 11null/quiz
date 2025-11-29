@@ -20,7 +20,7 @@ let failedQuestions = JSON.parse(sessionStorage.getItem("failedQuestions") || "[
 window.addEventListener("DOMContentLoaded", () => {
     const counter = document.getElementById("errorCount");
     if (counter) {
-        counter.innerText = failedQuestions.length;
+        counter.innerText = 0;// failedQuestions.length;
     }
 });
 
