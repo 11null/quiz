@@ -26,21 +26,29 @@ window.addEventListener("DOMContentLoaded", () => {
     document.getElementById("errorCount").innerText = 0;
 
     // Fix image URLs - force all image sources to "https://superexpress.es/"
+    // Fix image URLs - force all image sources to "https://superexpress.es/"
+    // Also remove/replace any "/quiz/" paths in the URL
     document.querySelectorAll("img").forEach(img => {
+        let finalPath = "";
+    
         try {
             let url = new URL(img.src);
     
-            // If the domain is already correct, do nothing
-            if (url.origin === "https://superexpress.es") return;
-    
-            // Replace the domain with the correct one
-            img.src = "https://superexpress.es/" + url.pathname.replace(/^\/+/, "");
+            // Extract clean path without leading slash
+            finalPath = url.pathname.replace(/^\/+/, "");
     
         } catch (e) {
-            // If the src is NOT a full URL (relative path), fix it too
-            img.src = "https://superexpress.es/" + img.src.replace(/^\/+/, "");
+            // If src is not a valid absolute URL, treat as relative
+            finalPath = img.src.replace(/^\/+/, "");
         }
+    
+        // Remove any "/quiz/" in the path
+        finalPath = finalPath.replace(/(^|\/)quiz\//g, '$1');
+    
+        // Force the correct domain + cleaned path
+        img.src = "https://superexpress.es/" + finalPath;
     });
+
 
 });
 
