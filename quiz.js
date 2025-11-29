@@ -16,6 +16,8 @@
  ******************************************************/
 let failedQuestions = JSON.parse(sessionStorage.getItem("failedQuestions") || "[]");
 
+let quizFailedCount = 0;
+
 // Update error counter after load (HTML has element #errorCount)
 window.addEventListener("DOMContentLoaded", () => {
     const counter = document.getElementById("errorCount");
@@ -39,6 +41,12 @@ window.addEventListener("DOMContentLoaded", () => {
             q.prepend(label);
         }
     });
+
+      if (quizFailedCount > 0) {
+        document.getElementById("previousFailsBox").textContent =
+            quizFailedCount + " of these questions were failed previously.";
+    }
+
 });
 
 /******************************************************
