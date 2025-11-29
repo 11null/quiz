@@ -1,0 +1,1063 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Quiz</title>
+<style>
+body {
+    font-family: Arial, sans-serif;
+    margin: 40px;
+}
+
+.question {
+    margin-bottom: 40px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+}
+
+.options button {
+    display: block;
+    margin: 8px 0;
+    padding: 10px;
+    font-size: 16px;
+    width: 100%;
+    cursor: pointer;
+}
+
+.explanation {
+    margin-top: 10px;
+    display: none;
+    padding: 10px;
+    background: #f7f7f7;
+    border-left: 4px solid #888;
+}
+
+.correct {
+    color: green;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.incorrect {
+    color: red;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+#counter {
+    font-size: 20px;
+    margin-top: 40px;
+    font-weight: bold;
+}
+</style>
+
+<script>
+// Fix all image URLs to ensure they begin with "https://superexpress.es/"
+window.addEventListener("DOMContentLoaded", () => {
+    const prefix = "https://superexpress.es/";
+
+    document.querySelectorAll("img").forEach(img => {
+        if (!img.src.startsWith(prefix)) {
+            let original = img.getAttribute("src");
+
+            if (!original) return;
+
+            // Remove domain if present
+            original = original.replace(/^https?:\/\/[^\\/]+\//, "");
+
+            img.src = prefix + original;
+        }
+    });
+});
+
+let incorrectCounter = 0;
+
+function answerQuestion(qid, clickedIsCorrect) {
+    const buttons = document.querySelectorAll(".btn-" + qid);
+    buttons.forEach(btn => btn.disabled = true);
+
+    const exps = document.querySelectorAll(".exp-" + qid);
+    exps.forEach(exp => exp.style.display = "block");
+
+    const result = document.getElementById("result-" + qid);
+    if (clickedIsCorrect) {
+        result.innerHTML = "<span class='correct'>Correct!</span>";
+    } else {
+        result.innerHTML = "<span class='incorrect'>Incorrect!</span>";
+        incorrectCounter++;
+        document.getElementById("counter").innerHTML = "Errors: " + incorrectCounter;
+    }
+}
+</script>
+</head>
+
+<body>
+
+<h1>Quiz</h1>
+
+<div class='question'><div class='qtext'><b>El panel indica...</b></div><img src='https://superexpress.es/imagenes37/preguntas/22/6565.jpg' style='max-width:300px; display:block; margin-top:10px;'><div class='options'>
+                <button class="btn-1786" 
+                        onclick="answerQuestion('1786', 0)">
+                    A. la distancia entre la señal y el comienzo del peligro.
+                </button>
+
+                <div class="explanation exp-1786">
+                    <b>A:</b><br>
+                    
+                </div>
+            
+                <button class="btn-1786" 
+                        onclick="answerQuestion('1786', 0)">
+                    B. la longitud del tramo con dos carriles en el mismo sentido.
+                </button>
+
+                <div class="explanation exp-1786">
+                    <b>B:</b><br>
+                    
+                </div>
+            
+                <button class="btn-1786" 
+                        onclick="answerQuestion('1786', 1)">
+                    C. la longitud del tramo de vía afectado por el peligro.
+                </button>
+
+                <div class="explanation exp-1786">
+                    <b>C:</b><br>
+                    Truco: en el cartelito hay una flecha que pincha al principio y otra al final. Te has &quot;pinchado&quot; (peligro) durante toda la longitud indicada &#128522;<br>Por el contrario, si el cartel complementario no tuviese ninguna flecha, te indicaría la distancia que te queda hasta llegar al peligro:<br><br><img class='imagen_explicacion' src='imagenes37/preguntas/explicaciones/S-800.png'><br>
+                </div>
+            </div><div id='result-1786'></div></div><div class='question'><div class='qtext'><b>Las motocicletas que se pueden conducir con el permiso de la clase A1, ¿están obligadas a llevar placa de matrícula?</b></div><img src='https://superexpress.es/imagenes37/curso/sin-imagen.png' style='max-width:300px; display:block; margin-top:10px;'><div class='options'>
+                <button class="btn-2266" 
+                        onclick="answerQuestion('2266', 0)">
+                    A. No.
+                </button>
+
+                <div class="explanation exp-2266">
+                    <b>A:</b><br>
+                    
+                </div>
+            
+                <button class="btn-2266" 
+                        onclick="answerQuestion('2266', 1)">
+                    B. Sí.
+                </button>
+
+                <div class="explanation exp-2266">
+                    <b>B:</b><br>
+                    Todas las motos que ves circulando llevan matrícula, hasta los ciclomotores. Repaso de vehículos con matrícula:<br>- Vehículos de motor, (una moto del A1 se considera vehículo de motor).<br>- Ciclomotores.<br>- Vehículos para personas de movilidad reducida.<br>- Remolques, semirremolques y máquinas especiales remolcadas cuya masa MMA pase de 750kg (los remolques ligeros, los que pesan 750Kg o menos no necesitan permiso de circulación ni matrícula).
+                </div>
+            
+                <button class="btn-2266" 
+                        onclick="answerQuestion('2266', 0)">
+                    C. Solo si llevan sidecar.
+                </button>
+
+                <div class="explanation exp-2266">
+                    <b>C:</b><br>
+                    
+                </div>
+            </div><div id='result-2266'></div></div><div class='question'><div class='qtext'><b>Un ciclo es un vehículo...</b></div><img src='https://superexpress.es/imagenes37/curso/sin-imagen.png' style='max-width:300px; display:block; margin-top:10px;'><div class='options'>
+                <button class="btn-2324" 
+                        onclick="answerQuestion('2324', 0)">
+                    A. De dos ruedas accionado por un motor.
+                </button>
+
+                <div class="explanation exp-2324">
+                    <b>A:</b><br>
+                    
+                </div>
+            
+                <button class="btn-2324" 
+                        onclick="answerQuestion('2324', 1)">
+                    B. De dos ruedas por lo menos, accionado por el esfuerzo muscular de las personas que lo ocupan, en particular mediante pedales o manivelas.
+                </button>
+
+                <div class="explanation exp-2324">
+                    <b>B:</b><br>
+                    Esta es la definición oficial.<br />
+Lo importante es:<br />
+&#9726;&#65039; Lo mueves tú con tu esfuerzo muscular &#128170; (pedales, manivelas...).<br />
+&#9726;&#65039; Tiene "dos ruedas por lo menos", así que puede ser una bici &#128690;, ¡o un triciclo, por ejemplo!
+                </div>
+            
+                <button class="btn-2324" 
+                        onclick="answerQuestion('2324', 0)">
+                    C. De dos ruedas o más, accionado mediante motor o manivelas.
+                </button>
+
+                <div class="explanation exp-2324">
+                    <b>C:</b><br>
+                    
+                </div>
+            </div><div id='result-2324'></div></div><div class='question'><div class='qtext'><b>¿Qué precaución debe adoptar si instala un dispositivo de retención orientado hacia atrás?</b></div><img src='https://superexpress.es/imagenes37/preguntas/10/4543.jpg' style='max-width:300px; display:block; margin-top:10px;'><div class='options'>
+                <button class="btn-827" 
+                        onclick="answerQuestion('827', 1)">
+                    A. Desactivar el airbag frontal de forma automática o manual.
+                </button>
+
+                <div class="explanation exp-827">
+                    <b>A:</b><br>
+                    Las sillitas son más seguras si miran hacia atrás.<br>En general, con una sillita conviene desactivar el airbag frontal.<br>Y más en concreto, si la sillita va mirando hacia atrás, es obligatorio desconectar el airbag frontal.
+                </div>
+            
+                <button class="btn-827" 
+                        onclick="answerQuestion('827', 0)">
+                    B. Que el dispositivo de retención esté fuera del alcance del airbag.
+                </button>
+
+                <div class="explanation exp-827">
+                    <b>B:</b><br>
+                    
+                </div>
+            
+                <button class="btn-827" 
+                        onclick="answerQuestion('827', 0)">
+                    C. No se puede instalar el dispositivo si el vehículo está equipado con airbag frontal.
+                </button>
+
+                <div class="explanation exp-827">
+                    <b>C:</b><br>
+                    
+                </div>
+            </div><div id='result-827'></div></div><div class='question'><div class='qtext'><b>¿Qué vehículos pueden verse más afectados por el viento lateral?</b></div><img src='https://superexpress.es/imagenes37/curso/sin-imagen.png' style='max-width:300px; display:block; margin-top:10px;'><div class='options'>
+                <button class="btn-181" 
+                        onclick="answerQuestion('181', 0)">
+                    A. Los turismos.
+                </button>
+
+                <div class="explanation exp-181">
+                    <b>A:</b><br>
+                    
+                </div>
+            
+                <button class="btn-181" 
+                        onclick="answerQuestion('181', 0)">
+                    B. Los camiones.
+                </button>
+
+                <div class="explanation exp-181">
+                    <b>B:</b><br>
+                    
+                </div>
+            
+                <button class="btn-181" 
+                        onclick="answerQuestion('181', 1)">
+                    C. Las motocicletas y los ciclomotores.
+                </button>
+
+                <div class="explanation exp-181">
+                    <b>C:</b><br>
+                    Claro, al ser más ligeros &#128757; es más fácil que les empuje el viento &#128168;.<br />
+<br />
+👀 si el viento es muy fuerte &#128168;&#128168;&#128168; puede modificar su trayectoria y hacerles que pierdan estabilidad.<br />
+
+                </div>
+            </div><div id='result-181'></div></div><div class='question'><div class='qtext'><b>Este panel deberá colocarse...</b></div><img src='https://superexpress.es/imagenes37/preguntas/7/1610.jpg' style='max-width:300px; display:block; margin-top:10px;'><div class='options'>
+                <button class="btn-1552" 
+                        onclick="answerQuestion('1552', 0)">
+                    A. en la parte trasera de los vehículos destinados exclusivamente al transporte de mercancías.
+                </button>
+
+                <div class="explanation exp-1552">
+                    <b>A:</b><br>
+                    
+                </div>
+            
+                <button class="btn-1552" 
+                        onclick="answerQuestion('1552', 1)">
+                    B. en la parte trasera de la carga que sobresalga de cualquier vehículo (salvo si la anchura es inferior a un metro).
+                </button>
+
+                <div class="explanation exp-1552">
+                    <b>B:</b><br>
+                    Da igual que lleves un camión (destinado a transporte de mercancías) &#128666; o un coche &#128665;.<br />
+La carga que sale por detrás hay que señalizarla.<br />
+<br />
+Además, da igual que sea de día &#127774; o de noche 🌛, siempre tienes que poner este panel para que los que te vienen por detrás lo vean y cuando se acerquen a ti no se choquen con tu carga.<br />
+<br />
+La única excepción son los vehículos que miden menos de 1 metro de ancho. Son taaan estrechos que casi no les podemos poner este panel.<br />
+Si tu moto &#127949;&#65039; o tu ciclomotor &#128757; miden menos de 1 metro de ancho, no estás obligado a poner el panel aunque la carga sobresalga por detrás.
+                </div>
+            
+                <button class="btn-1552" 
+                        onclick="answerQuestion('1552', 0)">
+                    C. en la parte delantera y trasera en los vehículos destinados exclusivamente al transporte de mercancías.
+                </button>
+
+                <div class="explanation exp-1552">
+                    <b>C:</b><br>
+                    
+                </div>
+            </div><div id='result-1552'></div></div><div class='question'><div class='qtext'><b>¿Está permitido adelantar en el interior de un túnel?</b></div><img src='https://superexpress.es/imagenes37/curso/sin-imagen.png' style='max-width:300px; display:block; margin-top:10px;'><div class='options'>
+                <button class="btn-1129" 
+                        onclick="answerQuestion('1129', 0)">
+                    A. No.
+                </button>
+
+                <div class="explanation exp-1129">
+                    <b>A:</b><br>
+                    
+                </div>
+            
+                <button class="btn-1129" 
+                        onclick="answerQuestion('1129', 1)">
+                    B. Sí, si hay más de un carril en el mismo sentido de la marcha.
+                </button>
+
+                <div class="explanation exp-1129">
+                    <b>B:</b><br>
+                    No te líes: cuando no se puede es cuando solo hay un carril para cada sentido y si adelantas, por fuerza invades el sentido contrario.<br>Si hay varios carriles para tu sentido, sí que puedes adelantar.
+                </div>
+            
+                <button class="btn-1129" 
+                        onclick="answerQuestion('1129', 0)">
+                    C. Sí, cuando los sentidos están separados.
+                </button>
+
+                <div class="explanation exp-1129">
+                    <b>C:</b><br>
+                    
+                </div>
+            </div><div id='result-1129'></div></div><div class='question'><div class='qtext'><b>Si tiene que empujar a pie un ciclomotor de dos ruedas por una vía interurbana sin arcén, ¿por dónde circulará?</b></div><img src='https://superexpress.es/imagenes37/curso/sin-imagen.png' style='max-width:300px; display:block; margin-top:10px;'><div class='options'>
+                <button class="btn-1939" 
+                        onclick="answerQuestion('1939', 0)">
+                    A. En este caso no se puede circular.
+                </button>
+
+                <div class="explanation exp-1939">
+                    <b>A:</b><br>
+                    
+                </div>
+            
+                <button class="btn-1939" 
+                        onclick="answerQuestion('1939', 0)">
+                    B. Por el lado izquierdo, como los peatones.
+                </button>
+
+                <div class="explanation exp-1939">
+                    <b>B:</b><br>
+                    
+                </div>
+            
+                <button class="btn-1939" 
+                        onclick="answerQuestion('1939', 1)">
+                    C. Por el lado derecho de la calzada.
+                </button>
+
+                <div class="explanation exp-1939">
+                    <b>C:</b><br>
+                    Es una de las excepciones: si eres un peatón y empujas una moto, ciclomotor, carro... en vez de por la izquierda, estás obligado a ir por la derecha.
+                </div>
+            </div><div id='result-1939'></div></div><div class='question'><div class='qtext'><b>Un camión de 2.500 kg de MMA y 7 años de antigüedad. ¿Cada cuánto tiempo tiene que pasar la ITV?</b></div><img src='https://superexpress.es/imagenes37/curso/sin-imagen.png' style='max-width:300px; display:block; margin-top:10px;'><div class='options'>
+                <button class="btn-2303" 
+                        onclick="answerQuestion('2303', 1)">
+                    A. Cada año.
+                </button>
+
+                <div class="explanation exp-2303">
+                    <b>A:</b><br>
+                    Un camión como este entraría dentro del grupo de vehículos de motor concebidos y fabricados principalmente para el transporte de mercancías &#128230; cuya mma no supera los 3.500kg. En este caso...<br />
+<br />
+&#9642;&#65039; Hasta 2 años de antigüedad: exento (no tienes que pasar la ITV).<br />
+&#9642;&#65039; De 2 a 6 años: bienal.<br />
+&#9642;&#65039; De 6 a 10 años: anual.<br />
+&#9642;&#65039; +10 años: semestral.<br />
+<br />
+Fíjate que la pregunta dice 7 años y por tanto, la periodicidad sería anual.
+                </div>
+            
+                <button class="btn-2303" 
+                        onclick="answerQuestion('2303', 0)">
+                    B. Cada 2 años.
+                </button>
+
+                <div class="explanation exp-2303">
+                    <b>B:</b><br>
+                    
+                </div>
+            
+                <button class="btn-2303" 
+                        onclick="answerQuestion('2303', 0)">
+                    C. Cada 6 meses.
+                </button>
+
+                <div class="explanation exp-2303">
+                    <b>C:</b><br>
+                    Esto sería si tuviese más de 10 años.
+                </div>
+            </div><div id='result-2303'></div></div><div class='question'><div class='qtext'><b>¿En qué franja de edad resultan más mortales los accidentes en peatones?</b></div><img src='https://superexpress.es/imagenes37/curso/sin-imagen.png' style='max-width:300px; display:block; margin-top:10px;'><div class='options'>
+                <button class="btn-1839" 
+                        onclick="answerQuestion('1839', 1)">
+                    A. Mayores de 65 años.
+                </button>
+
+                <div class="explanation exp-1839">
+                    <b>A:</b><br>
+                    Con 20 años es muy difícil morirse de una gripe, pero con 100 años... ya no es tan difícil 🤷‍♂️.<br />
+Si una persona mayor tiene un accidente es más probable que ese accidente sea mortal.
+                </div>
+            
+                <button class="btn-1839" 
+                        onclick="answerQuestion('1839', 0)">
+                    B. De 17 a 24 años.
+                </button>
+
+                <div class="explanation exp-1839">
+                    <b>B:</b><br>
+                    
+                </div>
+            
+                <button class="btn-1839" 
+                        onclick="answerQuestion('1839', 0)">
+                    C. De 3 a 14 años.
+                </button>
+
+                <div class="explanation exp-1839">
+                    <b>C:</b><br>
+                    
+                </div>
+            </div><div id='result-1839'></div></div><div class='question'><div class='qtext'><b>Si circula y tiene dudas sobre las condiciones de luminosidad, ¿qué debe hacer?</b></div><img src='https://superexpress.es/imagenes37/curso/sin-imagen.png' style='max-width:300px; display:block; margin-top:10px;'><div class='options'>
+                <button class="btn-847" 
+                        onclick="answerQuestion('847', 1)">
+                    A. Ante la duda, encender las luces de cruce.
+                </button>
+
+                <div class="explanation exp-847">
+                    <b>A:</b><br>
+                    Si hay dudas, pon las cortas, que nunca están prohibidas, hasta se recomienda llevarlas de día.
+                </div>
+            
+                <button class="btn-847" 
+                        onclick="answerQuestion('847', 0)">
+                    B. Ante la duda, apagar las luces para no provocar deslumbramientos.
+                </button>
+
+                <div class="explanation exp-847">
+                    <b>B:</b><br>
+                    
+                </div>
+            
+                <button class="btn-847" 
+                        onclick="answerQuestion('847', 0)">
+                    C. Ante la duda, encender las luces de carretera.
+                </button>
+
+                <div class="explanation exp-847">
+                    <b>C:</b><br>
+                    
+                </div>
+            </div><div id='result-847'></div></div><div class='question'><div class='qtext'><b>Si tiene que circular con su motocicleta por una zona especialmente deslizante, ¿qué precauciones debe tomar?</b></div><img src='https://superexpress.es/imagenes37/preguntas/15/1847.jpg' style='max-width:300px; display:block; margin-top:10px;'><div class='options'>
+                <button class="btn-1505" 
+                        onclick="answerQuestion('1505', 0)">
+                    A. Frenar en la zona para controlar la trayectoria.
+                </button>
+
+                <div class="explanation exp-1505">
+                    <b>A:</b><br>
+                    
+                </div>
+            
+                <button class="btn-1505" 
+                        onclick="answerQuestion('1505', 1)">
+                    B. Disminuir la velocidad antes de llegar y mantener la motocicleta vertical al pasar sobre ella.
+                </button>
+
+                <div class="explanation exp-1505">
+                    <b>B:</b><br>
+                    Claro, si llevas la moto inclinada, es más fácil que resbales.
+                </div>
+            
+                <button class="btn-1505" 
+                        onclick="answerQuestion('1505', 0)">
+                    C. Acelerar para pasar por la zona en el menor tiempo posible.
+                </button>
+
+                <div class="explanation exp-1505">
+                    <b>C:</b><br>
+                    
+                </div>
+            </div><div id='result-1505'></div></div><div class='question'><div class='qtext'><b>¿Cómo se debe regular adecuadamente la altura del apoyacabezas?</b></div><img src='https://superexpress.es/imagenes37/curso/sin-imagen.png' style='max-width:300px; display:block; margin-top:10px;'><div class='options'>
+                <button class="btn-263" 
+                        onclick="answerQuestion('263', 1)">
+                    A. El borde debe quedar situado entre el límite superior de la cabeza y la altura de los ojos.
+                </button>
+
+                <div class="explanation exp-263">
+                    <b>A:</b><br>
+                    
+                </div>
+            
+                <button class="btn-263" 
+                        onclick="answerQuestion('263', 0)">
+                    B. En función de la comodidad del conductor.
+                </button>
+
+                <div class="explanation exp-263">
+                    <b>B:</b><br>
+                    
+                </div>
+            
+                <button class="btn-263" 
+                        onclick="answerQuestion('263', 0)">
+                    C. El borde debe quedar situado entre el límite inferior de la cabeza y la altura de los ojos.
+                </button>
+
+                <div class="explanation exp-263">
+                    <b>C:</b><br>
+                    
+                </div>
+            </div><div id='result-263'></div></div><div class='question'><div class='qtext'><b>¿En qué momento del día hay más accidentes?</b></div><img src='https://superexpress.es/imagenes37/curso/sin-imagen.png' style='max-width:300px; display:block; margin-top:10px;'><div class='options'>
+                <button class="btn-1561" 
+                        onclick="answerQuestion('1561', 0)">
+                    A. Al mediodía, a la hora de comer.
+                </button>
+
+                <div class="explanation exp-1561">
+                    <b>A:</b><br>
+                    
+                </div>
+            
+                <button class="btn-1561" 
+                        onclick="answerQuestion('1561', 0)">
+                    B. En las primeras horas de la noche.
+                </button>
+
+                <div class="explanation exp-1561">
+                    <b>B:</b><br>
+                    
+                </div>
+            
+                <button class="btn-1561" 
+                        onclick="answerQuestion('1561', 1)">
+                    C. Por la tarde, al finalizar la jornada laboral.
+                </button>
+
+                <div class="explanation exp-1561">
+                    <b>C:</b><br>
+                    Las horas de entrada o salida del trabajo, hay muchos coches y más accidentes. Sobre todo al terminar el trabajo, ya que estamos más cansados.
+                </div>
+            </div><div id='result-1561'></div></div><div class='question'><div class='qtext'><b>¿Está permitido circular sobre una marca longitudinal discontinua si circula por una calzada con carriles de menos de 3 metros de anchura?</b></div><img src='https://superexpress.es/imagenes37/preguntas/22/3945.jpg' style='max-width:300px; display:block; margin-top:10px;'><div class='options'>
+                <button class="btn-2105" 
+                        onclick="answerQuestion('2105', 0)">
+                    A. No, nunca.
+                </button>
+
+                <div class="explanation exp-2105">
+                    <b>A:</b><br>
+                    
+                </div>
+            
+                <button class="btn-2105" 
+                        onclick="answerQuestion('2105', 0)">
+                    B. Sí, siempre.
+                </button>
+
+                <div class="explanation exp-2105">
+                    <b>B:</b><br>
+                    
+                </div>
+            
+                <button class="btn-2105" 
+                        onclick="answerQuestion('2105', 1)">
+                    C. Sí, siempre que sea necesario y la seguridad de la circulación lo permita.
+                </button>
+
+                <div class="explanation exp-2105">
+                    <b>C:</b><br>
+                    Claro, si el carril es estrecho (menos de 3 metros) y no cabes en tu carril, pues no te quedará otra que coger un poquito del otro.
+                </div>
+            </div><div id='result-2105'></div></div><div class='question'><div class='qtext'><b>¿Está permitido conducir un tractor agrícola con el permiso de la clase B?</b></div><img src='https://superexpress.es/imagenes37/preguntas/13/7255.jpg' style='max-width:300px; display:block; margin-top:10px;'><div class='options'>
+                <button class="btn-1925" 
+                        onclick="answerQuestion('1925', 0)">
+                    A. No. Para conducir un tractor es necesaria la Licencia para Vehículos Agrícolas (LVA).
+                </button>
+
+                <div class="explanation exp-1925">
+                    <b>A:</b><br>
+                    Es cierto que con la LVA puedes conducir tractores agrícolas, pero hay otros carnets con los que te regalan &#127873;&#128668;   el carnet de tractor.<br />
+<br />
+Sigue leyendo... &#129488; 
+                </div>
+            
+                <button class="btn-1925" 
+                        onclick="answerQuestion('1925', 1)">
+                    B. Sí.
+                </button>
+
+                <div class="explanation exp-1925">
+                    <b>B:</b><br>
+                    Con el carnet B puedes conducir <strong>vehículos especiales agrícolas </strong> &#127807; autopropulsados o sus conjuntos (con remolque).<br />
+Esto quiere decir que si es agrícola &#9989;&#127807; podrás llevar cualquier tractor &#128668;, con o sin remolque.<br />
+Además, si es agrícola da absolutamente igual la MMA del tractor &#9989;&#128051;.<br />
+<br />
+&#128024; Y por repasar:<br />
+En el caso de vehículos especiales <strong>no</strong> &#10060;&#127807; agrícolas o sus conjuntos (una excavadora...) solo podrás llevarlos con tu permiso B si:<br />
+&#9724;&#65039; su velocidad máxima autorizada no pasa de 40Km/h,<br />
+&#9724;&#65039; su MMA no supera los 3.500Kg,<br />
+&#9724;&#65039; y el máximo de ocupantes es 9, incluido el conductor.
+                </div>
+            
+                <button class="btn-1925" 
+                        onclick="answerQuestion('1925', 0)">
+                    C. No, no se puede.
+                </button>
+
+                <div class="explanation exp-1925">
+                    <b>C:</b><br>
+                    
+                </div>
+            </div><div id='result-1925'></div></div><div class='question'><div class='qtext'><b>Con carácter general, ¿está permitido estacionar una motocicleta en la acera?</b></div><img src='https://superexpress.es/imagenes37/preguntas/21/691.jpg' style='max-width:300px; display:block; margin-top:10px;'><div class='options'>
+                <button class="btn-683" 
+                        onclick="answerQuestion('683', 1)">
+                    A. No, porque está prohibido estacionar en la acera.
+                </button>
+
+                <div class="explanation exp-683">
+                    <b>A:</b><br>
+                    No puedes aparcar donde obstaculices la circulación... de los usuarios, ya sean coches o personas. Por eso, como norma general, no se puede aparcar en la acera.<br>Hay ayuntamientos que en algunas aceras dejan aparcar motos, pero aquí preguntan por la norma general.
+                </div>
+            
+                <button class="btn-683" 
+                        onclick="answerQuestion('683', 0)">
+                    B. Sí, los días laborables.
+                </button>
+
+                <div class="explanation exp-683">
+                    <b>B:</b><br>
+                    
+                </div>
+            
+                <button class="btn-683" 
+                        onclick="answerQuestion('683', 0)">
+                    C. Sí, solo los días festivos.
+                </button>
+
+                <div class="explanation exp-683">
+                    <b>C:</b><br>
+                    
+                </div>
+            </div><div id='result-683'></div></div><div class='question'><div class='qtext'><b>Circular con las ventanillas bajadas ¿modifica la aerodinámica del vehículo?</b></div><img src='https://superexpress.es/imagenes37/curso/sin-imagen.png' style='max-width:300px; display:block; margin-top:10px;'><div class='options'>
+                <button class="btn-1532" 
+                        onclick="answerQuestion('1532', 1)">
+                    A. Si, incrementando el consumo de combustible.
+                </button>
+
+                <div class="explanation exp-1532">
+                    <b>A:</b><br>
+                    <br>Areodinámica quiere decir resistencia al aire.<br>Tu coche ofrece más resistencia al aire con las ventanillas bajadas.
+                </div>
+            
+                <button class="btn-1532" 
+                        onclick="answerQuestion('1532', 0)">
+                    B. No, y tampoco influye en el consumo de combustible.
+                </button>
+
+                <div class="explanation exp-1532">
+                    <b>B:</b><br>
+                    
+                </div>
+            
+                <button class="btn-1532" 
+                        onclick="answerQuestion('1532', 0)">
+                    C. Sí, reduciendo el consumo de combustible.
+                </button>
+
+                <div class="explanation exp-1532">
+                    <b>C:</b><br>
+                    
+                </div>
+            </div><div id='result-1532'></div></div><div class='question'><div class='qtext'><b>¿Qué debe hacer un conductor que tiene sueño?</b></div><img src='https://superexpress.es/imagenes37/curso/sin-imagen.png' style='max-width:300px; display:block; margin-top:10px;'><div class='options'>
+                <button class="btn-17" 
+                        onclick="answerQuestion('17', 0)">
+                    A. Tomar alguna bebida refrescante.
+                </button>
+
+                <div class="explanation exp-17">
+                    <b>A:</b><br>
+                    
+                </div>
+            
+                <button class="btn-17" 
+                        onclick="answerQuestion('17', 1)">
+                    B. Descansar lo antes posible en un lugar adecuado.
+                </button>
+
+                <div class="explanation exp-17">
+                    <b>B:</b><br>
+                    
+                </div>
+            
+                <button class="btn-17" 
+                        onclick="answerQuestion('17', 0)">
+                    C. Continuar la marcha y descansar cuando pasen 2 horas o 200 kilómetros.
+                </button>
+
+                <div class="explanation exp-17">
+                    <b>C:</b><br>
+                    No te líes, dice &quot;continuar la marcha&quot;. Nooo... si tienes sueño, para a descansar.
+                </div>
+            </div><div id='result-17'></div></div><div class='question'><div class='qtext'><b>El conductor de una motocicleta que lleva una persona en el asiento trasero...</b></div><img src='https://superexpress.es/imagenes37/preguntas/10/7401.jpg' style='max-width:300px; display:block; margin-top:10px;'><div class='options'>
+                <button class="btn-1384" 
+                        onclick="answerQuestion('1384', 1)">
+                    A. debe utilizar el casco protector y es responsable de que lo use su acompañante.
+                </button>
+
+                <div class="explanation exp-1384">
+                    <b>A:</b><br>
+                    Si vas en tu moto con tu colega &#127949;&#65039;, peeero tu colega va sin casco 👨‍&#128640;&#10060;, la multa será para ti.<br />
+<strong>El conductor de una moto, ciclomotor... es el responsable</strong> de que el acompañante use casco.<br />
+<br />
+Esto no te lo contamos en los vídeos, pero te lo contamos aquí &#128591;.<br />
+<br />
+&#128024; Y en un coche, ¿qué pasa con el cinturón de seguridad? &#128665;🤷‍♂️<br />
+Ahí el responsable de llevar el cinturón es <strong>el pasajero</strong>.<br />
+<br />
+Tiene algo de sentido, ¿no? &#128580;<br />
+<br />
+&#9726;&#65039; Cuando un amigo se te sube a la moto es fácil ver si lleva casco o no.<br />
+Si no lleva, pues no le dejas subir.<br />
+<br />
+&#9726;&#65039; Peeero, tu amigo se puede subir al coche contigo  y quitarse el cinturón durante el viaje.<br />
+No sería justo que la multa fuese para ti (el conductor).
+                </div>
+            
+                <button class="btn-1384" 
+                        onclick="answerQuestion('1384', 0)">
+                    B. debe utilizar el casco protector y es responsable de que lo use su acompañante, únicamente fuera de poblado.
+                </button>
+
+                <div class="explanation exp-1384">
+                    <b>B:</b><br>
+                    
+                </div>
+            
+                <button class="btn-1384" 
+                        onclick="answerQuestion('1384', 0)">
+                    C. debe utilizar el casco protector y recomendar su uso al acompañante.
+                </button>
+
+                <div class="explanation exp-1384">
+                    <b>C:</b><br>
+                    
+                </div>
+            </div><div id='result-1384'></div></div><div class='question'><div class='qtext'><b>Conduciendo una motocicleta, ¿cuándo es especialmente peligroso el viento?</b></div><img src='https://superexpress.es/imagenes37/curso/sin-imagen.png' style='max-width:300px; display:block; margin-top:10px;'><div class='options'>
+                <button class="btn-1400" 
+                        onclick="answerQuestion('1400', 0)">
+                    A. Cuando sopla de frente, porque puede frenar la marcha.
+                </button>
+
+                <div class="explanation exp-1400">
+                    <b>A:</b><br>
+                    
+                </div>
+            
+                <button class="btn-1400" 
+                        onclick="answerQuestion('1400', 1)">
+                    B. Cuando sopla de costado.
+                </button>
+
+                <div class="explanation exp-1400">
+                    <b>B:</b><br>
+                    En general, el viento que sopla de lado, es el más peligroso porque puede hacer que te salgas de tu carril.
+                </div>
+            
+                <button class="btn-1400" 
+                        onclick="answerQuestion('1400', 0)">
+                    C. Cuando sopla desde atrás, porque aumenta la velocidad.
+                </button>
+
+                <div class="explanation exp-1400">
+                    <b>C:</b><br>
+                    
+                </div>
+            </div><div id='result-1400'></div></div><div class='question'><div class='qtext'><b>La mayoría de los accidentes se deben...</b></div><img src='https://superexpress.es/imagenes37/curso/sin-imagen.png' style='max-width:300px; display:block; margin-top:10px;'><div class='options'>
+                <button class="btn-894" 
+                        onclick="answerQuestion('894', 0)">
+                    A. al estado de la vía.
+                </button>
+
+                <div class="explanation exp-894">
+                    <b>A:</b><br>
+                    
+                </div>
+            
+                <button class="btn-894" 
+                        onclick="answerQuestion('894', 1)">
+                    B. al factor humano.
+                </button>
+
+                <div class="explanation exp-894">
+                    <b>B:</b><br>
+                    Por ejemplo, yendo más rápido de lo que toca, bebiendo alcohol, o por distracciones al volante.
+                </div>
+            
+                <button class="btn-894" 
+                        onclick="answerQuestion('894', 0)">
+                    C. al estado del vehículo.
+                </button>
+
+                <div class="explanation exp-894">
+                    <b>C:</b><br>
+                    
+                </div>
+            </div><div id='result-894'></div></div><div class='question'><div class='qtext'><b>Es obligatorio utilizar la luz antiniebla trasera...</b></div><img src='https://superexpress.es/imagenes37/curso/sin-imagen.png' style='max-width:300px; display:block; margin-top:10px;'><div class='options'>
+                <button class="btn-731" 
+                        onclick="answerQuestion('731', 1)">
+                    A. cuando las condiciones meteorológicas o ambientales sean especialmente desfavorables.
+                </button>
+
+                <div class="explanation exp-731">
+                    <b>A:</b><br>
+                    La antiniebla delantera siempre es opcional. Y la trasera, depende: si la cosa está muy chunga sí, y si no, prohibido ponerlas, porque deslumbran.<br>Hay que ir con ojo con el lenguaje de Tráfico:<br>- &quot;sensiblemente&quot; = &quot;normalillo&quot;<br>- &quot;muy&quot;, &quot;particularmente adversas&quot;, &quot;fuerte&quot;, &quot;ensa&quot; = la cosa está muy chunga<br>Aquí, como dice &quot;especialmente desfavorable&quot;, es que la cosa está muy chunga y hay que poner las antiniebla traseras.
+                </div>
+            
+                <button class="btn-731" 
+                        onclick="answerQuestion('731', 0)">
+                    B. en caso de lluvia, nevada o nubes de polvo o de humo.
+                </button>
+
+                <div class="explanation exp-731">
+                    <b>B:</b><br>
+                    
+                </div>
+            
+                <button class="btn-731" 
+                        onclick="answerQuestion('731', 0)">
+                    C. cuando existan condiciones meteorológicas o ambientales que disminuyan la visibilidad.
+                </button>
+
+                <div class="explanation exp-731">
+                    <b>C:</b><br>
+                    
+                </div>
+            </div><div id='result-731'></div></div><div class='question'><div class='qtext'><b>¿Qué conductores tienen prohibido circular bajo los efectos de las drogas?</b></div><img src='https://superexpress.es/imagenes37/curso/sin-imagen.png' style='max-width:300px; display:block; margin-top:10px;'><div class='options'>
+                <button class="btn-874" 
+                        onclick="answerQuestion('874', 0)">
+                    A. Solo los conductores de vehículos de motor.
+                </button>
+
+                <div class="explanation exp-874">
+                    <b>A:</b><br>
+                    
+                </div>
+            
+                <button class="btn-874" 
+                        onclick="answerQuestion('874', 0)">
+                    B. Solo los conductores de automóviles.
+                </button>
+
+                <div class="explanation exp-874">
+                    <b>B:</b><br>
+                    
+                </div>
+            
+                <button class="btn-874" 
+                        onclick="answerQuestion('874', 1)">
+                    C. Todos.
+                </button>
+
+                <div class="explanation exp-874">
+                    <b>C:</b><br>
+                    Por ejemplo, también los ciclistas.
+                </div>
+            </div><div id='result-874'></div></div><div class='question'><div class='qtext'><b>El tractor agrícola de la fotografía, de MMA inferior a 3500 kg., ¿circula correctamente?</b></div><img src='https://superexpress.es/imagenes37/preguntas/3/731.jpg' style='max-width:300px; display:block; margin-top:10px;'><div class='options'>
+                <button class="btn-19" 
+                        onclick="answerQuestion('19', 0)">
+                    A. No, pues debe utilizar el carril derecho.
+                </button>
+
+                <div class="explanation exp-19">
+                    <b>A:</b><br>
+                    
+                </div>
+            
+                <button class="btn-19" 
+                        onclick="answerQuestion('19', 1)">
+                    B. Sí.
+                </button>
+
+                <div class="explanation exp-19">
+                    <b>B:</b><br>
+                    Los vehículos especiales con masa máxima autorizada no superior a 3.500Kg están obligados a usar el arcén.<br>También ciclos, ciclomotores, vehículos para personas con movilidad reducida, y coches escoba para ciclistas.
+                </div>
+            
+                <button class="btn-19" 
+                        onclick="answerQuestion('19', 0)">
+                    C. No, pues puede utilizar cualquier parte de la vía.
+                </button>
+
+                <div class="explanation exp-19">
+                    <b>C:</b><br>
+                    
+                </div>
+            </div><div id='result-19'></div></div><div class='question'><div class='qtext'><b>Esta señal indica...</b></div><img src='https://superexpress.es/imagenes37/preguntas/22/6959.jpg' style='max-width:300px; display:block; margin-top:10px;'><div class='options'>
+                <button class="btn-2151" 
+                        onclick="answerQuestion('2151', 0)">
+                    A. el principio de una autovía.
+                </button>
+
+                <div class="explanation exp-2151">
+                    <b>A:</b><br>
+                    
+                </div>
+            
+                <button class="btn-2151" 
+                        onclick="answerQuestion('2151', 1)">
+                    B. el final de una autovía.
+                </button>
+
+                <div class="explanation exp-2151">
+                    <b>B:</b><br>
+                    
+                </div>
+            
+                <button class="btn-2151" 
+                        onclick="answerQuestion('2151', 0)">
+                    C. que se circula por un carril que conduce a una autovía.
+                </button>
+
+                <div class="explanation exp-2151">
+                    <b>C:</b><br>
+                    
+                </div>
+            </div><div id='result-2151'></div></div><div class='question'><div class='qtext'><b>¿Dónde sufren más accidentes las personas mayores de 70 años?</b></div><img src='https://superexpress.es/imagenes37/preguntas/17/7490.jpg' style='max-width:300px; display:block; margin-top:10px;'><div class='options'>
+                <button class="btn-2142" 
+                        onclick="answerQuestion('2142', 0)">
+                    A. En autopistas o autovías.
+                </button>
+
+                <div class="explanation exp-2142">
+                    <b>A:</b><br>
+                    
+                </div>
+            
+                <button class="btn-2142" 
+                        onclick="answerQuestion('2142', 0)">
+                    B. En carreteras convencionales.
+                </button>
+
+                <div class="explanation exp-2142">
+                    <b>B:</b><br>
+                    
+                </div>
+            
+                <button class="btn-2142" 
+                        onclick="answerQuestion('2142', 1)">
+                    C. En ciudad.
+                </button>
+
+                <div class="explanation exp-2142">
+                    <b>C:</b><br>
+                    Los mayores de 70 años suelen estar jubilados... así que no tienen que usar tanto el coche para ir al trabajo &#128522;.<br />
+<br />
+Se mueven más por ciudad &#127968; ya sea como peatones o como conductores, y ahí es donde se producen más accidentes.<br />
+<br />
+Esto no te lo contamos en los vídeos, pero es de sentido común, ¿no?
+                </div>
+            </div><div id='result-2142'></div></div><div class='question'><div class='qtext'><b>Los conductores de turismos, ¿están obligados a llevar en su vehículo una rueda de uso temporal y las herramientas indispensables para su cambio?</b></div><img src='https://superexpress.es/imagenes37/curso/sin-imagen.png' style='max-width:300px; display:block; margin-top:10px;'><div class='options'>
+                <button class="btn-1404" 
+                        onclick="answerQuestion('1404', 1)">
+                    A. No, ya que puede sustituirse por un sistema alternativo que permita la movilidad.
+                </button>
+
+                <div class="explanation exp-1404">
+                    <b>A:</b><br>
+                    No, no estás obligado a llevar una rueda de uso temporal y sus herramientas si tu coche &#128665; lleva un sistema alternativo que te permita seguir circulando, como un kit antipinchazos 🩹.<br />
+La normativa te da <b>tres</b> opciones para el repuesto de rueda:<br />
+&#9726;&#65039; Una rueda normal completa con sus herramientas &#128295;.<br />
+&#9726;&#65039; Una rueda de uso temporal (la de galleta) con sus herramientas &#128295;.<br />
+&#9726;&#65039; O un kit anti-pinchazos 🩹. Si eliges esta última, no necesitas herramientas para cambiar la rueda porque no la cambias, solo la reparas.<br />
+
+                </div>
+            
+                <button class="btn-1404" 
+                        onclick="answerQuestion('1404', 0)">
+                    B. Es obligatorio llevar una rueda de uso temporal, pero no las herramientas para su cambio.
+                </button>
+
+                <div class="explanation exp-1404">
+                    <b>B:</b><br>
+                    
+                </div>
+            
+                <button class="btn-1404" 
+                        onclick="answerQuestion('1404', 0)">
+                    C. Sí, es un repuesto obligatorio e insustituible que deben llevar todos los turismos.
+                </button>
+
+                <div class="explanation exp-1404">
+                    <b>C:</b><br>
+                    
+                </div>
+            </div><div id='result-1404'></div></div><div class='question'><div class='qtext'><b>¿Dónde puede encontrar esta señal?</b></div><img src='https://superexpress.es/imagenes37/preguntas/22/7851.jpg' style='max-width:300px; display:block; margin-top:10px;'><div class='options'>
+                <button class="btn-1746" 
+                        onclick="answerQuestion('1746', 0)">
+                    A. En carreteras convencionales y multicarril en pendiente ascendente.
+                </button>
+
+                <div class="explanation exp-1746">
+                    <b>A:</b><br>
+                    
+                </div>
+            
+                <button class="btn-1746" 
+                        onclick="answerQuestion('1746', 0)">
+                    B. En cualquier tipo de vía en pendiente ascendente con tráfico habitual de camiones.
+                </button>
+
+                <div class="explanation exp-1746">
+                    <b>B:</b><br>
+                    
+                </div>
+            
+                <button class="btn-1746" 
+                        onclick="answerQuestion('1746', 1)">
+                    C. En autopistas o autovías en pendiente ascendente.
+                </button>
+
+                <div class="explanation exp-1746">
+                    <b>C:</b><br>
+                    La señal te da una pista: los coches a 120 km/h &#128640;.<br />
+Sólo la encontrarás en <b>autopistas y autovías</b>.<br />
+<br />
+Cuesta arriba un camión cargado no tira… &#128666;+&#128230;+🏔️ = &#128012;.<br />
+Si tu vas con tu coche a 120 te puedes encontrar un camión que va a paso de tortuga.<br />
+Hay <b>riesgo de alcance</b>, de chocar &#128666;💥&#128665;.
+                </div>
+            </div><div id='result-1746'></div></div><div class='question'><div class='qtext'><b>El efecto submarino se produce cuando...</b></div><img src='https://superexpress.es/imagenes37/curso/sin-imagen.png' style='max-width:300px; display:block; margin-top:10px;'><div class='options'>
+                <button class="btn-472" 
+                        onclick="answerQuestion('472', 0)">
+                    A. el apoyacabezas está mal regulado.
+                </button>
+
+                <div class="explanation exp-472">
+                    <b>A:</b><br>
+                    
+                </div>
+            
+                <button class="btn-472" 
+                        onclick="answerQuestion('472', 1)">
+                    B. el cinturón de seguridad no es capaz de retener adecuadamente durante un accidente y el cuerpo se desliza por debajo de él.
+                </button>
+
+                <div class="explanation exp-472">
+                    <b>B:</b><br>
+                    Pasa cuando tienes un cojín, toalla, te has sentado muy &quot;tumbado&quot; o te has puesto mal el cinturón.
+                </div>
+            
+                <button class="btn-472" 
+                        onclick="answerQuestion('472', 0)">
+                    C. la distancia con el airbag es incorrecta.
+                </button>
+
+                <div class="explanation exp-472">
+                    <b>C:</b><br>
+                    
+                </div>
+            </div><div id='result-472'></div></div>
+
+<div id="counter">Errors: 0</div>
+
+</body>
+</html>
