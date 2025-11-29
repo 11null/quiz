@@ -63,8 +63,8 @@ function selectAnswer(questionId, optionId, isCorrect) {
 
     // Handle incorrect answers
     if (!isCorrect) {
+        failedQuestions.push(questionId);
         if (!failedQuestions.includes(questionId)) {
-            failedQuestions.push(questionId);
             sessionStorage.setItem("failedQuestions", JSON.stringify(failedQuestions));
         }
         document.getElementById("errorCount").innerText = failedQuestions.length;
