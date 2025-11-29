@@ -28,9 +28,16 @@ window.addEventListener("DOMContentLoaded", () => {
  * MARK PREVIOUSLY FAILED QUESTIONS
  ******************************************************/
 window.addEventListener("DOMContentLoaded", () => {
-    failedQuestions.forEach(qid => {
-        let q = document.getElementById("question-" + qid);
-        if (q) q.classList.add("failed-previously");
+    document.querySelectorAll(".question").forEach(q => {
+        let qid = parseInt(q.dataset.qid);
+        if (failedQuestions.includes(qid)) {
+            quizFailedCount++;
+            q.classList.add("failed-previously");
+            let label = document.createElement("span");
+            label.className = "failed-label";
+            label.textContent = "⚠ Failed previously";
+            q.prepend(label);
+        }
     });
 });
 
